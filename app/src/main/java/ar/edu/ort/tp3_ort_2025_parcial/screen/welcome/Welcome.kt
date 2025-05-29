@@ -1,4 +1,4 @@
-package ar.edu.ort.tp3_ort_2025_parcial.screen
+package ar.edu.ort.tp3_ort_2025_parcial.screen.welcome
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box

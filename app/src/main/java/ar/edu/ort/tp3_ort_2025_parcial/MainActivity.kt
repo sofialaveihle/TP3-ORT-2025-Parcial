@@ -10,8 +10,9 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import ar.edu.ort.tp3_ort_2025_parcial.screen.login.Login
 import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
-import ar.edu.ort.tp3_ort_2025_parcial.screen.Welcome
+import ar.edu.ort.tp3_ort_2025_parcial.screen.welcome.Welcome
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.TP3ORT2025ParcialTheme
 
 class MainActivity : ComponentActivity() {
@@ -28,6 +29,7 @@ class MainActivity : ComponentActivity() {
                         startDestination = Screens.Welcome.screen
                     ) {
                         composable(Screens.Welcome.screen) { Welcome(navController) }
+                        composable(Screens.Login.screen) { Login(navController) }
                     }
                 }
             }
