@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TP3-ORT-2025-Parcial</string>
+    <!--Definir name y URL de la API-->
+    <!--<string name="quotes_api_base_url">https://api.api-ninjas.com/</string>-->
+</resources>
