@@ -30,6 +30,8 @@ fun Welcome(
                 text = "Welcome Screen",
                 fontSize = 30.sp,
             )
+            //Para testear navegacion
+            /*
             Button(
                 onClick = { navController.navigate("profileSeller") }
             ) {
@@ -38,6 +40,22 @@ fun Welcome(
                     fontSize = 20.sp
                 )
             }
+            Button(
+                onClick = { navController.navigate("profileUser") }
+            ) {
+                Text(
+                    text = "Profile User",
+                    fontSize = 20.sp
+                )
+            }
+            Button(
+                onClick = { navController.navigate("profileUserEdit") }
+            ) {
+                Text(
+                    text = "Profile User Edit",
+                    fontSize = 20.sp
+                )
+            }*/
 
         }
     }

@@ -13,6 +13,8 @@ import androidx.navigation.compose.rememberNavController
 import ar.edu.ort.tp3_ort_2025_parcial.screen.login.Login
 import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
 import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.ProfileSeller
+import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.ProfileUser
+import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.ProfileUserEdit
 import ar.edu.ort.tp3_ort_2025_parcial.screen.welcome.Welcome
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.TP3ORT2025ParcialTheme
 
@@ -32,6 +34,8 @@ class MainActivity : ComponentActivity() {
                         composable(Screens.Welcome.screen) { Welcome(navController) }
                         composable(Screens.Login.screen) { Login(navController) }
                         composable(Screens.ProfileSeller.screen) { ProfileSeller(navController) }
+                        composable(Screens.ProfileUser.screen) { ProfileUser(navController) }
+                        composable(Screens.ProfileUserEdit.screen) { ProfileUserEdit(navController) }
                     }
                 }
             }

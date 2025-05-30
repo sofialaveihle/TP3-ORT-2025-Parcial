@@ -4,4 +4,7 @@ sealed class Screens(val screen: String) {
     data object Welcome : Screens("welcome")
     data object Login : Screens("login")
     data object ProfileSeller : Screens("profileSeller")
+    data object ProfileUser : Screens("profileUser")
+    data object ProfileUserEdit : Screens("profileUserEdit")
+
 }
