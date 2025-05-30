@@ -41,7 +41,6 @@ fun TP3ORT2025ParcialTheme(
     }
 
     MaterialTheme(
-        colorScheme = colorScheme,
         typography = Typography,
         content = content
     )
