@@ -15,10 +15,10 @@ val Typography = Typography(
     titleLarge = TextStyle(
         fontFamily = FontFamily(Font(R.font.poppins_bold)),
         fontWeight = FontWeight.W600,
-        fontSize = 30.sp,
+        fontSize = 40.sp,
         lineHeight = 56.sp,
         letterSpacing = 0.5.sp,
-        textAlign = TextAlign.Center
+        textAlign = TextAlign.Start
     ),
     // Texto abajo del titulo
     bodyMedium = TextStyle(
@@ -26,7 +26,8 @@ val Typography = Typography(
         fontWeight = FontWeight.W400,
         fontSize = 14.sp,
         lineHeight = 21.sp,
-        letterSpacing = 0.5.sp
+        letterSpacing = 0.5.sp,
+        textAlign = TextAlign.Start
     ),
     // Placeholder inputs
     labelMedium = TextStyle(
