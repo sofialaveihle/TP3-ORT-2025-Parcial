@@ -5,6 +5,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import ar.edu.ort.tp3_ort_2025_parcial.R
 
@@ -14,9 +15,10 @@ val Typography = Typography(
     titleLarge = TextStyle(
         fontFamily = FontFamily(Font(R.font.poppins_bold)),
         fontWeight = FontWeight.W600,
-        fontSize = 40.sp,
+        fontSize = 30.sp,
         lineHeight = 56.sp,
-        letterSpacing = 0.5.sp
+        letterSpacing = 0.5.sp,
+        textAlign = TextAlign.Center
     ),
     // Texto abajo del titulo
     bodyMedium = TextStyle(
@@ -42,4 +44,13 @@ val Typography = Typography(
         lineHeight = 19.2.sp,
         letterSpacing = 0.5.sp
     ),
+    // Boton
+    displayMedium = TextStyle(
+        fontSize = 16.sp,
+        lineHeight = 28.8.sp,
+        fontFamily = FontFamily(Font(R.font.poppins_bold)),
+        fontWeight = FontWeight(700),
+        color = White,
+        textAlign = TextAlign.Center,
+    )
     )
