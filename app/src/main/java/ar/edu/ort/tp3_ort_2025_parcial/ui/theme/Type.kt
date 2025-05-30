@@ -44,7 +44,7 @@ val Typography = Typography(
         lineHeight = 19.2.sp,
         letterSpacing = 0.5.sp
     ),
-    // Boton
+    // Button1
     displayMedium = TextStyle(
         fontSize = 16.sp,
         lineHeight = 28.8.sp,
@@ -52,5 +52,13 @@ val Typography = Typography(
         fontWeight = FontWeight(700),
         color = White,
         textAlign = TextAlign.Center,
+    ),
+    // Button2. Queda extraño usando esta
+    labelSmall = TextStyle(
+        fontSize = 10.sp,
+        lineHeight = 19.2.sp,
+        fontFamily = FontFamily(Font(R.font.poppins_medium)),
+        fontWeight = FontWeight(500),
+        letterSpacing = 0.5.sp
     )
-    )
+)
