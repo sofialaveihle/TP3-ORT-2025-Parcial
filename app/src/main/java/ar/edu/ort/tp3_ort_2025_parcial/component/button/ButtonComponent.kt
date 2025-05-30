@@ -1,4 +1,4 @@
-package ar.edu.ort.tp3_ort_2025_parcial.component
+package ar.edu.ort.tp3_ort_2025_parcial.component.button
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.height
@@ -39,7 +39,7 @@ fun MyButton(
     ){
         Text(
             text = text,
-            style = MaterialTheme.typography.titleLarge
+            style = MaterialTheme.typography.displayMedium
         )
     }
 }
