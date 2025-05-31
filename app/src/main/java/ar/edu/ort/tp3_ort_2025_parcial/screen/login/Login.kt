@@ -13,8 +13,9 @@ import androidx.navigation.NavController
 
 @Composable
 fun Login(
-    navController: NavController
+    navController: NavController,
 ) {
+
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
