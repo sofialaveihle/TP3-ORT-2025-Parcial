@@ -12,6 +12,6 @@ fun showTopBar(
 private fun getNoTopBarRoutes(): List<String> {
     return listOf(
         Screens.Welcome.screen,
-//        Screens.Login.screen,
+        Screens.Login.screen,
     )
 }

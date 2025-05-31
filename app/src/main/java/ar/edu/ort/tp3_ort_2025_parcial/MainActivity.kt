@@ -51,7 +51,7 @@ class MainActivity : ComponentActivity() {
                         startDestination = Screens.Welcome.screen
                     ) {
                         composable(Screens.Welcome.screen) { Welcome(navController) }
-                        composable(Screens.Login.screen) { Login(navController, mainViewModel) }
+                        composable(Screens.Login.screen) { Login(navController) }
                     }
                 }
             }
