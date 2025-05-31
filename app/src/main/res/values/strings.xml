@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">TP3-ORT-2025-Parcial</string>
+
+    <string name="mostrar_menos">Mostrar menos</string>Add commentMore actions
+    <string name="mostrar_mas">Mostrar más</string>
     <string name="settings_title_account">Account</string>
     <string name="settings_title_help">Help</string>
     <string name="settings_title_security">Security</string>
