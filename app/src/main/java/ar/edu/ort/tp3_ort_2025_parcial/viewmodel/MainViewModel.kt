@@ -1,6 +1,5 @@
 package ar.edu.ort.tp3_ort_2025_parcial.viewmodel
 
-import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
