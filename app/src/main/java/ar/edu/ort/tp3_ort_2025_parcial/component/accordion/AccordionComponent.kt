@@ -27,7 +27,7 @@ import ar.edu.ort.tp3_ort_2025_parcial.R
 @Composable
 fun AccordionComponent(
     modifier: Modifier = Modifier,
-    iterations: List<String> = List(5) { "$it" }
+    iterations: List<String> = List(5) { "$it" },
 ) {
     LazyColumn(modifier = modifier.padding(vertical = 4.dp)) {
         items(iterations.size) { index ->
@@ -41,7 +41,7 @@ private fun Security(key: Int) {
     var expanded by rememberSaveable(key) { mutableStateOf(false) }
     Row(
         modifier = Modifier
-            .padding(12.dp)
+            .padding(10.dp)
             .animateContentSize(
                 animationSpec = spring(
                     dampingRatio = Spring.DampingRatioMediumBouncy,
@@ -52,14 +52,15 @@ private fun Security(key: Int) {
         Column(
             modifier = Modifier
                 .weight(1f)
-                .padding(12.dp)
+                .padding(horizontal = 10.dp)
         ) {
             Text(text = "Security",
-                style = MaterialTheme.typography.titleLarge)
+                style = MaterialTheme.typography.titleMedium,
+                modifier = Modifier.padding(vertical = 10.dp))
             if (expanded) {
                 Text(
                     text = ("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum sapien sodales mi sagittis hendrerit. Curabitur ut lectus nec orci cursus rhoncus. "),
-                    style = MaterialTheme.typography.bodyLarge
+                    style = MaterialTheme.typography.bodyMedium
                 )
             }
         }

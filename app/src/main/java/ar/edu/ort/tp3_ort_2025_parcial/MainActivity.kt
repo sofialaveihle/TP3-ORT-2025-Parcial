@@ -19,7 +19,9 @@ import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.ProfileUser
 import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.ProfileUserEdit
 import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.SettingsPage
 import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.Security
+import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.Privacy
 import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.Notification
+import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.Faq
 import ar.edu.ort.tp3_ort_2025_parcial.screen.welcome.Welcome
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.TP3ORT2025ParcialTheme
 import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
@@ -47,7 +49,9 @@ class MainActivity : ComponentActivity() {
                         composable(Screens.ProfileUserEdit.screen) { ProfileUserEdit(navController) }
                         composable(Screens.SettingsPage.screen) { SettingsPage(navController) }
                         composable(Screens.Security.screen) { Security(navController) }
+                        composable(Screens.Privacy.screen) { Privacy() }
                         composable(Screens.Notification.screen) { Notification(viewModel) }
+                        composable(Screens.Faq.screen) { Faq() }
                     }
                 }
             }

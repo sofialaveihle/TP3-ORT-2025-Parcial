@@ -39,7 +39,7 @@ fun SettingsPage(
         MenuItemRow(R.drawable.settings_icon_address, "Address", onClick = { navController.navigate("welcome") })
         MenuItemRow(R.drawable.settings_icon_notification, "Notification", onClick = { navController.navigate("notification") })
         MenuItemRow(R.drawable.settings_icon_payment_method, "Payment Method", onClick = { navController.navigate("welcome") })
-        MenuItemRow(R.drawable.settings_icon_privacy, "Privacy", onClick = { navController.navigate("welcome") })
+        MenuItemRow(R.drawable.settings_icon_privacy, "Privacy", onClick = { navController.navigate("privacy") })
         MenuItemRow(R.drawable.settings_icon_security, "Security", onClick = { navController.navigate("security") })
         Text(
             text = stringResource(R.string.settings_title_help),
@@ -47,7 +47,7 @@ fun SettingsPage(
             modifier = Modifier.padding(horizontal = 20.dp, vertical = 10.dp)
         )
         MenuItemRow(R.drawable.settings_icon_contact, "Contact Us", onClick = { navController.navigate("welcome") })
-        MenuItemRow(R.drawable.settings_icon_faq, "FAQ", onClick = { navController.navigate("welcome") })
+        MenuItemRow(R.drawable.settings_icon_faq, "FAQ", onClick = { navController.navigate("faq") })
 
         Spacer(modifier = Modifier.weight(1f))
         Box(

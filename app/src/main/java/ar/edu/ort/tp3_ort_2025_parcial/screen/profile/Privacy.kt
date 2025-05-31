@@ -11,14 +11,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import ar.edu.ort.tp3_ort_2025_parcial.R
-import ar.edu.ort.tp3_ort_2025_parcial.component.menuitem.MenuItemRow
+
 
 @Composable
-fun Security(
-    navController: NavController
-) {
+fun Privacy() {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -26,12 +23,26 @@ fun Security(
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.Start
     ) {
+        PrivacyInfo(stringResource(R.string.privacy_title_terms_of_use), stringResource(R.string.privacy_info_body))
+        PrivacyInfo(stringResource(R.string.privacy_title_petapp_service), stringResource(R.string.privacy_info_body))
+    }
+}
+
+@Composable
+private fun PrivacyInfo(title: String,
+                        body: String
+) {
+    Column (modifier = Modifier.padding(vertical = 10.dp)) {
         Text(
-            text = stringResource(R.string.settings_title_security),
+            text = title,
             style = MaterialTheme.typography.titleMedium,
             modifier = Modifier.padding(horizontal = 20.dp, vertical = 10.dp)
         )
-        MenuItemRow(R.drawable.settings_icon_security, "Change Password", onClick = { navController.navigate("welcome") })
-        MenuItemRow(R.drawable.settings_icon_security, "Change Email", onClick = { navController.navigate("welcome") })
+        Text(
+            text = body,
+            style = MaterialTheme.typography.bodyMedium,
+            modifier = Modifier.padding(horizontal = 20.dp, vertical = 10.dp),
+        )
     }
 }
+
