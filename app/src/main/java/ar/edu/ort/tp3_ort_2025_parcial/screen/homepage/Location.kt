@@ -19,11 +19,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ar.edu.ort.tp3_ort_2025_parcial.R
 import ar.edu.ort.tp3_ort_2025_parcial.component.entrydata.MySearchBar
+import ar.edu.ort.tp3_ort_2025_parcial.component.text.HomepageText
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray
 import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
 
@@ -36,12 +38,12 @@ fun Location(
 
     Column(modifier = Modifier.padding(24.dp)) {
 
-        Text("Location", fontWeight = FontWeight.Bold, fontSize = 20.sp)
+        HomepageText(stringResource(R.string.location))
 
         Spacer(modifier = Modifier.height(16.dp))
 
         MySearchBar(
-            placeHolder = "Search...",
+            placeHolder = stringResource(R.string.location_placeholder),
             value = searchText,
             onValueChange = { viewModel.updateSearchText(it) },
             image = painterResource(id = R.drawable.search_icon)
@@ -57,11 +59,9 @@ fun Location(
 
         Spacer(modifier = Modifier.height(32.dp))
 
-        // Opción de ubicación automática
         Row(
             verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier
-                .clickable { onLocationSelected("Current Location") }
+            modifier = Modifier.clickable { onLocationSelected("Current Location") }
         ) {
             Column {
                 Row(
@@ -69,12 +69,15 @@ fun Location(
                 ) {
                     Icon(
                         painter = painterResource(id = R.drawable.location_icon),
-                        contentDescription = null
+                        contentDescription = stringResource(R.string.location_desc)
                     )
-                    Text("Track your Location", fontWeight = FontWeight.Bold)
+                    Text(
+                        text = stringResource(R.string.track_your_location),
+                        fontWeight = FontWeight.Bold
+                    )
                 }
                 Text(
-                    text = "automatically selects your\ncurrent location",
+                    text = stringResource(R.string.location_desc),
                     color = Gray,
                     fontSize = 12.sp
                 )
