@@ -15,7 +15,9 @@ import androidx.navigation.NavController
 import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import ar.edu.ort.tp3_ort_2025_parcial.R
 import ar.edu.ort.tp3_ort_2025_parcial.component.text.Text2
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.White
 
@@ -45,7 +47,7 @@ fun TopAppBar(
                 IconButton(onClick = { navController.popBackStack() }) {
                     Icon(
                         imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                        contentDescription = "Localized description"
+                        contentDescription = stringResource(R.string.go_back_icon_desc)
                     )
                 }
             }

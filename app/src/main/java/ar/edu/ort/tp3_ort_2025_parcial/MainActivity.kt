@@ -16,6 +16,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import ar.edu.ort.tp3_ort_2025_parcial.component.bar.BottomAppBar
 import ar.edu.ort.tp3_ort_2025_parcial.component.bar.TopAppBar
+import ar.edu.ort.tp3_ort_2025_parcial.navigation.showBottomBar
 import ar.edu.ort.tp3_ort_2025_parcial.navigation.showTopBar
 import ar.edu.ort.tp3_ort_2025_parcial.screen.login.Login
 import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
@@ -54,10 +55,12 @@ class MainActivity : ComponentActivity() {
                         }
                     },
                     bottomBar = {
-                        BottomAppBar(
-                            navController = navController,
-                            viewModel = mainViewModel,
-                        )
+                        if (showBottomBar(currentRoute)) {
+                            BottomAppBar(
+                                navController = navController,
+                                viewModel = mainViewModel,
+                            )
+                        }
                     }
                 ) { innerPadding ->
                     NavHost(

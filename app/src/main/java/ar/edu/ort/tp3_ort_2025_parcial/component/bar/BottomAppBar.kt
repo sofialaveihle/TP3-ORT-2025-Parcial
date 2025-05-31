@@ -81,7 +81,7 @@ fun BottomAppBar(
                         ) {
                             Icon(
                                 imageVector = if (currentSection == item.section) item.iconFull else item.icon,
-                                contentDescription = null,
+                                contentDescription = item.desc,
                                 modifier = Modifier.size(20.dp),
                                 tint = Color.Unspecified
                             )

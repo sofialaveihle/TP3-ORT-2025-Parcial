@@ -25,10 +25,17 @@
     <string name="change_email">Change Email </string>
     <string name="faq">FAQ</string>
 
+    <string name="go_back_icon_desc">Go Back Icon</string>
+
     <!-- Bottom App Bar Section-->
     <string name="home">welcome</string>
     <string name="chat">login</string>
     <string name="bag">bag</string>
     <string name="profile">profile</string>
+
+    <string name="home_desc">Home</string>
+    <string name="chat_desc">Chat bubble</string>
+    <string name="bag_desc">Shopping bag</string>
+    <string name="profile_desc">User profile</string>
 
 </resources>
