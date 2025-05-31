@@ -27,6 +27,6 @@ fun Title1(
         text = text,
         style = MaterialTheme.typography.titleLarge.copy(color = Black),
         textAlign = textAlign,
-        modifier = Modifier
+        modifier = modifier
     )
 }

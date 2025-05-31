@@ -31,31 +31,30 @@ fun Welcome(
                 fontSize = 30.sp,
             )
             //Para testear navegacion
-            /*
-            Button(
-                onClick = { navController.navigate("profileSeller") }
-            ) {
-                Text(
-                    text = "Profile Seller",
-                    fontSize = 20.sp
-                )
-            }
-            Button(
-                onClick = { navController.navigate("profileUser") }
-            ) {
-                Text(
-                    text = "Profile User",
-                    fontSize = 20.sp
-                )
-            }
-            Button(
-                onClick = { navController.navigate("profileUserEdit") }
-            ) {
-                Text(
-                    text = "Profile User Edit",
-                    fontSize = 20.sp
-                )
-            }*/
+//            Button(
+//                onClick = { navController.navigate("profileSeller") }
+//            ) {
+//                Text(
+//                    text = "Profile Seller",
+//                    fontSize = 20.sp
+//                )
+//            }
+//            Button(
+//                onClick = { navController.navigate("profileUser") }
+//            ) {
+//                Text(
+//                    text = "Profile User",
+//                    fontSize = 20.sp
+//                )
+//            }
+//            Button(
+//                onClick = { navController.navigate("profileUserEdit") }
+//            ) {
+//                Text(
+//                    text = "Profile User Edit",
+//                    fontSize = 20.sp
+//                )
+//            }
 
         }
     }

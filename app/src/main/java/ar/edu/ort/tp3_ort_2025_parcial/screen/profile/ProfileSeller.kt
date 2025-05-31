@@ -17,9 +17,12 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
@@ -30,10 +33,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import ar.edu.ort.tp3_ort_2025_parcial.R
+import ar.edu.ort.tp3_ort_2025_parcial.component.BannerImage
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button2
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button3
 import ar.edu.ort.tp3_ort_2025_parcial.component.grid.ProductGrid
-import ar.edu.ort.tp3_ort_2025_parcial.component.text.Title1
+import ar.edu.ort.tp3_ort_2025_parcial.component.text.Title2
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Black
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray3
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray4
@@ -43,11 +47,13 @@ import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Orange
 fun ProfileSeller(
     navController: NavController
 ) {
+    var selected by remember { mutableStateOf("Seller Mode") }
+    var selectedTab by remember { mutableStateOf("Product") }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
             .padding(vertical = 30.dp),
-        //verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Box(
@@ -63,14 +69,14 @@ fun ProfileSeller(
         ) {
             Row {
                 Button3(
-                    onClick = {},
-                    text = "Profile", // Cambiar a Profile (User)
-                    enabled = false
+                    onClick = { navController.navigate(("profileUser")) },
+                    text = "Profile",
+                    isSelected = selected == "Profile"
                 )
                 Button3(
-                    onClick = {},
+                    onClick = { selected = "Seller Mode" },
                     text = "Seller Mode",
-                    enabled = true
+                    isSelected = selected == "Seller Mode"
                 )
             }
         }
@@ -80,24 +86,7 @@ fun ProfileSeller(
                 .height(160.dp)
                 .padding(10.dp)
         ) {
-            Box(
-                modifier = Modifier
-                    .width(330.dp)
-                    .height(160.dp)
-                    .background(
-                        color = Orange,
-                        shape = RoundedCornerShape(size = 24.dp)
-                    )
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.profile_unsplash),
-                    contentDescription = "Unsplash effect image",
-                    modifier = Modifier
-                        .width(350.dp)
-                        .height(365.dp)
-                        .alpha(0.4f)
-                )
-            }
+            BannerImage(color = Orange)
             Box(
                 modifier = Modifier
                     .fillMaxSize(),
@@ -126,10 +115,9 @@ fun ProfileSeller(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(vertical = 50.dp),
-            //verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Title1(
+            Title2(
                 text = "Pittashop",
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center
@@ -178,15 +166,11 @@ fun ProfileSeller(
                     .padding(top = 8.dp),
                 horizontalArrangement = Arrangement.SpaceEvenly
             ) {
-                listOf(
-                    "Product" to true,
-                    "Sold" to false,
-                    "Stats" to false
-                ).forEach { (label, enabled) ->
+                listOf("Product", "Sold", "Stats").forEach { label ->
                     Button2(
-                        onClick = { /* Acción correspondiente */ },
+                        onClick = { selectedTab = label },
                         text = label,
-                        enabled = enabled
+                        isSelected = selectedTab == label
                     )
                 }
             }

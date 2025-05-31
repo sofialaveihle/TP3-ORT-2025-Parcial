@@ -1,8 +1,8 @@
 package ar.edu.ort.tp3_ort_2025_parcial.component.button
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
@@ -30,7 +30,7 @@ fun MyButton(
     Button(
         onClick = onClick,
         modifier = Modifier
-            .width(327.dp)
+            .fillMaxWidth()
             .height(60.dp)
             .background(
                 color = Purple,

@@ -1,10 +1,10 @@
 package ar.edu.ort.tp3_ort_2025_parcial.screen.profile
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -12,8 +12,6 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -21,17 +19,17 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import ar.edu.ort.tp3_ort_2025_parcial.R
+import ar.edu.ort.tp3_ort_2025_parcial.component.BannerImage
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.ButtonIconEdit
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.MyButton
-import ar.edu.ort.tp3_ort_2025_parcial.component.entrydata.Input1
-import ar.edu.ort.tp3_ort_2025_parcial.component.text.Title1
-import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray
+import ar.edu.ort.tp3_ort_2025_parcial.component.entrydata.Input1WithTitle
+import ar.edu.ort.tp3_ort_2025_parcial.component.text.Title2
+import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray3
 
 @Composable
 fun ProfileUserEdit(
@@ -54,25 +52,10 @@ fun ProfileUserEdit(
                 .height(160.dp)
                 .padding(10.dp)
         ) {
-            Box(
-                modifier = Modifier
-                    .width(330.dp)
-                    .height(160.dp)
-                    .background(
-                        color = Gray,
-                        shape = RoundedCornerShape(size = 24.dp)
-                    )
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.profile_unsplash),
-                    contentDescription = "Unsplash effect image",
-                    modifier = Modifier
-                        .width(350.dp)
-                        .height(365.dp)
-                        .alpha(0.4f)
-                )
+            Box{
+                BannerImage(color = Gray3)
                 ButtonIconEdit(
-                    onClick = { /*TODO*/ },
+                    onClick = { },
                     modifier = Modifier
                         .align(Alignment.TopEnd)
                         .padding(14.dp)
@@ -107,43 +90,36 @@ fun ProfileUserEdit(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(vertical = 50.dp, horizontal = 20.dp),
+                .padding(horizontal = 20.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp, Alignment.CenterVertically)
         ) {
-            Title1(
+            Title2(
                 text = "Abduldul",
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center
             )
-            Text(
+            Input1WithTitle(
                 text = "Name",
-                textAlign = TextAlign.Left
-            )
-            Input1(
-                placeHolder = "Name",
                 value = name,
                 onValueChange = {name = it},
                 isPassword = false
             )
-            Text(
+            Input1WithTitle(
                 text = "Username",
-                textAlign = TextAlign.Left
-            )
-            Input1(
-                placeHolder = "Username",
                 value = username,
                 onValueChange = {username = it},
                 isPassword = false
             )
-            Text(
+            Input1WithTitle(
                 text = "Email",
-                textAlign = TextAlign.Left
-            )
-            Input1(
-                placeHolder = "Email",
                 value = email,
                 onValueChange = {email = it},
                 isPassword = false
+            )
+            Spacer(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(20.dp)
             )
             MyButton(
                 onClick = { /*TODO*/ },

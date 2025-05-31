@@ -1,8 +1,8 @@
 package ar.edu.ort.tp3_ort_2025_parcial.component.entrydata
 
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -14,10 +14,16 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import ar.edu.ort.tp3_ort_2025_parcial.R
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray2
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Purple
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Red
@@ -30,7 +36,6 @@ fun Input1Preview() {
     Input1("input1", text, onValueChange = { text = it }, false)
 }
 
-
 @Composable
 fun Input1(placeHolder: String, value: String, onValueChange: (String) -> Unit, isPassword: Boolean) {
     val passwordVisible by remember { mutableStateOf(false) }
@@ -41,12 +46,18 @@ fun Input1(placeHolder: String, value: String, onValueChange: (String) -> Unit, 
         placeholder = {
             Text(
                 placeHolder,
-                style = MaterialTheme.typography.labelMedium
+                //style = MaterialTheme.typography.labelMedium
+                style = TextStyle(
+                    fontSize = 14.sp,
+                    lineHeight = 21.sp,
+                    fontFamily = FontFamily(Font(R.font.poppins_medium)),
+                    fontWeight = FontWeight(500)
+                ),
             )
         },
         visualTransformation = if (!passwordVisible && isPassword) PasswordVisualTransformation() else VisualTransformation.None,
         modifier = Modifier
-            .width(327.dp)
+            .fillMaxWidth()
             .height(60.dp)
             .border(width = 1.dp, color = Gray2, shape = RoundedCornerShape(16.dp)),
         textStyle = MaterialTheme.typography.labelMedium,
