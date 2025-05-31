@@ -7,15 +7,16 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import ar.edu.ort.tp3_ort_2025_parcial.screen.login.Login
 import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
 import ar.edu.ort.tp3_ort_2025_parcial.screen.homepage.HomeScreen
-import ar.edu.ort.tp3_ort_2025_parcial.screen.homepage.LocationScreen
 import ar.edu.ort.tp3_ort_2025_parcial.screen.welcome.Welcome
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.TP3ORT2025ParcialTheme
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +25,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             TP3ORT2025ParcialTheme {
                 val navController = rememberNavController()
+                val mainViewModel: MainViewModel = viewModel()
                 Scaffold { innerPadding ->
                     NavHost(
                         modifier = Modifier.padding(innerPadding),
@@ -32,8 +34,7 @@ class MainActivity : ComponentActivity() {
                     ) {
                         composable(Screens.Welcome.screen) { Welcome(navController) }
                         composable(Screens.Login.screen) { Login(navController) }
-                        composable(Screens.Home.screen) { HomeScreen(navController) }
-                        composable(Screens.Location.screen) { LocationScreen() }
+                        composable(Screens.Home.screen) { HomeScreen(navController, mainViewModel) }
                     }
                 }
             }
