@@ -15,7 +15,7 @@
     <string name="location_desc">Location Icon</string>
     <string name="track_your_location">Track your Location</string>
     <string name="desc">Automatically selects your current location</string>
-    <string name="location_placeholder">Search...</string>
+    <string name="location_placeholder">Search…</string>
     <string name="location">Location</string>
     <string name="category">Category</string>
     <string name="best_seller">Best Seller</string>
