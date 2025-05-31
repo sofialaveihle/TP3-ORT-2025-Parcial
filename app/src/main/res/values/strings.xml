@@ -1,5 +1,41 @@
 <resources>
     <string name="app_name">TP3-ORT-2025-Parcial</string>
-    <!--Definir name y URL de la API-->
-    <!--<string name="quotes_api_base_url">https://api.api-ninjas.com/</string>-->
+
+    <!-- Welcome Screen-->
+    <string name="welcome_title">Meet your\nanimal needs\nhere</string>
+    <string name="welcome_button_text">Get Started</string>
+    <string name="welcome_carrousel_text_one">Get interesting promos here, register your account immediately so you can meet your animal needs.</string>
+    <string name="welcome_carrousel_text_two">Discover great deals today – sign up now and find everything you need to keep your pets happy and healthy!</string>
+    <string name="welcome_carrousel_text_three">Unlock special offers now by creating your account – your furry friends will thank you!</string>
+    <string name="welcome_carrousel_text_one_contentDescription">Illustration of a smiling man with short red hair wearing a green shirt, holding a happy brown dog with upright ears and a gold medal on its collar.</string>
+    <string name="welcome_carrousel_text_two_contentDescription">Illustration of a woman with brown hair tied in a ponytail, wearing a green shirt, gently holding a light brown tabby cat over her shoulder.</string>
+    <string name="welcome_carrousel_text_three_contentDescription">Illustration of a man with light brown hair wearing an orange sweater, holding a white fluffy cat with a friendly expression.</string>
+
+    <!-- Top App Bar Tittles-->
+    <string name="notification">Notification</string>
+    <string name="search">Search</string>
+    <string name="best_seller">Best Seller</string>
+    <string name="product_detail">Product Detail</string>
+    <string name="cart">Cart</string>
+    <string name="payment_method">Payment Method</string>
+    <string name="settings_page">Settings Page</string>
+    <string name="privacy">Privacy</string>
+    <string name="security">Security</string>
+    <string name="change_password">Change Password</string>
+    <string name="change_email">Change Email </string>
+    <string name="faq">FAQ</string>
+
+    <string name="go_back_icon_desc">Go Back Icon</string>
+
+    <!-- Bottom App Bar Section-->
+    <string name="home">welcome</string>
+    <string name="chat">login</string>
+    <string name="bag">bag</string>
+    <string name="profile">profile</string>
+
+    <string name="home_desc">Home</string>
+    <string name="chat_desc">Chat bubble</string>
+    <string name="bag_desc">Shopping bag</string>
+    <string name="profile_desc">User profile</string>
+
 </resources>

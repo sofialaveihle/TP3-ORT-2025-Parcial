@@ -10,10 +10,11 @@ import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Black
 
 @Preview
 @Composable
-fun Title1Preview(){
+fun Title1Preview() {
     Title1(
         text = "Test",
-        textAlign = TextAlign.Center
+        textAlign = TextAlign.Center,
+        modifier = Modifier
     )
 }
 
@@ -22,7 +23,7 @@ fun Title1(
     text: String,
     modifier: Modifier = Modifier,
     textAlign: TextAlign
-){
+) {
     Text(
         text = text,
         style = MaterialTheme.typography.titleLarge.copy(color = Black),

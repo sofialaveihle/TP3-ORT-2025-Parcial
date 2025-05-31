@@ -14,16 +14,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.Font
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import ar.edu.ort.tp3_ort_2025_parcial.R
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray2
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Purple
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Red
@@ -36,6 +30,7 @@ fun Input1Preview() {
     Input1("input1", text, onValueChange = { text = it }, false)
 }
 
+
 @Composable
 fun Input1(placeHolder: String, value: String, onValueChange: (String) -> Unit, isPassword: Boolean) {
     val passwordVisible by remember { mutableStateOf(false) }
@@ -46,13 +41,7 @@ fun Input1(placeHolder: String, value: String, onValueChange: (String) -> Unit, 
         placeholder = {
             Text(
                 placeHolder,
-                //style = MaterialTheme.typography.labelMedium
-                style = TextStyle(
-                    fontSize = 14.sp,
-                    lineHeight = 21.sp,
-                    fontFamily = FontFamily(Font(R.font.poppins_medium)),
-                    fontWeight = FontWeight(500)
-                ),
+                style = MaterialTheme.typography.labelMedium
             )
         },
         visualTransformation = if (!passwordVisible && isPassword) PasswordVisualTransformation() else VisualTransformation.None,
