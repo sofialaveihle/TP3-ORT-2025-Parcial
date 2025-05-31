@@ -22,5 +22,29 @@
     <string name="view_all">View All</string>
     <string name="arrow_down">Arrow Down</string>
 
+    <!-- Top App Bar Tittles-->
+    <string name="notification">Notification</string>
+    <string name="search">Search</string>
+    <string name="product_detail">Product Detail</string>
+    <string name="cart">Cart</string>
+    <string name="payment_method">Payment Method</string>
+    <string name="settings_page">Settings Page</string>
+    <string name="privacy">Privacy</string>
+    <string name="security">Security</string>
+    <string name="change_password">Change Password</string>
+    <string name="change_email">Change Email </string>
+    <string name="faq">FAQ</string>
+    <string name="go_back_icon_desc">Go Back Icon</string>
+
+    <!-- Bottom App Bar Section-->
+    <string name="home">welcome</string>
+    <string name="chat">login</string>
+    <string name="bag">bag</string>
+    <string name="profile">profile</string>
+
+    <string name="home_desc">Home</string>
+    <string name="chat_desc">Chat bubble</string>
+    <string name="bag_desc">Shopping bag</string>
+    <string name="profile_desc">User profile</string>
 
 </resources>

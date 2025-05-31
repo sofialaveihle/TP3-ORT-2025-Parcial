@@ -61,5 +61,13 @@ val Typography = Typography(
         fontFamily = FontFamily(Font(R.font.poppins_medium)),
         fontWeight = FontWeight(500),
         letterSpacing = 0.5.sp
+    ),
+    // TopAppBar
+    titleSmall = TextStyle(
+        fontSize = 20.sp,
+        lineHeight = 22.05.sp,
+        fontFamily = FontFamily(Font(R.font.poppins_bold)),
+        fontWeight = FontWeight(700),
+        color = Black,
     )
 )
