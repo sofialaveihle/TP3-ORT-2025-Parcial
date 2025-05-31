@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -24,17 +25,23 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import ar.edu.ort.tp3_ort_2025_parcial.R
-import ar.edu.ort.tp3_ort_2025_parcial.component.BannerImage
+import ar.edu.ort.tp3_ort_2025_parcial.component.image.BannerImage
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.ButtonIconEdit
-import ar.edu.ort.tp3_ort_2025_parcial.component.button.MyButton
+import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button1
 import ar.edu.ort.tp3_ort_2025_parcial.component.entrydata.Input1WithTitle
 import ar.edu.ort.tp3_ort_2025_parcial.component.text.Title2
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray3
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
 
 @Composable
 fun ProfileUserEdit(
-    navController: NavController
+    navController: NavController,
+    topBarViewModel: MainViewModel
 ) {
+    LaunchedEffect(Unit) {
+        topBarViewModel.setTopBar("Account")
+    }
+
     var name by remember { mutableStateOf("") }
     var username by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
@@ -45,10 +52,9 @@ fun ProfileUserEdit(
             .padding(vertical = 30.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        //Falta TopBar
         Box(
             modifier = Modifier
-                .width(350.dp)
+                .width(400.dp)
                 .height(160.dp)
                 .padding(10.dp)
         ) {
@@ -93,6 +99,9 @@ fun ProfileUserEdit(
                 .padding(horizontal = 20.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp, Alignment.CenterVertically)
         ) {
+            Spacer(
+                modifier = Modifier.height(45.dp)
+            )
             Title2(
                 text = "Abduldul",
                 modifier = Modifier.fillMaxWidth(),
@@ -121,9 +130,10 @@ fun ProfileUserEdit(
                     .fillMaxWidth()
                     .height(20.dp)
             )
-            MyButton(
+            Button1(
                 onClick = { /*TODO*/ },
-                text = "Save Changes"
+                text = "Save Changes",
+                modifier = Modifier
             )
         }
     }

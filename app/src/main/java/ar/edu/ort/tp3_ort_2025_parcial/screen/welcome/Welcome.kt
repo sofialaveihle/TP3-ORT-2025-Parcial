@@ -16,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import ar.edu.ort.tp3_ort_2025_parcial.R
@@ -46,7 +47,8 @@ fun Welcome(navController: NavController) {
                 text = stringResource(R.string.welcome_title),
                 modifier = Modifier
                     .padding(top = screenHeight * 0.05f, end = 16.dp)
-                    .align(Alignment.Start)
+                    .align(Alignment.Start),
+                textAlign = TextAlign.Left
             )
 
             Carousel(

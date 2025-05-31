@@ -1,4 +1,4 @@
-package ar.edu.ort.tp3_ort_2025_parcial.component
+package ar.edu.ort.tp3_ort_2025_parcial.component.image
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -23,7 +23,7 @@ fun BannerImage(
 ) {
     Box(
         modifier = Modifier
-            .width(330.dp)
+            .width(400.dp)
             .height(160.dp)
             .clip(RoundedCornerShape(24.dp))
             .background(

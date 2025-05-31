@@ -27,7 +27,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import ar.edu.ort.tp3_ort_2025_parcial.R
-import ar.edu.ort.tp3_ort_2025_parcial.component.BannerImage
+import ar.edu.ort.tp3_ort_2025_parcial.component.image.BannerImage
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button2
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button3
 import ar.edu.ort.tp3_ort_2025_parcial.component.grid.ProductGrid
@@ -43,13 +43,12 @@ fun ProfileUser(
 
     Column(
         modifier = Modifier
-            .fillMaxSize()
-            .padding(vertical = 30.dp),
+            .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Box(
             modifier = Modifier
-                .width(280.dp)
+                .width(300.dp)
                 .height(45.dp)
                 .background(
                     color = Gray3,
@@ -62,18 +61,20 @@ fun ProfileUser(
                 Button3(
                     onClick = { selected = "Profile"},
                     text = "Profile",
-                    isSelected = selected == "Profile"
+                    isSelected = selected == "Profile",
+                    modifier = Modifier.weight(1f)
                 )
                 Button3(
                     onClick = { navController.navigate(("profileSeller"))},
                     text = "Seller Mode",
-                    isSelected = selected == "Seller Mode"
+                    isSelected = selected == "Seller Mode",
+                    modifier = Modifier.weight(1f)
                 )
             }
         }
         Box(
             modifier = Modifier
-                .width(350.dp)
+                .width(400.dp)
                 .height(160.dp)
                 .padding(10.dp)
         ) {

@@ -46,11 +46,12 @@ fun Button3Preview() {
 fun Button3(
     onClick: () -> Unit,
     text: String,
-    isSelected: Boolean
+    isSelected: Boolean,
+    modifier: Modifier = Modifier
 ) {
     Button(
         onClick = onClick,
-        modifier = Modifier
+        modifier = modifier
             .width(114.dp)
             .height(37.dp),
         colors = ButtonDefaults.buttonColors(

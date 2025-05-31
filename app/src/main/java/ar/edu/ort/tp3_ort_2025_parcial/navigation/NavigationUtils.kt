@@ -58,7 +58,7 @@ fun getBottomBarContent(): List<BottomMenuContent> {
         BottomMenuContent(
             ImageVector.vectorResource(id = R.drawable.profile_icon),
             ImageVector.vectorResource(id = R.drawable.profile_icon_full),
-            Screens.Login.screen,
+            Screens.ProfileUser.screen,
             stringResource(R.string.profile),
             stringResource(R.string.profile_desc)
         ),

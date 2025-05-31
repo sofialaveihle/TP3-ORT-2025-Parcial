@@ -75,7 +75,7 @@ class MainActivity : ComponentActivity() {
                         composable(Screens.Login.screen) { Login(navController) }
                         composable(Screens.ProfileSeller.screen) { ProfileSeller(navController) }
                         composable(Screens.ProfileUser.screen) { ProfileUser(navController) }
-                        composable(Screens.ProfileUserEdit.screen) { ProfileUserEdit(navController) }
+                        composable(Screens.ProfileUserEdit.screen) { ProfileUserEdit(navController, mainViewModel) }
                     }
                 }
             }

@@ -77,15 +77,7 @@ fun ProductCard(
                 Text(
                     text = product.name,
                     style = MaterialTheme.typography.bodySmall
-                    /*
-                    style = TextStyle(
-                        fontSize = 12.sp,
-                        lineHeight = 19.2.sp,
-                        fontFamily = FontFamily(Font(R.font.poppins_semibold)),
-                        fontWeight = FontWeight(400),
-                     */
                 )
-
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()

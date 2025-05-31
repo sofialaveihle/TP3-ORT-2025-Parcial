@@ -51,7 +51,7 @@ fun Button2(
     Button(
         onClick = onClick,
         modifier = Modifier
-            .width(90.dp)
+            .width(100.dp)
             .height(47.dp),
         colors = ButtonDefaults.buttonColors(
             containerColor = if (isSelected) Purple else Gray3,
