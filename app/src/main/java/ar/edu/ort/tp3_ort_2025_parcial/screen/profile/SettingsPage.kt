@@ -12,6 +12,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -31,23 +32,23 @@ fun SettingsPage(
         horizontalAlignment = Alignment.Start
     ) {
         Text(
-            text = stringResource(R.string.settings_title_account),
-            style = MaterialTheme.typography.titleMedium,
+            text = stringResource(R.string.account),
+            style = MaterialTheme.typography.displayMedium.copy(color = Color.Black),
             modifier = Modifier.padding(horizontal = 20.dp, vertical = 10.dp)
         )
-        MenuItemRow(R.drawable.settings_icon_account, "Account", onClick = { navController.navigate("welcome") })
-        MenuItemRow(R.drawable.settings_icon_address, "Address", onClick = { navController.navigate("welcome") })
-        MenuItemRow(R.drawable.settings_icon_notification, "Notification", onClick = { navController.navigate("notification") })
-        MenuItemRow(R.drawable.settings_icon_payment_method, "Payment Method", onClick = { navController.navigate("welcome") })
-        MenuItemRow(R.drawable.settings_icon_privacy, "Privacy", onClick = { navController.navigate("privacy") })
-        MenuItemRow(R.drawable.settings_icon_security, "Security", onClick = { navController.navigate("security") })
+        MenuItemRow(R.drawable.settings_icon_account, stringResource(R.string.account), onClick = { navController.navigate("profileUserEdit") })
+        MenuItemRow(R.drawable.settings_icon_address, stringResource(R.string.address), onClick = { navController.navigate("welcome") })    // este item no tiene pantalla asignada en figma
+        MenuItemRow(R.drawable.settings_icon_notification, stringResource(R.string.notification), onClick = { navController.navigate("notification") })
+        MenuItemRow(R.drawable.settings_icon_payment_method, stringResource(R.string.payment_method), onClick = { navController.navigate("welcome") })
+        MenuItemRow(R.drawable.settings_icon_privacy, stringResource(R.string.privacy), onClick = { navController.navigate("privacy") })
+        MenuItemRow(R.drawable.settings_icon_security, stringResource(R.string.security), onClick = { navController.navigate("security") })
         Text(
-            text = stringResource(R.string.settings_title_help),
-            style = MaterialTheme.typography.titleMedium,
+            text = stringResource(R.string.help),
+            style = MaterialTheme.typography.displayMedium.copy(color = Color.Black),
             modifier = Modifier.padding(horizontal = 20.dp, vertical = 10.dp)
         )
-        MenuItemRow(R.drawable.settings_icon_contact, "Contact Us", onClick = { navController.navigate("welcome") })
-        MenuItemRow(R.drawable.settings_icon_faq, "FAQ", onClick = { navController.navigate("faq") })
+        MenuItemRow(R.drawable.settings_icon_contact, stringResource(R.string.contact_us), onClick = { navController.navigate("welcome") })    // este item no tiene pantalla asignada en figma
+        MenuItemRow(R.drawable.settings_icon_faq, stringResource(R.string.faq), onClick = { navController.navigate("faq") })
 
         Spacer(modifier = Modifier.weight(1f))
         Box(

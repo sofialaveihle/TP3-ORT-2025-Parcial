@@ -27,13 +27,6 @@ val Typography = Typography(
         fontSize = 20.sp,
         lineHeight = 30.sp
     ),
-    titleMedium = TextStyle(
-        fontFamily = FontFamily(Font(R.font.poppins_bold)),
-        fontSize = 16.sp,
-        lineHeight = 28.8.sp,
-        fontWeight = FontWeight(700),
-        textAlign = TextAlign.Center
-    ),
     // Texto abajo del titulo
     bodyMedium = TextStyle(
         fontFamily = FontFamily(Font(R.font.poppins_regular)),

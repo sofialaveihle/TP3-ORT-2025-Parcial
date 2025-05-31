@@ -12,6 +12,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import ar.edu.ort.tp3_ort_2025_parcial.R
@@ -32,7 +33,7 @@ fun Notification(
     ) {
         Text(
             text = stringResource(R.string.settings_title_social),
-            style = MaterialTheme.typography.titleMedium,
+            style = MaterialTheme.typography.displayMedium.copy(color = Color.Black),
             modifier = Modifier.padding(horizontal = 20.dp, vertical = 10.dp)
         )
         MenuItemRow(
@@ -49,7 +50,7 @@ fun Notification(
 
         Text(
             text = stringResource(R.string.settings_title_store),
-            style = MaterialTheme.typography.titleMedium,
+            style = MaterialTheme.typography.displayMedium.copy(color = Color.Black),
             modifier = Modifier.padding(horizontal = 20.dp, vertical = 10.dp)
         )
         MenuItemRow(

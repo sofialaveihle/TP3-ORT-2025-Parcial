@@ -9,6 +9,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -27,11 +28,11 @@ fun Security(
         horizontalAlignment = Alignment.Start
     ) {
         Text(
-            text = stringResource(R.string.settings_title_security),
-            style = MaterialTheme.typography.titleMedium,
+            text = stringResource(R.string.security),
+            style = MaterialTheme.typography.displayMedium.copy(color = Color.Black),
             modifier = Modifier.padding(horizontal = 20.dp, vertical = 10.dp)
         )
-        MenuItemRow(R.drawable.settings_icon_security, "Change Password", onClick = { navController.navigate("welcome") })
-        MenuItemRow(R.drawable.settings_icon_security, "Change Email", onClick = { navController.navigate("welcome") })
+        MenuItemRow(R.drawable.settings_icon_security, stringResource(R.string.change_password), onClick = { navController.navigate("welcome") })
+        MenuItemRow(R.drawable.settings_icon_security, stringResource(R.string.change_email), onClick = { navController.navigate("welcome") })
     }
 }

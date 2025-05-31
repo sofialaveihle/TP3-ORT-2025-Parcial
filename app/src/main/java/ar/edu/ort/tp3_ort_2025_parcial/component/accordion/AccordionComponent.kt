@@ -20,6 +20,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import ar.edu.ort.tp3_ort_2025_parcial.R
@@ -55,7 +56,7 @@ private fun Security(key: Int) {
                 .padding(horizontal = 10.dp)
         ) {
             Text(text = "Security",
-                style = MaterialTheme.typography.titleMedium,
+                style = MaterialTheme.typography.displayMedium.copy(color = Color.Black),
                 modifier = Modifier.padding(vertical = 10.dp))
             if (expanded) {
                 Text(
