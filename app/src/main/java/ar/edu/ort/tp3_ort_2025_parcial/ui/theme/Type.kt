@@ -15,10 +15,17 @@ val Typography = Typography(
     titleLarge = TextStyle(
         fontFamily = FontFamily(Font(R.font.poppins_bold)),
         fontWeight = FontWeight.W600,
-        fontSize = 30.sp,
+        fontSize = 40.sp,
         lineHeight = 56.sp,
         letterSpacing = 0.5.sp,
-        textAlign = TextAlign.Center
+        textAlign = TextAlign.Start
+    ),
+    // Titulo 2 (usado en Profile screens)
+    titleMedium = TextStyle(
+        fontFamily = FontFamily(Font(R.font.poppins_bold)),
+        fontWeight = FontWeight.W700,
+        fontSize = 20.sp,
+        lineHeight = 30.sp
     ),
     titleMedium = TextStyle(
         fontFamily = FontFamily(Font(R.font.poppins_bold)),
@@ -33,7 +40,8 @@ val Typography = Typography(
         fontWeight = FontWeight.W400,
         fontSize = 14.sp,
         lineHeight = 21.sp,
-        letterSpacing = 0.5.sp
+        letterSpacing = 0.5.sp,
+        textAlign = TextAlign.Start
     ),
     // Placeholder inputs
     labelMedium = TextStyle(
@@ -67,5 +75,13 @@ val Typography = Typography(
         fontFamily = FontFamily(Font(R.font.poppins_medium)),
         fontWeight = FontWeight(500),
         letterSpacing = 0.5.sp
+    ),
+    // TopAppBar
+    titleSmall = TextStyle(
+        fontSize = 20.sp,
+        lineHeight = 22.05.sp,
+        fontFamily = FontFamily(Font(R.font.poppins_bold)),
+        fontWeight = FontWeight(700),
+        color = Black,
     )
 )

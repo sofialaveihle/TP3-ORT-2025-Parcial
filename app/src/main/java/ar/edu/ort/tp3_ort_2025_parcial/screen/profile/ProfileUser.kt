@@ -16,34 +16,39 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import ar.edu.ort.tp3_ort_2025_parcial.R
+import ar.edu.ort.tp3_ort_2025_parcial.component.image.BannerImage
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button2
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button3
 import ar.edu.ort.tp3_ort_2025_parcial.component.grid.ProductGrid
-import ar.edu.ort.tp3_ort_2025_parcial.component.text.Title1
-import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray
+import ar.edu.ort.tp3_ort_2025_parcial.component.text.Title2
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray3
 
 @Composable
 fun ProfileUser(
     navController: NavController
 ) {
+    var selected by remember { mutableStateOf("Profile") }
+    var selectedTab by remember { mutableStateOf("EditProfile") }
+
     Column(
         modifier = Modifier
-            .fillMaxSize()
-            .padding(vertical = 30.dp),
+            .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Box(
             modifier = Modifier
-                .width(280.dp)
+                .width(300.dp)
                 .height(45.dp)
                 .background(
                     color = Gray3,
@@ -54,41 +59,26 @@ fun ProfileUser(
         ) {
             Row {
                 Button3(
-                    onClick = {},
+                    onClick = { selected = "Profile"},
                     text = "Profile",
-                    enabled = true
+                    isSelected = selected == "Profile",
+                    modifier = Modifier.weight(1f)
                 )
                 Button3(
-                    onClick = {},
+                    onClick = { navController.navigate(("profileSeller"))},
                     text = "Seller Mode",
-                    enabled = false
+                    isSelected = selected == "Seller Mode",
+                    modifier = Modifier.weight(1f)
                 )
             }
         }
         Box(
             modifier = Modifier
-                .width(350.dp)
+                .width(400.dp)
                 .height(160.dp)
                 .padding(10.dp)
         ) {
-            Box(
-                modifier = Modifier
-                    .width(330.dp)
-                    .height(160.dp)
-                    .background(
-                        color = Gray,
-                        shape = RoundedCornerShape(size = 24.dp)
-                    )
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.profile_unsplash),
-                    contentDescription = "Unsplash effect image",
-                    modifier = Modifier
-                        .width(350.dp)
-                        .height(365.dp)
-                        .alpha(0.4f)
-                )
-            }
+            BannerImage(color = Gray3)
             Box(
                 modifier = Modifier
                     .fillMaxSize(),
@@ -116,7 +106,7 @@ fun ProfileUser(
                 .padding(vertical = 50.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Title1(
+            Title2(
                 text = "Abduldul",
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center
@@ -130,14 +120,11 @@ fun ProfileUser(
                     .padding(top = 8.dp),
                 horizontalArrangement = Arrangement.spacedBy(12.dp, Alignment.CenterHorizontally)
             ) {
-                listOf(
-                    "Saved" to true,
-                    "Edit profile" to false,
-                ).forEach { (label, enabled) ->
+                listOf("Saved", "Edit Profile").forEach { label ->
                     Button2(
-                        onClick = { /* Acción correspondiente */ },
+                        onClick = { selectedTab = label },
                         text = label,
-                        enabled = enabled
+                        isSelected = selectedTab == label
                     )
                 }
             }
