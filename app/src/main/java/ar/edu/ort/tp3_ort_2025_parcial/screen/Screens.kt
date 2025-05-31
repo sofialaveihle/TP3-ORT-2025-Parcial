@@ -11,5 +11,6 @@ sealed class Screens(val screen: String) {
     data object Privacy : Screens("privacy")
     data object Notification : Screens("notification")
     data object Faq : Screens("faq")
+    data object ChangePassword : Screens("changePassword")
 
 }
