@@ -19,16 +19,19 @@ import ar.edu.ort.tp3_ort_2025_parcial.component.bar.BottomAppBar
 import ar.edu.ort.tp3_ort_2025_parcial.component.bar.TopAppBar
 import ar.edu.ort.tp3_ort_2025_parcial.navigation.showBottomBar
 import ar.edu.ort.tp3_ort_2025_parcial.navigation.showTopBar
-import ar.edu.ort.tp3_ort_2025_parcial.screen.ProductPrueba
 import ar.edu.ort.tp3_ort_2025_parcial.screen.login.Login
 import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
+import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.ChangeEmail
+import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.ChangePassword
 import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.ProfileSeller
 import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.ProfileUser
 import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.ProfileUserEdit
 import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.SettingsPage
-import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.Security
-import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.Privacy
+import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.Address
 import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.Notification
+import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.Privacy
+import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.Security
+import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.ContactUs
 import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.Faq
 import ar.edu.ort.tp3_ort_2025_parcial.screen.welcome.Welcome
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.TP3ORT2025ParcialTheme
@@ -89,12 +92,17 @@ class MainActivity : ComponentActivity() {
                         composable(Screens.ProfileSeller.screen) { ProfileSeller(navController) }
                         composable(Screens.ProfileUser.screen) { ProfileUser(navController) }
                         composable(Screens.ProfileUserEdit.screen) { ProfileUserEdit(navController, mainViewModel) }
-                        composable(Screens.SettingsPage.screen) { SettingsPage(navController) }
-                        composable(Screens.Security.screen) { Security(navController) }
-                        composable(Screens.Privacy.screen) { Privacy() }
-                        composable(Screens.Notification.screen) { Notification(viewModel) }
-                        composable(Screens.Faq.screen) { Faq() }
+                        composable(Screens.SettingsPage.screen) { SettingsPage(navController, mainViewModel) }
+                        composable(Screens.Address.screen) { Address(mainViewModel) }
+                        composable(Screens.Notification.screen) { Notification(mainViewModel) }
+                        composable(Screens.Privacy.screen) { Privacy(mainViewModel) }
+                        composable(Screens.Security.screen) { Security(navController, mainViewModel) }
+                        composable(Screens.ContactUs.screen) { ContactUs(mainViewModel) }
+                        composable(Screens.Faq.screen) { Faq(mainViewModel) }
+                        composable(Screens.ChangePassword.screen) { ChangePassword(navController, mainViewModel) }
+                        composable(Screens.ChangeEmail.screen) { ChangeEmail(navController, mainViewModel) }
                         composable(Screens.ProductPrueba.screen) { ProductPrueba(navController, viewModel) }
+
                     }
                 }
             }

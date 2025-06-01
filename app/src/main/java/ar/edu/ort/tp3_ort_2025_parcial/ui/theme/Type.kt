@@ -82,6 +82,6 @@ val Typography = Typography(
         lineHeight = 22.05.sp,
         fontFamily = FontFamily(Font(R.font.poppins_bold)),
         fontWeight = FontWeight(700),
-        color = Black
+        color = Black,
     )
 )

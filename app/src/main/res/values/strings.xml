@@ -41,9 +41,9 @@
     <string name="profile_desc">User profile</string>
 
     <!-- Settings-->
-    <string name="settings_title_account">Account</string>
-    <string name="settings_title_help">Help</string>
-    <string name="settings_title_security">Security</string>
+    <string name="address">Address</string>
+    <string name="help">Help</string>
+    <string name="contact_us">Contact Us</string>
     <string name="settings_title_social">Social</string>
     <string name="settings_title_store">Store</string>
     <string name="log_out">Log Out</string>

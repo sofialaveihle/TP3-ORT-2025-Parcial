@@ -10,19 +10,23 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import ar.edu.ort.tp3_ort_2025_parcial.R
-import androidx.lifecycle.viewmodel.compose.viewModel
 import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
 
 @Composable
 fun Notification(
-    viewModel: MainViewModel = viewModel()
+    topBarViewModel: MainViewModel
 ) {
-    val settings = viewModel.notificationSettings
+    LaunchedEffect(Unit) {
+        topBarViewModel.setTopBar("Notification")
+    }
+    val settings = topBarViewModel.notificationSettings
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -32,30 +36,30 @@ fun Notification(
     ) {
         Text(
             text = stringResource(R.string.settings_title_social),
-            style = MaterialTheme.typography.titleMedium,
+            style = MaterialTheme.typography.displayMedium.copy(color = Color.Black),
             modifier = Modifier.padding(horizontal = 20.dp, vertical = 10.dp)
         )
         MenuItemRow(
             notificationItem = "Liked Post",
             checked = settings["Liked Post"] ?: true,
-            onCheckedChange = { viewModel.toggleNotification("Liked Post", it) }
+            onCheckedChange = { topBarViewModel.toggleNotification("Liked Post", it) }
         )
 
         MenuItemRow(
             notificationItem = "New Message",
             checked = settings["New Message"] ?: true,
-            onCheckedChange = { viewModel.toggleNotification("New Message", it) }
+            onCheckedChange = { topBarViewModel.toggleNotification("New Message", it) }
         )
 
         Text(
             text = stringResource(R.string.settings_title_store),
-            style = MaterialTheme.typography.titleMedium,
+            style = MaterialTheme.typography.displayMedium.copy(color = Color.Black),
             modifier = Modifier.padding(horizontal = 20.dp, vertical = 10.dp)
         )
         MenuItemRow(
             notificationItem = "Item Sold",
             checked = settings["Item Sold"] ?: true,
-            onCheckedChange = { viewModel.toggleNotification("Item Sold", it) }
+            onCheckedChange = { topBarViewModel.toggleNotification("Item Sold", it) }
         )
     }
 }

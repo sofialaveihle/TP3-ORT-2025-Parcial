@@ -27,9 +27,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import ar.edu.ort.tp3_ort_2025_parcial.R
+import ar.edu.ort.tp3_ort_2025_parcial.component.image.BannerImage
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button2
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button3
-import ar.edu.ort.tp3_ort_2025_parcial.component.image.BannerImage
+import ar.edu.ort.tp3_ort_2025_parcial.component.button.ButtonIconEdit
+import ar.edu.ort.tp3_ort_2025_parcial.component.grid.ProductGrid
 import ar.edu.ort.tp3_ort_2025_parcial.component.text.Title2
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray3
 
@@ -68,6 +70,10 @@ fun ProfileUser(
                     text = "Seller Mode",
                     isSelected = selected == "Seller Mode",
                     modifier = Modifier.weight(1f)
+                )
+                //Para redirigir a settings page (a confirmar si lo aplicamos o no)
+                ButtonIconEdit(
+                    onClick = { navController.navigate(("settingsPage")) },
                 )
             }
         }
@@ -121,7 +127,13 @@ fun ProfileUser(
             ) {
                 listOf("Saved", "Edit Profile").forEach { label ->
                     Button2(
-                        onClick = { selectedTab = label },
+                        onClick = {
+                            selectedTab = label
+                            when (label) {
+                                "Saved" -> navController.navigate("profileUser")
+                                "Edit Profile" -> navController.navigate("profileUserEdit")
+                            }
+                        },
                         text = label,
                         isSelected = selectedTab == label
                     )
