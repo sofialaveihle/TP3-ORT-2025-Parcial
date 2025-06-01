@@ -20,6 +20,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -66,12 +67,13 @@ fun Register(navController: NavController) {
             Title1(
                 text = stringResource(R.string.register_login_title),
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .align(Alignment.Start)
+                    .fillMaxWidth(),
+                textAlign = TextAlign.Start
             )
             Spacer(modifier = Modifier.padding(screenHeight * 0.04f))
             Text1(
                 text = stringResource(R.string.under_title_text),
+                textAlign = TextAlign.Start
             )
             Spacer(modifier = Modifier.padding(screenHeight * 0.04f))
             Input1(stringResource(R.string.full_name_place_holder), fullName, onValueChange = { fullName = it }, false)
@@ -90,15 +92,15 @@ fun Register(navController: NavController) {
                 FlowRow(
                     modifier = Modifier.fillMaxWidth(),
                 ) {
-                    Text1(stringResource(R.string.terms_conditions_1))
+                    Text1(stringResource(R.string.terms_conditions_1), textAlign = TextAlign.Start)
                     Text1Clickable(stringResource(R.string.terms_conditions_link_1)) { }
-                    Text1(stringResource(R.string.terms_conditions_2))
+                    Text1(stringResource(R.string.terms_conditions_2), textAlign = TextAlign.Start)
                     Text1Clickable(stringResource(R.string.terms_conditions_link_2)) { }
                 }
             }
             Spacer(modifier = Modifier.weight(1f))
             Row(modifier = Modifier.padding(screenHeight * 0.04f)) {
-                Text1(text = stringResource(R.string.have_an_account))
+                Text1(text = stringResource(R.string.have_an_account), textAlign = TextAlign.Start)
                 Text1Clickable(text = stringResource(R.string.login)) {
                     navController.navigate(Screens.Login.screen)
                 }

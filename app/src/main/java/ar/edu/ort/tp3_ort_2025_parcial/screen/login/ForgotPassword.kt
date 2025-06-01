@@ -18,6 +18,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -59,18 +60,28 @@ fun ForgotPassword(navController: NavController) {
             Title1(
                 text = stringResource(R.string.forgot_password_login_title),
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .align(Alignment.Start))
+                    .fillMaxWidth(),
+                textAlign = TextAlign.Start
+            )
             Spacer(modifier = Modifier.padding(32.dp))
             Text1(
                 text = stringResource(R.string.under_title_text),
+                textAlign = TextAlign.Start
             )
             Spacer(modifier = Modifier.padding(32.dp))
-            Input1(stringResource(R.string.email_place_holder), email, onValueChange = { email = it }, false)
+            Input1(
+                stringResource(R.string.email_place_holder),
+                email,
+                onValueChange = { email = it },
+                false
+            )
 
             Spacer(modifier = Modifier.weight(1f))
             Row(modifier = Modifier.padding(bottom = 32.dp)) {
-                Text1(text = stringResource(R.string.have_an_account))
+                Text1(
+                    text = stringResource(R.string.have_an_account),
+                    textAlign = TextAlign.Center
+                )
                 Text1Clickable(text = stringResource(R.string.login)) {
                     navController.navigate(Screens.Login.screen)
                 }
