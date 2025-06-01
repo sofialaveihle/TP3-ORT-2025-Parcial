@@ -24,6 +24,7 @@
     <string name="change_password">Change Password</string>
     <string name="change_email">Change Email </string>
     <string name="faq">FAQ</string>
+    <string name="account">Account</string>
 
     <string name="go_back_icon_desc">Go Back Icon</string>
 
@@ -31,11 +32,24 @@
     <string name="home">welcome</string>
     <string name="chat">login</string>
     <string name="bag">bag</string>
-    <string name="profile">profile</string>
+    <string name="profileUser">profileUser</string>
 
     <string name="home_desc">Home</string>
     <string name="chat_desc">Chat bubble</string>
     <string name="bag_desc">Shopping bag</string>
     <string name="profile_desc">User profile</string>
 
+    <!-- Settings-->
+    <string name="address">Address</string>
+    <string name="help">Help</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="settings_title_social">Social</string>
+    <string name="settings_title_store">Store</string>
+    <string name="log_out">Log Out</string>
+    <string name="privacy_title_terms_of_use">Term of Use</string>
+    <string name="privacy_title_petapp_service">PetApp Service</string>
+    <string name="privacy_info_body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum sapien sodales mi sagittis hendrerit. Curabitur ut lectus nec orci cursus rhoncus. Donec a ultrices risus. Mauris ut erat ut urna rhoncus facilisis a eu neque. Ut iaculis viverra laoreet. In interdum, augue non auctor pharetra, felis ante gravida ante, quis mattis quam eros non quam. Vivamus scelerisque ante nec dapibus convallis. Vestibulum quis scelerisque leo. Vestibulum quis porttitor tellus, non finibus nibh. Quisque ut tempor nulla, sed consectetur tortor. Mauris volutpat viverra arcu non laoreet. Duis eu arcu nunc. Pellentesque ultricies facilisis faucibus. Duis magna sem, ultricies sed scelerisque efficitur, hendrerit at arcu.</string>
+    <string name="mostrar_menos">Mostrar menos</string>
+    <string name="mostrar_mas">Mostrar más</string>
+  
 </resources>
