@@ -18,6 +18,14 @@ class MainViewModel @Inject constructor() : ViewModel() {
 
     private val _selectedLocation = mutableStateOf("Jebres, Surakarta")
     val selectedLocation: State<String> = _selectedLocation
+
+    private val _selectedSection = mutableStateOf("Activity")
+    val selectedSection: State<String> = _selectedSection
+
+    fun setSelectedSection(section: String) {
+        _selectedSection.value = section
+    }
+
     // Top App Bar
     private val _title = mutableStateOf("")
     val title: State<String> = _title
@@ -51,4 +59,5 @@ class MainViewModel @Inject constructor() : ViewModel() {
     fun updateSearchText(newText: String) {
         _searchText.value = newText
     }
+
 }

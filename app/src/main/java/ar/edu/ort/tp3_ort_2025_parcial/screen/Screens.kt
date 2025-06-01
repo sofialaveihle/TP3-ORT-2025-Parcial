@@ -6,5 +6,5 @@ sealed class Screens(val screen: String) {
 
     // Homepage
     data object Home : Screens("home")
-    data object Location : Screens("location")
+    data object Notification : Screens("notification")
 }

@@ -19,6 +19,7 @@ private fun getNoTopBarRoutes(): List<String> {
     return listOf(
         Screens.Welcome.screen,
         Screens.Login.screen,
+        Screens.Home.screen,
     )
 }
 
@@ -37,7 +38,7 @@ fun getBottomBarContent(): List<BottomMenuContent> {
         BottomMenuContent(
             ImageVector.vectorResource(id = R.drawable.home_icon),
             ImageVector.vectorResource(id = R.drawable.home_icon_full),
-            Screens.Welcome.screen,
+            Screens.Home.screen,
             stringResource(R.string.home),
             stringResource(R.string.home_desc)
         ),
@@ -69,6 +70,7 @@ fun getSectionForRoute(route: String?): String? {
     return when (route) {
         Screens.Welcome.screen -> "welcome"
         Screens.Login.screen -> "login"
+        Screens.Home.screen -> "home"
         else -> null
     }
 }
@@ -82,6 +84,6 @@ fun showBottomBar(
 
 private fun getNoBottomBarRoutes(): List<String> {
     return listOf(
-        // Vacio unicamente para testear en las pantallas actuales
+        Screens.Notification.screen
     )
 }
