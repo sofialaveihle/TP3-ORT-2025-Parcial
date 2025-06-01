@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -45,19 +46,17 @@ fun Button3Preview() {
 fun Button3(
     onClick: () -> Unit,
     text: String,
-    isSelected: Boolean
+    isSelected: Boolean,
+    modifier: Modifier = Modifier
 ) {
-    val backgroundColor = if (isSelected) Purple else Gray3
-    val contentColor = if (isSelected) White else Gray2
-
     Button(
         onClick = onClick,
-        modifier = Modifier
+        modifier = modifier
             .width(114.dp)
             .height(37.dp),
         colors = ButtonDefaults.buttonColors(
-            containerColor = backgroundColor,
-            contentColor = contentColor
+            containerColor = if (isSelected) Purple else Gray3,
+            contentColor = if (isSelected) White else Gray2
         ),
         shape = RoundedCornerShape(40.dp),
         contentPadding = PaddingValues(horizontal = 10.dp, vertical = 4.dp)
@@ -70,7 +69,7 @@ fun Button3(
                 fontFamily = FontFamily(Font(R.font.poppins_medium)),
                 fontWeight = FontWeight(500),
                 letterSpacing = 0.5.sp,
-                color = contentColor
+                color = LocalContentColor.current
             ),
             maxLines = 1,
             overflow = TextOverflow.Ellipsis

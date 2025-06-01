@@ -20,6 +20,11 @@ private fun getNoTopBarRoutes(): List<String> {
         Screens.Welcome.screen,
         Screens.Login.screen,
         Screens.Home.screen,
+        Screens.Register.screen,
+        Screens.ForgotPassword.screen,
+        Screens.NewPassword.screen,
+        Screens.ProfileUser.screen,
+        Screens.ProfileSeller.screen
     )
 }
 
@@ -38,7 +43,7 @@ fun getBottomBarContent(): List<BottomMenuContent> {
         BottomMenuContent(
             ImageVector.vectorResource(id = R.drawable.home_icon),
             ImageVector.vectorResource(id = R.drawable.home_icon_full),
-            Screens.Home.screen,
+            Screens.Welcome.screen,
             stringResource(R.string.home),
             stringResource(R.string.home_desc)
         ),
@@ -71,6 +76,7 @@ fun getSectionForRoute(route: String?): String? {
         Screens.Welcome.screen -> "welcome"
         Screens.Login.screen -> "login"
         Screens.Home.screen -> "home"
+        Screens.ProfileUser.screen -> "profileUser"
         else -> null
     }
 }
@@ -84,6 +90,21 @@ fun showBottomBar(
 
 private fun getNoBottomBarRoutes(): List<String> {
     return listOf(
-        Screens.Notification.screen
+        Screens.Notification.screen,
+        Screens.Login.screen,
+        Screens.Register.screen,
+        Screens.ForgotPassword.screen,
+        Screens.NewPassword.screen,
+        Screens.ProfileSeller.screen,
+        Screens.SettingsPage.screen,
+        Screens.ProfileUserEdit.screen,
+        Screens.Address.screen,
+        Screens.Notification.screen,
+        Screens.Privacy.screen,
+        Screens.Security.screen,
+        Screens.ContactUs.screen,
+        Screens.Faq.screen,
+        Screens.ChangePassword.screen,
+        Screens.ChangeEmail.screen,
     )
 }

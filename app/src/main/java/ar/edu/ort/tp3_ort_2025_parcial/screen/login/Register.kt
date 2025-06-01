@@ -3,6 +3,7 @@ package ar.edu.ort.tp3_ort_2025_parcial.screen.login
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,7 +12,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -19,7 +19,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -28,28 +27,26 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import ar.edu.ort.tp3_ort_2025_parcial.R
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button1
-import ar.edu.ort.tp3_ort_2025_parcial.component.button.ButtonSocialMediaLogin
+import ar.edu.ort.tp3_ort_2025_parcial.component.checkbox.Checkbox
 import ar.edu.ort.tp3_ort_2025_parcial.component.entrydata.Input1
 import ar.edu.ort.tp3_ort_2025_parcial.component.text.Text1
 import ar.edu.ort.tp3_ort_2025_parcial.component.text.Text1Clickable
 import ar.edu.ort.tp3_ort_2025_parcial.component.text.Title1
 import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
-import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray
 
 @Preview(showBackground = true)
 @Composable
-fun LoginPreview() {
+fun RegisterPreview() {
     val navController = rememberNavController()
-    Login(navController = navController)
+    Register(navController = navController)
 }
 
 @Composable
-fun Login(
-    navController: NavController
-) {
+fun Register(navController: NavController) {
+    var fullName by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
-
+    var termsAndConditions by remember { mutableStateOf(false) }
     BoxWithConstraints(
         modifier = Modifier
             .fillMaxSize()
@@ -68,7 +65,7 @@ fun Login(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Title1(
-                text = stringResource(R.string.login_title),
+                text = stringResource(R.string.register_login_title),
                 modifier = Modifier
                     .fillMaxWidth(),
                 textAlign = TextAlign.Start
@@ -79,68 +76,37 @@ fun Login(
                 textAlign = TextAlign.Start
             )
             Spacer(modifier = Modifier.padding(screenHeight * 0.04f))
-            Input1(
-                stringResource(R.string.email_place_holder),
-                email,
-                onValueChange = { email = it },
-                true
-            )
+            Input1(stringResource(R.string.full_name_place_holder), fullName, onValueChange = { fullName = it }, false)
             Spacer(modifier = Modifier.padding(screenHeight * 0.02f))
-            Input1(
-                stringResource(R.string.password_place_holder),
-                password,
-                onValueChange = { password = it },
-                true
-            )
+            Input1(stringResource(R.string.email_place_holder), email, onValueChange = { email = it }, false)
+            Spacer(modifier = Modifier.padding(screenHeight * 0.02f))
+            Input1(stringResource(R.string.password_place_holder), password, onValueChange = { password = it }, true)
             Spacer(modifier = Modifier.padding(screenHeight * 0.03f))
 
-            Row {
-                HorizontalDivider(
-                    modifier = Modifier.weight(1f),
-                    thickness = 1.dp,
-                    color = Gray
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Checkbox(
+                    onCheckedChange = { termsAndConditions = it },
+                    checked = termsAndConditions
                 )
                 Spacer(modifier = Modifier.width(screenWidth * 0.02f))
-                Text1(stringResource(R.string.or_divider_text), textAlign = TextAlign.Center)
-                Spacer(modifier = Modifier.width(screenWidth * 0.02f))
-                HorizontalDivider(
-                    modifier = Modifier.weight(1f),
-                    thickness = 1.dp,
-                    color = Gray
-                )
-            }
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(screenHeight * 0.04f),
-                horizontalArrangement = Arrangement.spacedBy(screenWidth * 0.03f)
-            ) {
-                ButtonSocialMediaLogin(
-                    onClick = {},
-                    icon = painterResource(id = R.drawable.google_icon),
-                    text = "Google",
-                    screenHeight = screenHeight,
-                    screenWidth = screenWidth,
-                    modifier = Modifier
-                )
-                ButtonSocialMediaLogin(
-                    onClick = {},
-                    icon = painterResource(id = R.drawable.facebook_icon),
-                    text = "Facebook",
-                    screenHeight = screenHeight,
-                    screenWidth = screenWidth,
-                    modifier = Modifier.padding(start = screenWidth * 0.03f)
-                )
+                FlowRow(
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    Text1(stringResource(R.string.terms_conditions_1), textAlign = TextAlign.Start)
+                    Text1Clickable(stringResource(R.string.terms_conditions_link_1)) { }
+                    Text1(stringResource(R.string.terms_conditions_2), textAlign = TextAlign.Start)
+                    Text1Clickable(stringResource(R.string.terms_conditions_link_2)) { }
+                }
             }
             Spacer(modifier = Modifier.weight(1f))
-            Row(modifier = Modifier.padding(bottom = screenHeight * 0.04f)) {
-                Text1(text = stringResource(R.string.do_not_have_an_account), textAlign = TextAlign.Center)
-                Text1Clickable(text = stringResource(R.string.create_account)) {
-                    navController.navigate(Screens.Register.screen)
+            Row(modifier = Modifier.padding(screenHeight * 0.04f)) {
+                Text1(text = stringResource(R.string.have_an_account), textAlign = TextAlign.Start)
+                Text1Clickable(text = stringResource(R.string.login)) {
+                    navController.navigate(Screens.Login.screen)
                 }
             }
             Button1(
-                onClick = { },
+                onClick = { navController.navigate(Screens.ForgotPassword.screen) }, // TODO not push test
                 text = stringResource(R.string.get_started_button_text),
                 modifier = Modifier
                     .fillMaxWidth()
