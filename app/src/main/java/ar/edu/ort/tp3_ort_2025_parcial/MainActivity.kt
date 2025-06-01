@@ -21,6 +21,9 @@ import ar.edu.ort.tp3_ort_2025_parcial.navigation.showBottomBar
 import ar.edu.ort.tp3_ort_2025_parcial.navigation.showTopBar
 import ar.edu.ort.tp3_ort_2025_parcial.screen.login.Login
 import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
+import ar.edu.ort.tp3_ort_2025_parcial.screen.login.ForgotPassword
+import ar.edu.ort.tp3_ort_2025_parcial.screen.login.NewPassword
+import ar.edu.ort.tp3_ort_2025_parcial.screen.login.Register
 import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.ChangeEmail
 import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.ChangePassword
 import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.ProfileSeller
@@ -89,6 +92,9 @@ class MainActivity : ComponentActivity() {
                     ) {
                         composable(Screens.Welcome.screen) { Welcome(navController) }
                         composable(Screens.Login.screen) { Login(navController) }
+                        composable(Screens.Register.screen) { Register(navController) }
+                        composable(Screens.ForgotPassword.screen) { ForgotPassword(navController) }
+                        composable(Screens.NewPassword.screen) { NewPassword(navController) }
                         composable(Screens.ProfileSeller.screen) { ProfileSeller(navController, mainViewModel) }
                         composable(Screens.ProfileUser.screen) { ProfileUser(navController, mainViewModel) }
                         composable(Screens.ProfileUserEdit.screen) { ProfileUserEdit(navController, mainViewModel) }
