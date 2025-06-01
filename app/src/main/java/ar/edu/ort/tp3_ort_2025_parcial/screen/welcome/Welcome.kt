@@ -56,16 +56,9 @@ fun Welcome(navController: NavController) {
                     .fillMaxWidth()
             )
 
-//            Button1(
-//                text = stringResource(R.string.welcome_button_text),
-//                onClick = { navController.navigate(Screens.Login.screen) },
-//                modifier = Modifier
-//                    .width(screenWidth * 0.85f)
-//                    .height(56.dp)
-//            )
             Button1(
                 text = stringResource(R.string.welcome_button_text),
-                onClick = { navController.navigate(Screens.ProductPrueba.screen) },
+                onClick = { navController.navigate(Screens.Login.screen) },
                 modifier = Modifier
                     .width(screenWidth * 0.85f)
                     .height(56.dp)
