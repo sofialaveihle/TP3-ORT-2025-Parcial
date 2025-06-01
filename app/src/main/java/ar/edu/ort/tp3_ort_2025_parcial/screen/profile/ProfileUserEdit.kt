@@ -30,6 +30,7 @@ import ar.edu.ort.tp3_ort_2025_parcial.component.button.ButtonIconEdit
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button1
 import ar.edu.ort.tp3_ort_2025_parcial.component.entrydata.Input1WithTitle
 import ar.edu.ort.tp3_ort_2025_parcial.component.text.Title2
+import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray3
 import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
 
@@ -131,7 +132,7 @@ fun ProfileUserEdit(
                     .height(20.dp)
             )
             Button1(
-                onClick = { /*TODO*/ },
+                onClick = { navController.navigate(Screens.ProfileUser.screen) },
                 text = "Save Changes",
                 modifier = Modifier
             )

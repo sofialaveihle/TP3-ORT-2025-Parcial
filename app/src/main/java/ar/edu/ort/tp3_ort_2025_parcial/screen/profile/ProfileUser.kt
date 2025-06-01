@@ -127,7 +127,13 @@ fun ProfileUser(
             ) {
                 listOf("Saved", "Edit Profile").forEach { label ->
                     Button2(
-                        onClick = { selectedTab = label },
+                        onClick = {
+                            selectedTab = label
+                            when (label) {
+                                "Saved" -> navController.navigate("profileUser")
+                                "Edit Profile" -> navController.navigate("profileUserEdit")
+                            }
+                        },
                         text = label,
                         isSelected = selectedTab == label
                     )
