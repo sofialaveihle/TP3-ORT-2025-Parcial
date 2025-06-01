@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -15,11 +16,16 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import ar.edu.ort.tp3_ort_2025_parcial.R
 import ar.edu.ort.tp3_ort_2025_parcial.component.menuitem.MenuItemRow
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
 
 @Composable
 fun Security(
-    navController: NavController
+    navController: NavController,
+    topBarViewModel: MainViewModel
 ) {
+    LaunchedEffect(Unit) {
+        topBarViewModel.setTopBar("Security")
+    }
     Column(
         modifier = Modifier
             .fillMaxSize()

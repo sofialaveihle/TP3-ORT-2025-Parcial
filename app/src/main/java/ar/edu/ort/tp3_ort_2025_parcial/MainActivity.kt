@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.viewModels
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.LaunchedEffect
@@ -36,7 +35,6 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    private val viewModel : MainViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -85,11 +83,11 @@ class MainActivity : ComponentActivity() {
                         composable(Screens.ProfileSeller.screen) { ProfileSeller(navController) }
                         composable(Screens.ProfileUser.screen) { ProfileUser(navController) }
                         composable(Screens.ProfileUserEdit.screen) { ProfileUserEdit(navController, mainViewModel) }
-                        composable(Screens.SettingsPage.screen) { SettingsPage(navController) }
-                        composable(Screens.Security.screen) { Security(navController) }
-                        composable(Screens.Privacy.screen) { Privacy() }
-                        composable(Screens.Notification.screen) { Notification(viewModel) }
-                        composable(Screens.Faq.screen) { Faq() }
+                        composable(Screens.SettingsPage.screen) { SettingsPage(navController, mainViewModel) }
+                        composable(Screens.Security.screen) { Security(navController, mainViewModel) }
+                        composable(Screens.Privacy.screen) { Privacy(mainViewModel) }
+                        composable(Screens.Notification.screen) { Notification(mainViewModel) }
+                        composable(Screens.Faq.screen) { Faq(mainViewModel) }
                     }
                 }
             }
