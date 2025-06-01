@@ -32,7 +32,7 @@
     <string name="home">welcome</string>
     <string name="chat">login</string>
     <string name="bag">bag</string>
-    <string name="profile">profile</string>
+    <string name="profileUser">profileUser</string>
 
     <string name="home_desc">Home</string>
     <string name="chat_desc">Chat bubble</string>
