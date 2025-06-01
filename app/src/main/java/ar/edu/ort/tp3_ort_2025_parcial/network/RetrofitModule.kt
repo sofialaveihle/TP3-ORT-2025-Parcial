@@ -1,13 +1,11 @@
 package ar.edu.ort.tp3_ort_2025_parcial.network
 
 import ar.edu.ort.tp3_ort_2025_parcial.core.Config
-import ar.edu.ort.tp3_ort_2025_parcial.core.MyInterceptor
+import ar.edu.ort.tp3_ort_2025_parcial.service.IProductAPI
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -16,13 +14,13 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object RetrofitModule {
 
-    val interceptor: HttpLoggingInterceptor = HttpLoggingInterceptor().apply {
-        level = HttpLoggingInterceptor.Level.BODY
-    }
-
-    val client: OkHttpClient = OkHttpClient.Builder().apply {
-        addInterceptor(interceptor).addInterceptor(MyInterceptor)
-    }.build()
+//    val interceptor: HttpLoggingInterceptor = HttpLoggingInterceptor().apply {
+//        level = HttpLoggingInterceptor.Level.BODY
+//    }
+//
+//    val client: OkHttpClient = OkHttpClient.Builder().apply {
+//        addInterceptor(interceptor).addInterceptor(MyInterceptor)
+//    }.build()
 
     @Singleton
     @Provides
@@ -31,7 +29,7 @@ object RetrofitModule {
         return Retrofit.Builder()
             //Defino Url base
             .baseUrl(Config.baseUrl)
-            .client(client)
+//            .client(client)
             //Defino canal de comunicación (Gson)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
@@ -44,5 +42,12 @@ object RetrofitModule {
     fun provideQuoteApiClient(retrofit: Retrofit): QuotesApi {
         return retrofit.create(QuotesApi::class.java)
     }*/
+
+
+    @Singleton
+    @Provides
+    fun provideProductApiClient(retrofit: Retrofit): IProductAPI {
+        return retrofit.create(IProductAPI::class.java)
+    }
 
 }

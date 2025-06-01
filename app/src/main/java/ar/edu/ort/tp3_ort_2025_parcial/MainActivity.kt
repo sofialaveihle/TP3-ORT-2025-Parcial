@@ -19,6 +19,7 @@ import ar.edu.ort.tp3_ort_2025_parcial.component.bar.BottomAppBar
 import ar.edu.ort.tp3_ort_2025_parcial.component.bar.TopAppBar
 import ar.edu.ort.tp3_ort_2025_parcial.navigation.showBottomBar
 import ar.edu.ort.tp3_ort_2025_parcial.navigation.showTopBar
+import ar.edu.ort.tp3_ort_2025_parcial.screen.ProductPrueba
 import ar.edu.ort.tp3_ort_2025_parcial.screen.login.Login
 import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
 import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.ProfileSeller
@@ -39,6 +40,9 @@ class MainActivity : ComponentActivity() {
     private val viewModel : MainViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        viewModel.loadProducts()
+
         enableEdgeToEdge()
         setContent {
             TP3ORT2025ParcialTheme {
@@ -90,6 +94,7 @@ class MainActivity : ComponentActivity() {
                         composable(Screens.Privacy.screen) { Privacy() }
                         composable(Screens.Notification.screen) { Notification(viewModel) }
                         composable(Screens.Faq.screen) { Faq() }
+                        composable(Screens.ProductPrueba.screen) { ProductPrueba(navController, viewModel) }
                     }
                 }
             }

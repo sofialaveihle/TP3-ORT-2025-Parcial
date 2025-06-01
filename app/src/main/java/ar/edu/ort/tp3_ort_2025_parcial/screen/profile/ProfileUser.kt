@@ -27,10 +27,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import ar.edu.ort.tp3_ort_2025_parcial.R
-import ar.edu.ort.tp3_ort_2025_parcial.component.image.BannerImage
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button2
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button3
-import ar.edu.ort.tp3_ort_2025_parcial.component.grid.ProductGrid
+import ar.edu.ort.tp3_ort_2025_parcial.component.image.BannerImage
 import ar.edu.ort.tp3_ort_2025_parcial.component.text.Title2
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray3
 
@@ -131,9 +130,9 @@ fun ProfileUser(
             Spacer(
                 modifier = Modifier.height(20.dp)
             )
-            ProductGrid(
-                navController
-            )
+//            ProductGrid(
+//                navController
+//            )
         }
     }
 }

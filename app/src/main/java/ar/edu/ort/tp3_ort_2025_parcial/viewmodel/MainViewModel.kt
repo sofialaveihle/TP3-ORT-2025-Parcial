@@ -1,15 +1,57 @@
 package ar.edu.ort.tp3_ort_2025_parcial.viewmodel
 
 import androidx.compose.runtime.State
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.mutableStateMapOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import ar.edu.ort.tp3_ort_2025_parcial.model.Product
 import ar.edu.ort.tp3_ort_2025_parcial.navigation.getSectionForRoute
+import ar.edu.ort.tp3_ort_2025_parcial.service.GetServiceProduct
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor() : ViewModel() {
+class MainViewModel @Inject constructor(
+    //Inject: que a mi ViewModel, Hilt va a inyectar un objeto GetServiceQuotes, capa de servicios
+    //
+    private val getProductsService: GetServiceProduct
+) : ViewModel() {
+
+    var products by mutableStateOf<List<Product>>(emptyList())
+
+    //Definimos atributos que manejan la mutabilidad del estado
+    var Product = mutableStateOf(value = "Cargando...")
+    var Description = mutableStateOf(value = "")
+    var Category = mutableStateOf(value = "")
+    var Price = mutableStateOf(value = "")
+
+    //Función llamada en MainActivity
+    fun loadProducts() {
+        /*ViewModelScope: espacio de corrutinas.
+        Función que convierte todo lo que contiene dentro, en asincrónico.
+        Las corrutinas son ejecuciones en segundo plano que no se ejecutan con el main thread
+
+        Suspended functions: la única forma de ejecutarlas, es fuera del scope principal porque
+        si se deja en el thread principal se corre el riesgo de que la API tarde en responder,
+        se cuelgue la app y Android la cierre.
+        */
+        viewModelScope.launch {
+            val productList = getProductsService.invoke() //Devuelve lista de productos
+            if (!productList.isNullOrEmpty() && productList.size > 0) {
+
+                products = productList
+
+                Product.value = products!!.get(0)!!.title
+                Description.value = products!!.get(0)!!.description
+                Category.value = products!!.get(0)!!.category
+                Price.value = products!!.get(0)!!.price.toString()
+            }
+        }
+    }
 
     // Top App Bar
     private val _title = mutableStateOf("")

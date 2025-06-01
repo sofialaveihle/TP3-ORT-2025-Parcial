@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">TP3-ORT-2025-Parcial</string>
+    <string name="products_api_base_url">https://dummyjson.com/</string>
 
     <!-- Welcome Screen-->
     <string name="welcome_title">Meet your\nanimal needs\nhere</string>
