@@ -19,6 +19,9 @@ private fun getNoTopBarRoutes(): List<String> {
     return listOf(
         Screens.Welcome.screen,
         Screens.Login.screen,
+        Screens.Register.screen,
+        Screens.ForgotPassword.screen,
+        Screens.NewPassword.screen,
     )
 }
 
@@ -82,6 +85,9 @@ fun showBottomBar(
 
 private fun getNoBottomBarRoutes(): List<String> {
     return listOf(
-        // Vacio unicamente para testear en las pantallas actuales
+        Screens.Login.screen,
+        Screens.Register.screen,
+        Screens.ForgotPassword.screen,
+        Screens.NewPassword.screen,
     )
 }

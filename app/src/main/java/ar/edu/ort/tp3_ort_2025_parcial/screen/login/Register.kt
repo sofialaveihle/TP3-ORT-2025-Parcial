@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -17,35 +16,31 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import ar.edu.ort.tp3_ort_2025_parcial.R
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button1
-import ar.edu.ort.tp3_ort_2025_parcial.component.button.ButtonSocialMediaLogin
+import ar.edu.ort.tp3_ort_2025_parcial.component.checkbox.Checkbox
 import ar.edu.ort.tp3_ort_2025_parcial.component.entrydata.Input1
 import ar.edu.ort.tp3_ort_2025_parcial.component.text.Text1
 import ar.edu.ort.tp3_ort_2025_parcial.component.text.Text1Clickable
 import ar.edu.ort.tp3_ort_2025_parcial.component.text.Title1
 import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
-import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray
 
 @Preview(showBackground = true)
 @Composable
-fun LoginPreview() {
+fun RegisterPreview() {
     val navController = rememberNavController()
-    Login(navController = navController)
+    Register(navController = navController)
 }
 
 @Composable
-fun Login(
-    navController: NavController
-) {
+fun Register(navController: NavController) {
+    var fullName by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
-
+    var termsAndConditions by remember { mutableStateOf(false) }
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -59,56 +54,37 @@ fun Login(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Title1(
-                text = "Hello,\n Welcome back!",
+                text = "Create New Account",
             )
             Spacer(modifier = Modifier.padding(32.dp))
             Text1(
                 text = "Water is life. Water is a basic human need. In various lines of life, humans need water.",
             )
             Spacer(modifier = Modifier.padding(32.dp))
-            Input1("Email", email, onValueChange = { email = it }, true)
+            Input1("Full Name", fullName, onValueChange = { fullName = it }, false)
+            Spacer(modifier = Modifier.padding(16.dp))
+            Input1("Email", email, onValueChange = { email = it }, false)
             Spacer(modifier = Modifier.padding(16.dp))
             Input1("Password", password, onValueChange = { password = it }, true)
-            Spacer(modifier = Modifier.padding(32.dp))
+            Spacer(modifier = Modifier.padding(25.dp))
 
-            Row {
-                HorizontalDivider(
-                    modifier = Modifier.weight(1f),
-                    thickness = 1.dp,
-                    color = Gray
-                )
+            Row(modifier = Modifier) {
+                Checkbox(onCheckedChange = { termsAndConditions = it }, checked = termsAndConditions)
                 Spacer(modifier = Modifier.width(8.dp))
-                Text1("   or   ")
-                Spacer(modifier = Modifier.width(8.dp))
-                HorizontalDivider(
-                    modifier = Modifier.weight(1f),
-                    thickness = 1.dp,
-                    color = Gray
-                )
-            }
-            Row(modifier = Modifier.padding(top = 32.dp)) {
-                ButtonSocialMediaLogin(
-                    onClick = {},
-                    icon = painterResource(id = R.drawable.google_icon),
-                    text = "Google",
-                    modifier = Modifier
-                )
-                ButtonSocialMediaLogin(
-                    onClick = {},
-                    icon = painterResource(id = R.drawable.facebook_icon),
-                    text = "Facebook",
-                    modifier = Modifier.padding(start = 13.dp)
-                )
+                Text1(text = "I agree to the ")
+                Text1Clickable(text = "Terms of Service") { }
+                Text1(text = " and ")
+                Text1Clickable(text = "Privacy Policy") { }
             }
             Spacer(modifier = Modifier.weight(1f))
             Row(modifier = Modifier.padding(bottom = 32.dp)) {
-                Text1(text = "Don’t have an account? ")
-                Text1Clickable(text = "Create Account") {
-                    navController.navigate(Screens.Register.screen)
+                Text1(text = "Have an account? ")
+                Text1Clickable(text = "Login") {
+                    navController.navigate(Screens.Login.screen)
                 }
             }
             Button1(
-                onClick = { },
+                onClick = { navController.navigate(Screens.ForgotPassword.screen) }, // TODO not push test
                 text = "Get Started",
                 modifier = Modifier
                     .fillMaxWidth()
