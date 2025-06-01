@@ -32,12 +32,12 @@ fun Button3Preview() {
         Button3(
             onClick = {},
             text = "Activo",
-            enabled = true
+            isSelected = true
         )
         Button3(
             onClick = {},
             text = "Inactivo",
-            enabled = false
+            isSelected = false
         )
     }
 }
@@ -46,19 +46,17 @@ fun Button3Preview() {
 fun Button3(
     onClick: () -> Unit,
     text: String,
-    enabled: Boolean
+    isSelected: Boolean,
+    modifier: Modifier = Modifier
 ) {
     Button(
         onClick = onClick,
-        enabled = enabled,
-        modifier = Modifier
+        modifier = modifier
             .width(114.dp)
             .height(37.dp),
         colors = ButtonDefaults.buttonColors(
-            containerColor = Purple,
-            contentColor = White,
-            disabledContainerColor = Gray3,
-            disabledContentColor = Gray2
+            containerColor = if (isSelected) Purple else Gray3,
+            contentColor = if (isSelected) White else Gray2
         ),
         shape = RoundedCornerShape(40.dp),
         contentPadding = PaddingValues(horizontal = 10.dp, vertical = 4.dp)

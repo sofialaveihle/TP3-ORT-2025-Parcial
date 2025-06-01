@@ -1,8 +1,8 @@
 package ar.edu.ort.tp3_ort_2025_parcial.component.entrydata
 
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -18,7 +18,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray
+import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray2
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Purple
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Red
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.White
@@ -46,20 +46,20 @@ fun Input1(placeHolder: String, value: String, onValueChange: (String) -> Unit, 
         },
         visualTransformation = if (!passwordVisible && isPassword) PasswordVisualTransformation() else VisualTransformation.None,
         modifier = Modifier
-            .width(327.dp)
+            .fillMaxWidth()
             .height(60.dp)
-            .border(width = 1.dp, color = Gray, shape = RoundedCornerShape(16.dp)),
+            .border(width = 1.dp, color = Gray2, shape = RoundedCornerShape(16.dp)),
         textStyle = MaterialTheme.typography.labelMedium,
         shape = RoundedCornerShape(16.dp),
         colors = OutlinedTextFieldDefaults.colors(
             focusedBorderColor = Purple,
-            unfocusedBorderColor = Gray,
+            unfocusedBorderColor = Gray2,
             focusedContainerColor = White,
             unfocusedContainerColor = White,
             focusedPlaceholderColor = Purple,
-            unfocusedPlaceholderColor = Gray,
+            unfocusedPlaceholderColor = Gray2,
             focusedTextColor = Purple,
-            unfocusedTextColor = Gray,
+            unfocusedTextColor = Gray2,
             cursorColor = Purple,
             errorPlaceholderColor = Red,
             errorBorderColor = Red,
