@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.viewModels
 import androidx.compose.foundation.layout.padding
+import androidx.activity.viewModels
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -21,6 +21,9 @@ import ar.edu.ort.tp3_ort_2025_parcial.navigation.showBottomBar
 import ar.edu.ort.tp3_ort_2025_parcial.navigation.showTopBar
 import ar.edu.ort.tp3_ort_2025_parcial.screen.login.Login
 import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
+import ar.edu.ort.tp3_ort_2025_parcial.screen.login.ForgotPassword
+import ar.edu.ort.tp3_ort_2025_parcial.screen.login.NewPassword
+import ar.edu.ort.tp3_ort_2025_parcial.screen.login.Register
 import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.ChangeEmail
 import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.ChangePassword
 import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.ProfileSeller
@@ -85,7 +88,12 @@ class MainActivity : ComponentActivity() {
                         startDestination = Screens.Welcome.screen
                     ) {
                         composable(Screens.Welcome.screen) { Welcome(navController) }
+
                         composable(Screens.Login.screen) { Login(navController) }
+                        composable(Screens.Register.screen) { Register(navController) }
+                        composable(Screens.ForgotPassword.screen) { ForgotPassword(navController) }
+                        composable(Screens.NewPassword.screen) { NewPassword(navController) }
+
                         composable(Screens.ProfileSeller.screen) { ProfileSeller(navController) }
                         composable(Screens.ProfileUser.screen) { ProfileUser(navController) }
                         composable(Screens.ProfileUserEdit.screen) { ProfileUserEdit(navController, mainViewModel) }
@@ -98,6 +106,7 @@ class MainActivity : ComponentActivity() {
                         composable(Screens.Faq.screen) { Faq(mainViewModel) }
                         composable(Screens.ChangePassword.screen) { ChangePassword(navController, mainViewModel) }
                         composable(Screens.ChangeEmail.screen) { ChangeEmail(navController, mainViewModel) }
+
 
                     }
                 }

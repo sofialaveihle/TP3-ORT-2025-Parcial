@@ -11,5 +11,5 @@ val Gray = Color(0xFF898989)
 val Gray2 = Color(0xFFB3B1B0)
 val Gray3 = Color(0xFFF8F8F8)
 val Gray4 = Color(0xFF595959)
+val Gray5 = Color(0xFFE5E4E3)
 val Orange = Color(0xFFFD9340)
-
