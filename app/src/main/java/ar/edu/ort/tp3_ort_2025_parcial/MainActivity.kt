@@ -19,6 +19,7 @@ import ar.edu.ort.tp3_ort_2025_parcial.component.bar.BottomAppBar
 import ar.edu.ort.tp3_ort_2025_parcial.component.bar.TopAppBar
 import ar.edu.ort.tp3_ort_2025_parcial.navigation.showBottomBar
 import ar.edu.ort.tp3_ort_2025_parcial.navigation.showTopBar
+import ar.edu.ort.tp3_ort_2025_parcial.screen.ProductPrueba
 import ar.edu.ort.tp3_ort_2025_parcial.screen.login.Login
 import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
 import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.ChangeEmail
@@ -89,8 +90,8 @@ class MainActivity : ComponentActivity() {
                     ) {
                         composable(Screens.Welcome.screen) { Welcome(navController) }
                         composable(Screens.Login.screen) { Login(navController) }
-                        composable(Screens.ProfileSeller.screen) { ProfileSeller(navController) }
-                        composable(Screens.ProfileUser.screen) { ProfileUser(navController) }
+                        composable(Screens.ProfileSeller.screen) { ProfileSeller(navController, mainViewModel) }
+                        composable(Screens.ProfileUser.screen) { ProfileUser(navController, mainViewModel) }
                         composable(Screens.ProfileUserEdit.screen) { ProfileUserEdit(navController, mainViewModel) }
                         composable(Screens.SettingsPage.screen) { SettingsPage(navController, mainViewModel) }
                         composable(Screens.Address.screen) { Address(mainViewModel) }
@@ -101,7 +102,7 @@ class MainActivity : ComponentActivity() {
                         composable(Screens.Faq.screen) { Faq(mainViewModel) }
                         composable(Screens.ChangePassword.screen) { ChangePassword(navController, mainViewModel) }
                         composable(Screens.ChangeEmail.screen) { ChangeEmail(navController, mainViewModel) }
-                        composable(Screens.ProductPrueba.screen) { ProductPrueba(navController, viewModel) }
+                        composable(Screens.ProductPrueba.screen) { ProductPrueba(navController, mainViewModel) }
 
                     }
                 }

@@ -24,10 +24,10 @@ class MainViewModel @Inject constructor(
     var products by mutableStateOf<List<Product>>(emptyList())
 
     //Definimos atributos que manejan la mutabilidad del estado
-    var Product = mutableStateOf(value = "Cargando...")
-    var Description = mutableStateOf(value = "")
-    var Category = mutableStateOf(value = "")
-    var Price = mutableStateOf(value = "")
+    private var product = mutableStateOf(value = "Cargando...")
+    private var description = mutableStateOf(value = "")
+    private var category = mutableStateOf(value = "")
+    private var price = mutableStateOf(value = "")
 
     //Función llamada en MainActivity
     fun loadProducts() {
@@ -41,14 +41,14 @@ class MainViewModel @Inject constructor(
         */
         viewModelScope.launch {
             val productList = getProductsService.invoke() //Devuelve lista de productos
-            if (!productList.isNullOrEmpty() && productList.size > 0) {
+            if (!productList.isNullOrEmpty() && productList.isNotEmpty()) {
 
                 products = productList
 
-                Product.value = products!!.get(0)!!.title
-                Description.value = products!!.get(0)!!.description
-                Category.value = products!!.get(0)!!.category
-                Price.value = products!!.get(0)!!.price.toString()
+                product.value = products[0].title
+                description.value = products[0].description
+                category.value = products[0].category
+                price.value = products[0].price.toString()
             }
         }
     }
