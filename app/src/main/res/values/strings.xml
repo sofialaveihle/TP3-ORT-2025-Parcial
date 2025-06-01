@@ -37,5 +37,34 @@
     <string name="chat_desc">Chat bubble</string>
     <string name="bag_desc">Shopping bag</string>
     <string name="profile_desc">User profile</string>
+    <string name="forgot_password_login_title">Forgot\nPassword</string>
+    <string name="under_title_text">Water is life. Water is a basic human need. In various lines of life, humans need water.</string>
+    <string name="login_title">Hello,\nWelcome back!</string>
+    <string name="register_login_title">Create New Account</string>
 
+    <!-- login place holders-->
+    <string name="new_password_place_holder">New Password</string>
+    <string name="confirm_password_place_holder">Confirm Password</string>
+    <string name="email_place_holder">Email</string>
+    <string name="password_place_holder">Password</string>
+    <string name="full_name_place_holder">Full Name</string>
+
+    <!-- login texts -->
+    <string name="or_divider_text">"   or   "</string>
+    <string name="do_not_have_an_account">"Don’t have an account? "</string>
+    <string name="have_an_account">"Have an account? "</string>
+    <string name="create_account">Create Account</string>
+    <string name="login">Login</string>
+
+    <!-- Button texts-->
+    <string name="get_started_button_text">Get Started</string>
+    <string name="next_button_text">Next</string>
+    <string name="reset_password_button_text">Reset Password</string>
+
+
+    <!-- Terms and Conditions-->
+    <string name="terms_conditions_1">"I agree to the "</string>
+    <string name="terms_conditions_link_1">Terms of Service</string>
+    <string name="terms_conditions_2">" and "</string>
+    <string name="terms_conditions_link_2">Privacy Policy</string>
 </resources>

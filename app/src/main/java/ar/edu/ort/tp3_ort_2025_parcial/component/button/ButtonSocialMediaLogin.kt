@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import ar.edu.ort.tp3_ort_2025_parcial.R
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Blue
@@ -33,6 +34,8 @@ fun ButtonSocialMediaLoginPreview() {
         onClick = {},
         icon = painterResource(id = R.drawable.google_icon),
         text = "Google",
+        812.dp,
+        375.dp,
         modifier = Modifier
     )
 }
@@ -42,13 +45,15 @@ fun ButtonSocialMediaLogin(
     onClick: () -> Unit,
     icon: Painter,
     text: String,
+    screenHeight: Dp,
+    screenWidth: Dp,
     modifier: Modifier
 ) {
     Button(
         onClick = onClick,
         modifier = modifier
-            .width(157.dp)
-            .height(60.dp)
+            .width(screenWidth * 0.42f)
+            .height(screenHeight * 0.08f)
             .border(1.dp, Gray4, RoundedCornerShape(size = 16.dp)),
         shape = RoundedCornerShape(size = 16.dp),
         colors = ButtonDefaults.buttonColors(
@@ -63,9 +68,9 @@ fun ButtonSocialMediaLogin(
             Image(
                 painter = icon,
                 contentDescription = "$text icon",
-                modifier = Modifier.size(25.dp)
+                modifier = Modifier.size(screenHeight * 0.03f)
             )
-            Spacer(modifier = Modifier.width(8.dp))
+            Spacer(modifier = Modifier.width(screenWidth * 0.02f))
             Text(
                 text = text,
                 style = MaterialTheme.typography.labelMedium
