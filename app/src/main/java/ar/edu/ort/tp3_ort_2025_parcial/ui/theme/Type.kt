@@ -20,6 +20,13 @@ val Typography = Typography(
         letterSpacing = 0.5.sp,
         textAlign = TextAlign.Start
     ),
+    // Titulo 2 (usado en Profile screens)
+    titleMedium = TextStyle(
+        fontFamily = FontFamily(Font(R.font.poppins_bold)),
+        fontWeight = FontWeight.W700,
+        fontSize = 20.sp,
+        lineHeight = 30.sp
+    ),
     // Texto abajo del titulo
     bodyMedium = TextStyle(
         fontFamily = FontFamily(Font(R.font.poppins_regular)),
