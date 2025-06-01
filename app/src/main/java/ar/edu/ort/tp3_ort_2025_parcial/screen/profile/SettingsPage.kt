@@ -43,7 +43,7 @@ fun SettingsPage(
             modifier = Modifier.padding(horizontal = 20.dp, vertical = 10.dp)
         )
         MenuItemRow(R.drawable.settings_icon_account, stringResource(R.string.account), onClick = { navController.navigate("profileUserEdit") })
-        MenuItemRow(R.drawable.settings_icon_address, stringResource(R.string.address), onClick = { navController.navigate("welcome") })    // este item no tiene pantalla asignada en figma
+        MenuItemRow(R.drawable.settings_icon_address, stringResource(R.string.address), onClick = { navController.navigate("address") })    // este item no tiene pantalla asignada en figma
         MenuItemRow(R.drawable.settings_icon_notification, stringResource(R.string.notification), onClick = { navController.navigate("notification") })
         MenuItemRow(R.drawable.settings_icon_payment_method, stringResource(R.string.payment_method), onClick = { navController.navigate("welcome") })
         MenuItemRow(R.drawable.settings_icon_privacy, stringResource(R.string.privacy), onClick = { navController.navigate("privacy") })
@@ -53,7 +53,7 @@ fun SettingsPage(
             style = MaterialTheme.typography.displayMedium.copy(color = Color.Black),
             modifier = Modifier.padding(horizontal = 20.dp, vertical = 10.dp)
         )
-        MenuItemRow(R.drawable.settings_icon_contact, stringResource(R.string.contact_us), onClick = { navController.navigate("welcome") })    // este item no tiene pantalla asignada en figma
+        MenuItemRow(R.drawable.settings_icon_contact, stringResource(R.string.contact_us), onClick = { navController.navigate("contactUs") })    // este item no tiene pantalla asignada en figma
         MenuItemRow(R.drawable.settings_icon_faq, stringResource(R.string.faq), onClick = { navController.navigate("faq") })
 
         Spacer(modifier = Modifier.weight(1f))

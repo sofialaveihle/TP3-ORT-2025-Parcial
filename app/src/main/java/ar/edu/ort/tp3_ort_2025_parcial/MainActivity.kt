@@ -24,9 +24,11 @@ import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.ProfileSeller
 import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.ProfileUser
 import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.ProfileUserEdit
 import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.SettingsPage
-import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.Security
-import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.Privacy
+import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.Address
 import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.Notification
+import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.Privacy
+import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.Security
+import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.ContactUs
 import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.Faq
 import ar.edu.ort.tp3_ort_2025_parcial.screen.welcome.Welcome
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.TP3ORT2025ParcialTheme
@@ -84,9 +86,11 @@ class MainActivity : ComponentActivity() {
                         composable(Screens.ProfileUser.screen) { ProfileUser(navController) }
                         composable(Screens.ProfileUserEdit.screen) { ProfileUserEdit(navController, mainViewModel) }
                         composable(Screens.SettingsPage.screen) { SettingsPage(navController, mainViewModel) }
-                        composable(Screens.Security.screen) { Security(navController, mainViewModel) }
-                        composable(Screens.Privacy.screen) { Privacy(mainViewModel) }
+                        composable(Screens.Address.screen) { Address(mainViewModel) }
                         composable(Screens.Notification.screen) { Notification(mainViewModel) }
+                        composable(Screens.Privacy.screen) { Privacy(mainViewModel) }
+                        composable(Screens.Security.screen) { Security(navController, mainViewModel) }
+                        composable(Screens.ContactUs.screen) { ContactUs(mainViewModel) }
                         composable(Screens.Faq.screen) { Faq(mainViewModel) }
                     }
                 }

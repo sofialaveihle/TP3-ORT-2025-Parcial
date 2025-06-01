@@ -58,7 +58,7 @@ fun Welcome(navController: NavController) {
 
             Button1(
                 text = stringResource(R.string.welcome_button_text),
-                onClick = { navController.navigate(Screens.Login.screen) },
+                onClick = { navController.navigate(Screens.SettingsPage.screen) },
                 modifier = Modifier
                     .width(screenWidth * 0.85f)
                     .height(56.dp)

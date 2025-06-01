@@ -7,9 +7,11 @@ sealed class Screens(val screen: String) {
     data object ProfileUser : Screens("profileUser")
     data object ProfileUserEdit : Screens("profileUserEdit")
     data object SettingsPage : Screens("settingsPage")
-    data object Security : Screens("security")
-    data object Privacy : Screens("privacy")
+    data object Address : Screens("address")
     data object Notification : Screens("notification")
+    data object Privacy : Screens("privacy")
+    data object Security : Screens("security")
+    data object ContactUs : Screens("contactUs")
     data object Faq : Screens("faq")
 
 }
