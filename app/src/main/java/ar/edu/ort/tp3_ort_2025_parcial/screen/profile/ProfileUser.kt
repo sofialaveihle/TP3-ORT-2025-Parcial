@@ -30,6 +30,7 @@ import ar.edu.ort.tp3_ort_2025_parcial.R
 import ar.edu.ort.tp3_ort_2025_parcial.component.image.BannerImage
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button2
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button3
+import ar.edu.ort.tp3_ort_2025_parcial.component.button.ButtonIconEdit
 import ar.edu.ort.tp3_ort_2025_parcial.component.grid.ProductGrid
 import ar.edu.ort.tp3_ort_2025_parcial.component.text.Title2
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray3
@@ -69,6 +70,10 @@ fun ProfileUser(
                     text = "Seller Mode",
                     isSelected = selected == "Seller Mode",
                     modifier = Modifier.weight(1f)
+                )
+                //Para redirigir a settings page (a confirmar si lo aplicamos o no)
+                ButtonIconEdit(
+                    onClick = { navController.navigate(("settingsPage")) },
                 )
             }
         }

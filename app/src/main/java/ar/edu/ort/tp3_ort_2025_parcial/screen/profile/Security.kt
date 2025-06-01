@@ -38,7 +38,7 @@ fun Security(
             style = MaterialTheme.typography.displayMedium.copy(color = Color.Black),
             modifier = Modifier.padding(horizontal = 20.dp, vertical = 10.dp)
         )
-        MenuItemRow(R.drawable.settings_icon_security, stringResource(R.string.change_password), onClick = { navController.navigate("welcome") })
-        MenuItemRow(R.drawable.settings_icon_security, stringResource(R.string.change_email), onClick = { navController.navigate("welcome") })
+        MenuItemRow(R.drawable.settings_icon_security, stringResource(R.string.change_password), onClick = { navController.navigate("changePassword") })
+        MenuItemRow(R.drawable.settings_icon_security, stringResource(R.string.change_email), onClick = { navController.navigate("changeEmail") })
     }
 }
