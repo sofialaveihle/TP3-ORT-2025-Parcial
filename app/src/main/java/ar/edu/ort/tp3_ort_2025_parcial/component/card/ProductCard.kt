@@ -25,22 +25,14 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ar.edu.ort.tp3_ort_2025_parcial.R
 import ar.edu.ort.tp3_ort_2025_parcial.model.Product
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Black
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray3
+import coil.compose.AsyncImage
 
-//@Preview
-//@Composable
-//fun ProductCardPreview() {
-//    ProductCard(
-//        product = Product("RC Kitten", "$20.99", R.drawable.product_1),
-//        onClick = {}
-//    )
-//}
 
 @Composable
 fun ProductCard(
@@ -59,15 +51,19 @@ fun ProductCard(
         Column(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Image(
-                painter = painterResource(id = R.drawable.product_1),
-                contentDescription = product.title,
-                contentScale = ContentScale.FillBounds,
-                modifier = Modifier
-                    .width(142.dp)
-                    .height(142.dp)
-                    .clickable { onClick() }
+            ProductImage(
+                product = product,
+                onClick = onClick
             )
+//            Image(
+//                painter = painterResource(id = R.drawable.product_1),
+//                contentDescription = product.title,
+//                contentScale = ContentScale.FillBounds,
+//                modifier = Modifier
+//                    .width(142.dp)
+//                    .height(142.dp)
+//                    .clickable { onClick() }
+//            )
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -86,7 +82,8 @@ fun ProductCard(
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     Text(
-                        text = product.price.toString(),
+//                      text = product.price.toString(),
+                        text = "$${product.price}",
                         style = TextStyle(
                             fontSize = 20.sp,
                             lineHeight = 30.sp,
@@ -123,4 +120,21 @@ fun ProductCard(
             }
         }
     }
+}
+
+@Composable
+fun ProductImage(
+    product: Product,
+    onClick: () -> Unit
+) {
+    AsyncImage(
+        model =  product.images.firstOrNull(),
+        contentDescription = product.description,
+        contentScale = ContentScale.Crop,
+        placeholder = painterResource(id = R.drawable.placeholder),
+        modifier = Modifier
+            .width(142.dp)
+            .height(142.dp)
+            .clickable { onClick() }
+    )
 }

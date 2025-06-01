@@ -7,5 +7,6 @@ data class ProductAPI (
     @SerializedName(value="description") val description: String,
     @SerializedName(value="category") val category: String,
     @SerializedName(value="price") val price: Double,
-    @SerializedName("tags") val tags: List<String>
+    @SerializedName("tags") val tags: List<String>,
+    @SerializedName("images") val images: List<String>
 )
