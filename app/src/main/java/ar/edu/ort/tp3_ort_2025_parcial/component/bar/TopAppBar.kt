@@ -11,6 +11,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -19,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import androidx.navigation.compose.currentBackStackEntryAsState
 import ar.edu.ort.tp3_ort_2025_parcial.R
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button5
 import ar.edu.ort.tp3_ort_2025_parcial.component.text.Text2
@@ -33,8 +35,14 @@ fun TopAppBar(
     topBarViewModel: MainViewModel
 ){
     val title by topBarViewModel.title
-    val currentRoute = navController.currentBackStackEntry?.destination?.route
-    val show = currentRoute?.startsWith(Screens.ProductDetail.screen) == true
+    val show by topBarViewModel.showFavorite
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentRoute = navBackStackEntry?.destination?.route
+
+    LaunchedEffect(currentRoute) {
+        topBarViewModel.updateRoute(currentRoute)
+    }
+
     var favorite by remember { mutableStateOf(false) }
 
     CenterAlignedTopAppBar(

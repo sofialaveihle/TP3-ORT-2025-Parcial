@@ -56,6 +56,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         viewModel.loadProducts()
+        viewModel.loadCartItems()
 
         enableEdgeToEdge()
         setContent {
@@ -131,8 +132,6 @@ class MainActivity : ComponentActivity() {
                         composable(Screens.Faq.screen) { Faq(mainViewModel) }
                         composable(Screens.ChangePassword.screen) { ChangePassword(navController, mainViewModel) }
                         composable(Screens.ChangeEmail.screen) { ChangeEmail(navController, mainViewModel) }
-
-
                     }
                 }
             }

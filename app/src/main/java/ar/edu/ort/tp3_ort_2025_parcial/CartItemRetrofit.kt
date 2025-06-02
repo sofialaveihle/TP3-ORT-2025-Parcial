@@ -1,6 +1,6 @@
 package ar.edu.ort.tp3_ort_2025_parcial
 
-import ar.edu.ort.tp3_ort_2025_parcial.model.cart.CartItem
+import ar.edu.ort.tp3_ort_2025_parcial.model.cartItem.CartItem
 import ar.edu.ort.tp3_ort_2025_parcial.service.ICartItemAPI
 import ar.edu.ort.tp3_ort_2025_parcial.service.IServiceCartItem
 import javax.inject.Inject

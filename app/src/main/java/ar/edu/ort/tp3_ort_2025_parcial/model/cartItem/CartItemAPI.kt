@@ -1,4 +1,4 @@
-package ar.edu.ort.tp3_ort_2025_parcial.model.cart
+package ar.edu.ort.tp3_ort_2025_parcial.model.cartItem
 
 import com.google.gson.annotations.SerializedName
 
