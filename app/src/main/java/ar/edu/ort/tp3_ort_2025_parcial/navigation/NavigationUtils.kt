@@ -104,6 +104,8 @@ private fun getNoBottomBarRoutes(): List<String> {
         Screens.Faq.screen,
         Screens.ChangePassword.screen,
         Screens.ChangeEmail.screen,
-        Screens.PaymentSuccess.screen
+        Screens.PaymentSuccess.screen,
+        Screens.AddPaymentMethod.screen,
+        Screens.ChoosePaymentMethod.screen
     )
 }
