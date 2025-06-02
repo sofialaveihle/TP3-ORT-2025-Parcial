@@ -117,7 +117,7 @@ fun HomeScreen(
                 )
                 Button4(
                     image = painterResource(id = R.drawable.notification_icon),
-                    onClick = { navController.navigate(Screens.Notification.screen) }
+                    onClick = { navController.navigate(Screens.HomeNotifications.screen) }
                 )
             }
         }

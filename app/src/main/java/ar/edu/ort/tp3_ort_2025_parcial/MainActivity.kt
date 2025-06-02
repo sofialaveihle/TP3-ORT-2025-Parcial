@@ -20,8 +20,8 @@ import ar.edu.ort.tp3_ort_2025_parcial.navigation.showBottomBar
 import ar.edu.ort.tp3_ort_2025_parcial.navigation.showTopBar
 import ar.edu.ort.tp3_ort_2025_parcial.screen.login.Login
 import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
+import ar.edu.ort.tp3_ort_2025_parcial.screen.homepage.HomeNotification
 import ar.edu.ort.tp3_ort_2025_parcial.screen.homepage.HomeScreen
-import ar.edu.ort.tp3_ort_2025_parcial.screen.homepage.Notification
 import ar.edu.ort.tp3_ort_2025_parcial.screen.login.ForgotPassword
 import ar.edu.ort.tp3_ort_2025_parcial.screen.login.NewPassword
 import ar.edu.ort.tp3_ort_2025_parcial.screen.login.Register

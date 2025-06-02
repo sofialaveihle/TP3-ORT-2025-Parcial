@@ -28,7 +28,7 @@ fun ButtonCarouselRow(
             Button2(
                 onClick = item.onClick,
                 text = item.text,
-                enabled = item.enabled
+                isSelected = item.enabled
             )
         }
     }

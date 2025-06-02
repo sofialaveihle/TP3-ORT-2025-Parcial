@@ -90,7 +90,8 @@ fun showBottomBar(
 
 private fun getNoBottomBarRoutes(): List<String> {
     return listOf(
-        Screens.Notification.screen,
+        Screens.Welcome.screen,
+        Screens.HomeNotifications.screen,
         Screens.Login.screen,
         Screens.Register.screen,
         Screens.ForgotPassword.screen,

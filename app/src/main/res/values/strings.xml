@@ -41,10 +41,10 @@
     <string name="go_back_icon_desc">Go Back Icon</string>
 
     <!-- Bottom App Bar Section-->
-    <string name="home">welcome</string>
+    <string name="home">home</string>
     <string name="chat">login</string>
     <string name="bag">bag</string>
-    <string name="profile">profile</string>
+    <string name="profile">profileUser</string>
 
     <string name="home_desc">Home</string>
     <string name="chat_desc">Chat bubble</string>

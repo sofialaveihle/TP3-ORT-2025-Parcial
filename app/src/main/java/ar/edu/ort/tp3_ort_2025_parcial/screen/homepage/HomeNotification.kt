@@ -22,7 +22,7 @@ import ar.edu.ort.tp3_ort_2025_parcial.component.card.SellerModeContent
 
 
 @Composable
-fun Notification(
+fun HomeNotification(
     viewModel: MainViewModel
 ){
     val selected by viewModel.selectedSection
