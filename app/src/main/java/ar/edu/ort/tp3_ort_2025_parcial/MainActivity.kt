@@ -24,6 +24,7 @@ import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
 import ar.edu.ort.tp3_ort_2025_parcial.screen.homepage.BestSeller
 import ar.edu.ort.tp3_ort_2025_parcial.screen.homepage.HomeNotification
 import ar.edu.ort.tp3_ort_2025_parcial.screen.homepage.HomeScreen
+import ar.edu.ort.tp3_ort_2025_parcial.screen.homepage.Search
 import ar.edu.ort.tp3_ort_2025_parcial.screen.login.ForgotPassword
 import ar.edu.ort.tp3_ort_2025_parcial.screen.login.NewPassword
 import ar.edu.ort.tp3_ort_2025_parcial.screen.login.Register
@@ -93,15 +94,19 @@ class MainActivity : ComponentActivity() {
                         navController = navController,
                         startDestination = Screens.Welcome.screen
                     ) {
+                        // Welcome
                         composable(Screens.Welcome.screen) { Welcome(navController) }
+                        // Log in
                         composable(Screens.Login.screen) { Login(navController) }
-                        composable(Screens.Home.screen) { HomeScreen(navController, mainViewModel) }
-                        composable(Screens.BestSeller.screen) { BestSeller(navController, mainViewModel) }
-                        composable(Screens.HomeNotifications.screen) { HomeNotification(mainViewModel) }
                         composable(Screens.Register.screen) { Register(navController) }
                         composable(Screens.ForgotPassword.screen) { ForgotPassword(navController) }
                         composable(Screens.NewPassword.screen) { NewPassword(navController) }
-
+                        // Home
+                        composable(Screens.Home.screen) { HomeScreen(navController, mainViewModel) }
+                        composable(Screens.BestSeller.screen) { BestSeller(navController, mainViewModel) }
+                        composable(Screens.HomeNotifications.screen) { HomeNotification(mainViewModel) }
+                        composable(Screens.Search.screen) { Search(mainViewModel) }
+                        // Account
                         composable(Screens.ProfileSeller.screen) { ProfileSeller(navController, mainViewModel) }
                         composable(Screens.ProfileUser.screen) { ProfileUser(navController, mainViewModel) }
                         composable(Screens.ProfileUserEdit.screen) { ProfileUserEdit(navController, mainViewModel) }

@@ -42,10 +42,10 @@ data class ButtonCarouselItem(
 
 fun getButtonCarouselItems(): List<ButtonCarouselItem> {
     return listOf(
-        ButtonCarouselItem("Promo 1", onClick = { println("Promo 1 click") }, enabled = true),
-        ButtonCarouselItem("Promo 2", onClick = { println("Promo 2 click") }, enabled = false),
-        ButtonCarouselItem("Promo 3", onClick = { println("Promo 3 click") }, enabled = false),
-        ButtonCarouselItem("Promo 4", onClick = { println("Promo 4 click") }, enabled = false),
-        ButtonCarouselItem("Promo 5", onClick = { println("Promo 5 click") }, enabled = false)
+        ButtonCarouselItem("Option 1", onClick = { println("Promo 1 click") }, enabled = true),
+        ButtonCarouselItem("Option 2", onClick = { println("Promo 2 click") }, enabled = false),
+        ButtonCarouselItem("Option 3", onClick = { println("Promo 3 click") }, enabled = false),
+        ButtonCarouselItem("Option 4", onClick = { println("Promo 4 click") }, enabled = false),
+        ButtonCarouselItem("Option 5", onClick = { println("Promo 5 click") }, enabled = false)
     )
 }

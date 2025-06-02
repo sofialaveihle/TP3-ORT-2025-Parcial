@@ -43,7 +43,7 @@ fun getBottomBarContent(): List<BottomMenuContent> {
         BottomMenuContent(
             ImageVector.vectorResource(id = R.drawable.home_icon),
             ImageVector.vectorResource(id = R.drawable.home_icon_full),
-            Screens.Welcome.screen,
+            Screens.Home.screen,
             stringResource(R.string.home),
             stringResource(R.string.home_desc)
         ),
@@ -92,6 +92,7 @@ private fun getNoBottomBarRoutes(): List<String> {
     return listOf(
         Screens.Welcome.screen,
         Screens.HomeNotifications.screen,
+        Screens.Search.screen,
         Screens.Login.screen,
         Screens.Register.screen,
         Screens.ForgotPassword.screen,

@@ -57,6 +57,7 @@ fun HomeScreen(
     val isSheetOpen by viewModel.isSheetOpen
     val selectedLocation by viewModel.selectedLocation
     val products = viewModel.products
+    val screenHeightDp = LocalConfiguration.current.screenHeightDp
 
     LaunchedEffect(Unit) {
         viewModel.loadProducts()
@@ -82,9 +83,8 @@ fun HomeScreen(
     }
 
     Column(
-        modifier = Modifier.padding(16.dp)
+        modifier = Modifier.padding(16.dp).verticalScroll(rememberScrollState())
     ) {
-
         // Location Row
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -120,7 +120,7 @@ fun HomeScreen(
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 Button4(
                     image = painterResource(id = R.drawable.search_icon),
-                    onClick = { navController.navigate(Screens.Home.screen) }
+                    onClick = { navController.navigate(Screens.Search.screen) }
                 )
                 Button4(
                     image = painterResource(id = R.drawable.notification_icon),
@@ -173,7 +173,10 @@ fun HomeScreen(
         }
         ProductGrid(
             navController = navController,
-            productList = products
+            productList = products,
+            modifier = Modifier
+                .fillMaxWidth()
+                .height((screenHeightDp * 0.5f).dp)
         )
     }
 }

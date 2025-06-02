@@ -19,7 +19,8 @@ import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
 @Composable
 fun ProductGrid(
     navController: NavController,
-    productList: List<Product>
+    productList: List<Product>,
+    modifier: Modifier = Modifier
 ) {
     if (productList.isEmpty()) {
         Text1(
@@ -40,7 +41,7 @@ fun ProductGrid(
             contentPadding = PaddingValues(5.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
             horizontalArrangement = Arrangement.spacedBy(15.dp),
-            modifier = Modifier.padding(horizontal = 20.dp)
+            modifier = modifier.padding(horizontal = 20.dp)
         ) {
             items(repeatedList) {
                 ProductCard(
