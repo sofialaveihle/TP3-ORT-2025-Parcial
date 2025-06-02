@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import ar.edu.ort.tp3_ort_2025_parcial.R
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Blue
-import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray4
+import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray5
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.White
 
 @Preview(showBackground = true)
@@ -32,8 +32,10 @@ import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.White
 fun ButtonSocialMediaLoginPreview() {
     ButtonSocialMediaLogin(
         onClick = {},
-        icon = painterResource(id = R.drawable.google_icon),
-        text = "Google",
+        icon1 = painterResource(id = R.drawable.google_icon),
+        icon2 = painterResource(id = R.drawable.google_icon_text),
+        contentDescription1 = "Google",
+        contentDescription2 = "Google",
         812.dp,
         375.dp,
         modifier = Modifier
@@ -43,8 +45,10 @@ fun ButtonSocialMediaLoginPreview() {
 @Composable
 fun ButtonSocialMediaLogin(
     onClick: () -> Unit,
-    icon: Painter,
-    text: String,
+    icon1: Painter,
+    icon2: Painter,
+    contentDescription1: String,
+    contentDescription2: String,
     screenHeight: Dp,
     screenWidth: Dp,
     modifier: Modifier
@@ -52,13 +56,11 @@ fun ButtonSocialMediaLogin(
     Button(
         onClick = onClick,
         modifier = modifier
-            .width(screenWidth * 0.42f)
             .height(screenHeight * 0.08f)
-            .border(1.dp, Gray4, RoundedCornerShape(size = 16.dp)),
+            .border(1.dp, Gray5, RoundedCornerShape(size = 16.dp)),
         shape = RoundedCornerShape(size = 16.dp),
         colors = ButtonDefaults.buttonColors(
-            containerColor = White,
-            contentColor = Blue
+            containerColor = White
         )
     ) {
         Row(
@@ -66,14 +68,15 @@ fun ButtonSocialMediaLogin(
             horizontalArrangement = Arrangement.Center
         ) {
             Image(
-                painter = icon,
-                contentDescription = "$text icon",
+                painter = icon1,
+                contentDescription = contentDescription1,
                 modifier = Modifier.size(screenHeight * 0.03f)
             )
             Spacer(modifier = Modifier.width(screenWidth * 0.02f))
-            Text(
-                text = text,
-                style = MaterialTheme.typography.labelMedium
+            Image(
+                painter = icon2,
+                contentDescription = contentDescription2,
+                modifier = Modifier.size(screenHeight * 0.06f)
             )
         }
     }
