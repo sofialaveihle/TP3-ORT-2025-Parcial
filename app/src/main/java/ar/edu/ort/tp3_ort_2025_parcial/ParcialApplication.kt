@@ -10,8 +10,6 @@ class ParcialApplication : Application() {
         super.onCreate()
 
         //Cuando se crea la app, se crea el objeto Config
-        //Config.apiKey = resources.getString(R.string.api_key)
-        //Config.baseUrl = resources.getString(R.string.quotes_api_base_url)
-
+        Config.baseUrl = resources.getString(R.string.products_api_base_url)
     }
 }

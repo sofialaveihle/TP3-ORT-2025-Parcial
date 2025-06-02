@@ -5,6 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.padding
+import androidx.activity.viewModels
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -40,10 +42,16 @@ import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.Faq
 import ar.edu.ort.tp3_ort_2025_parcial.screen.welcome.Welcome
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.TP3ORT2025ParcialTheme
 import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    private val viewModel : MainViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        viewModel.loadProducts()
+
         enableEdgeToEdge()
         setContent {
             TP3ORT2025ParcialTheme {
