@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.padding
 import androidx.activity.viewModels
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -46,6 +46,9 @@ class MainActivity : ComponentActivity() {
     private val viewModel : MainViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        viewModel.loadProducts()
+
         enableEdgeToEdge()
         setContent {
             TP3ORT2025ParcialTheme {
@@ -88,14 +91,12 @@ class MainActivity : ComponentActivity() {
                         startDestination = Screens.Welcome.screen
                     ) {
                         composable(Screens.Welcome.screen) { Welcome(navController) }
-
                         composable(Screens.Login.screen) { Login(navController) }
                         composable(Screens.Register.screen) { Register(navController) }
                         composable(Screens.ForgotPassword.screen) { ForgotPassword(navController) }
                         composable(Screens.NewPassword.screen) { NewPassword(navController) }
-
-                        composable(Screens.ProfileSeller.screen) { ProfileSeller(navController) }
-                        composable(Screens.ProfileUser.screen) { ProfileUser(navController) }
+                        composable(Screens.ProfileSeller.screen) { ProfileSeller(navController, mainViewModel) }
+                        composable(Screens.ProfileUser.screen) { ProfileUser(navController, mainViewModel) }
                         composable(Screens.ProfileUserEdit.screen) { ProfileUserEdit(navController, mainViewModel) }
                         composable(Screens.SettingsPage.screen) { SettingsPage(navController, mainViewModel) }
                         composable(Screens.Address.screen) { Address(mainViewModel) }
@@ -106,7 +107,6 @@ class MainActivity : ComponentActivity() {
                         composable(Screens.Faq.screen) { Faq(mainViewModel) }
                         composable(Screens.ChangePassword.screen) { ChangePassword(navController, mainViewModel) }
                         composable(Screens.ChangeEmail.screen) { ChangeEmail(navController, mainViewModel) }
-
 
                     }
                 }
