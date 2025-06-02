@@ -83,7 +83,7 @@ fun Login(
                 stringResource(R.string.email_place_holder),
                 email,
                 onValueChange = { email = it },
-                true
+                false
             )
             Spacer(modifier = Modifier.padding(screenHeight * 0.02f))
             Input1(
