@@ -23,7 +23,8 @@ private fun getNoTopBarRoutes(): List<String> {
         Screens.ForgotPassword.screen,
         Screens.NewPassword.screen,
         Screens.ProfileUser.screen,
-        Screens.ProfileSeller.screen
+        Screens.ProfileSeller.screen,
+        Screens.PaymentSuccess.screen
     )
 }
 
@@ -103,5 +104,6 @@ private fun getNoBottomBarRoutes(): List<String> {
         Screens.Faq.screen,
         Screens.ChangePassword.screen,
         Screens.ChangeEmail.screen,
+        Screens.PaymentSuccess.screen
     )
 }

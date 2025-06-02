@@ -83,4 +83,10 @@
     <string name="mostrar_menos">Mostrar menos</string>
     <string name="mostrar_mas">Mostrar más</string>
 
+    <!-- Payment-->
+    <string name="payment_success_title">Payment\nSuccess!</string>
+    <string name="payment_success_description">your order is being prepared by the shop, the courier will send it to your address</string>
+    <string name="payment_success_button">Go Home</string>
+
+
 </resources>

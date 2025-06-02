@@ -24,6 +24,7 @@ import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
 import ar.edu.ort.tp3_ort_2025_parcial.screen.login.ForgotPassword
 import ar.edu.ort.tp3_ort_2025_parcial.screen.login.NewPassword
 import ar.edu.ort.tp3_ort_2025_parcial.screen.login.Register
+import ar.edu.ort.tp3_ort_2025_parcial.screen.payment.PaymentSuccessScreen
 import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.ChangeEmail
 import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.ChangePassword
 import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.ProfileSeller
@@ -107,6 +108,7 @@ class MainActivity : ComponentActivity() {
                         composable(Screens.Faq.screen) { Faq(mainViewModel) }
                         composable(Screens.ChangePassword.screen) { ChangePassword(navController, mainViewModel) }
                         composable(Screens.ChangeEmail.screen) { ChangeEmail(navController, mainViewModel) }
+                        composable(Screens.PaymentSuccess.screen) { PaymentSuccessScreen(navController) }
 
                     }
                 }
