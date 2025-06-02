@@ -22,6 +22,7 @@ import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -38,6 +39,7 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import ar.edu.ort.tp3_ort_2025_parcial.component.banner.PromoBanner
 import ar.edu.ort.tp3_ort_2025_parcial.component.carrousel.ButtonCarouselRow
+import ar.edu.ort.tp3_ort_2025_parcial.component.grid.ProductGrid
 import ar.edu.ort.tp3_ort_2025_parcial.component.text.HomepageText
 import ar.edu.ort.tp3_ort_2025_parcial.component.text.TextLink
 import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
@@ -54,6 +56,11 @@ fun HomeScreen(
     val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
     val isSheetOpen by viewModel.isSheetOpen
     val selectedLocation by viewModel.selectedLocation
+    val products = viewModel.products
+
+    LaunchedEffect(Unit) {
+        viewModel.loadProducts()
+    }
 
     if (isSheetOpen) {
         ModalBottomSheet(
@@ -75,7 +82,7 @@ fun HomeScreen(
     }
 
     Column(
-        modifier = Modifier.padding(16.dp).verticalScroll(rememberScrollState())
+        modifier = Modifier.padding(16.dp)
     ) {
 
         // Location Row
@@ -161,8 +168,12 @@ fun HomeScreen(
             )
             TextLink(
                 text = stringResource(R.string.view_all),
-                onClick = { navController.navigate(Screens.Welcome.screen)}
+                onClick = { navController.navigate(Screens.BestSeller.screen)}
             )
         }
+        ProductGrid(
+            navController = navController,
+            productList = products
+        )
     }
 }

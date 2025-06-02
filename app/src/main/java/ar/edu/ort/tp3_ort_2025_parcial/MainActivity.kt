@@ -6,7 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.padding
 import androidx.activity.viewModels
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -22,6 +21,7 @@ import ar.edu.ort.tp3_ort_2025_parcial.navigation.showBottomBar
 import ar.edu.ort.tp3_ort_2025_parcial.navigation.showTopBar
 import ar.edu.ort.tp3_ort_2025_parcial.screen.login.Login
 import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
+import ar.edu.ort.tp3_ort_2025_parcial.screen.homepage.BestSeller
 import ar.edu.ort.tp3_ort_2025_parcial.screen.homepage.HomeNotification
 import ar.edu.ort.tp3_ort_2025_parcial.screen.homepage.HomeScreen
 import ar.edu.ort.tp3_ort_2025_parcial.screen.login.ForgotPassword
@@ -96,13 +96,14 @@ class MainActivity : ComponentActivity() {
                         composable(Screens.Welcome.screen) { Welcome(navController) }
                         composable(Screens.Login.screen) { Login(navController) }
                         composable(Screens.Home.screen) { HomeScreen(navController, mainViewModel) }
+                        composable(Screens.BestSeller.screen) { BestSeller(navController, mainViewModel) }
                         composable(Screens.HomeNotifications.screen) { HomeNotification(mainViewModel) }
                         composable(Screens.Register.screen) { Register(navController) }
                         composable(Screens.ForgotPassword.screen) { ForgotPassword(navController) }
                         composable(Screens.NewPassword.screen) { NewPassword(navController) }
 
-                        composable(Screens.ProfileSeller.screen) { ProfileSeller(navController) }
-                        composable(Screens.ProfileUser.screen) { ProfileUser(navController) }
+                        composable(Screens.ProfileSeller.screen) { ProfileSeller(navController, mainViewModel) }
+                        composable(Screens.ProfileUser.screen) { ProfileUser(navController, mainViewModel) }
                         composable(Screens.ProfileUserEdit.screen) { ProfileUserEdit(navController, mainViewModel) }
                         composable(Screens.SettingsPage.screen) { SettingsPage(navController, mainViewModel) }
                         composable(Screens.Address.screen) { Address(mainViewModel) }
