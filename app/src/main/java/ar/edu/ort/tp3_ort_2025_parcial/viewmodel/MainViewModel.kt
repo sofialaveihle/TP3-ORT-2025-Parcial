@@ -55,6 +55,10 @@ class MainViewModel @Inject constructor(
         }
     }
 
+    fun getProductById(id: Int?): Product? {
+        return products.find { it.id == id }
+    }
+
     // Homepage
     private val _isSheetOpen = mutableStateOf(false)
     val isSheetOpen: State<Boolean> = _isSheetOpen

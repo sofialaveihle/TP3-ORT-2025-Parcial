@@ -25,6 +25,8 @@
     <string name="activity">Activity</string>
     <string name="recent">Recent</string>
     <string name="seller_mode">Seller Mode</string>
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="product_not_found">Product Not Found</string>
 
     <!-- Top App Bar Tittles-->
     <string name="notification">Notification</string>

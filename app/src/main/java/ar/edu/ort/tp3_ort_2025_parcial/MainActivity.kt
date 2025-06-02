@@ -11,10 +11,12 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import ar.edu.ort.tp3_ort_2025_parcial.component.bar.BottomAppBar
 import ar.edu.ort.tp3_ort_2025_parcial.component.bar.TopAppBar
 import ar.edu.ort.tp3_ort_2025_parcial.navigation.showBottomBar
@@ -24,6 +26,7 @@ import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
 import ar.edu.ort.tp3_ort_2025_parcial.screen.homepage.BestSeller
 import ar.edu.ort.tp3_ort_2025_parcial.screen.homepage.HomeNotification
 import ar.edu.ort.tp3_ort_2025_parcial.screen.homepage.HomeScreen
+import ar.edu.ort.tp3_ort_2025_parcial.screen.homepage.ProductDetail
 import ar.edu.ort.tp3_ort_2025_parcial.screen.homepage.Search
 import ar.edu.ort.tp3_ort_2025_parcial.screen.login.ForgotPassword
 import ar.edu.ort.tp3_ort_2025_parcial.screen.login.NewPassword
@@ -106,6 +109,13 @@ class MainActivity : ComponentActivity() {
                         composable(Screens.BestSeller.screen) { BestSeller(navController, mainViewModel) }
                         composable(Screens.HomeNotifications.screen) { HomeNotification(mainViewModel) }
                         composable(Screens.Search.screen) { Search(mainViewModel) }
+                        composable(
+                            route = "${Screens.ProductDetail.screen}/{productId}",
+                            arguments = listOf(navArgument("productId") { type = NavType.IntType })
+                        ) { backStackEntry ->
+                            val productId = backStackEntry.arguments?.getInt("productId")
+                            ProductDetail(productId, mainViewModel)
+                        }
                         // Account
                         composable(Screens.ProfileSeller.screen) { ProfileSeller(navController, mainViewModel) }
                         composable(Screens.ProfileUser.screen) { ProfileUser(navController, mainViewModel) }

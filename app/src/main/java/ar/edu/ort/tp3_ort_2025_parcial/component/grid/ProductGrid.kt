@@ -46,8 +46,7 @@ fun ProductGrid(
             items(repeatedList) {
                 ProductCard(
                     product = it,
-                    //Modificar para que navegue a screen de detalle de producto
-                    onClick = { navController.navigate(Screens.Welcome.screen) }
+                    onClick = { navController.navigate("${Screens.ProductDetail.screen}/${it.id}") }
                 )
             }
         }

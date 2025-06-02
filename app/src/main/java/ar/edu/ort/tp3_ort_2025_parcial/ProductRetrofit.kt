@@ -18,6 +18,7 @@ constructor(private val service: IProductAPI) : IServiceProduct {
                 ?.filter { it.tags.contains("pet supplies") }
                 ?.map {
                     Product(
+                        id = it.id,
                         title = it.title,
                         description = it.description,
                         category = it.category,
