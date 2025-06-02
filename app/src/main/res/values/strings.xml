@@ -62,6 +62,7 @@
     <string name="get_started_button_text">Get Started</string>
     <string name="next_button_text">Next</string>
     <string name="reset_password_button_text">Reset Password</string>
+    <string name="required_field_text">Required Fields</string>
 
 
     <!-- Terms and Conditions-->
@@ -98,5 +99,6 @@
     <string name="card_name_title_button">Card Name</string>
     <string name="expired_title_button">Expired</string>
     <string name="cvv_title_button">CVV</string>
+    <string name="info_square_img">Info Square</string>
 
 </resources>

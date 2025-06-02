@@ -23,7 +23,11 @@ import androidx.navigation.NavController
 import ar.edu.ort.tp3_ort_2025_parcial.R
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button3
 import ar.edu.ort.tp3_ort_2025_parcial.component.entrydata.Input1
+import ar.edu.ort.tp3_ort_2025_parcial.component.entrydata.InputCVV
+import ar.edu.ort.tp3_ort_2025_parcial.component.entrydata.InputCreditCardNumber
+import ar.edu.ort.tp3_ort_2025_parcial.component.entrydata.InputExpirationDate
 import ar.edu.ort.tp3_ort_2025_parcial.component.text.Title2
+import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
 import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
 
 @SuppressLint("UnusedBoxWithConstraintsScope")
@@ -63,11 +67,9 @@ fun AddPaymentMethodScreen(navController: NavController, mainViewModel: MainView
                     modifier = Modifier.fillMaxWidth()
                 )
 
-                Input1(
-                    placeHolder = stringResource(R.string.card_number_title_button),
+                InputCreditCardNumber(
                     value = cardNumber,
-                    onValueChange = { cardNumber = it },
-                    isPassword = false
+                    onValueChange = { cardNumber = it }
                 )
                 Input1(
                     placeHolder = stringResource(R.string.card_name_title_button),
@@ -76,26 +78,26 @@ fun AddPaymentMethodScreen(navController: NavController, mainViewModel: MainView
                     isPassword = false
                 )
 
-                Input1(
-                    placeHolder = stringResource(R.string.expired_title_button),
+                InputExpirationDate(
                     value = expired,
-                    onValueChange = { expired = it },
-                    isPassword = false
-
+                    onValueChange = { expired = it }
                 )
-                Input1(
-                    placeHolder = stringResource(R.string.cvv_title_button),
+
+                InputCVV(
                     value = cvv,
                     onValueChange = { cvv = it },
-                    isPassword = true
+                    showError = cvv.isBlank()
                 )
 
             }
 
             Button3(
                 text = "Save",
-                onClick = { /* acción */ },
-                isSelected = true,
+                onClick = { navController.navigate(Screens.ChoosePaymentMethod.screen) },
+                isSelected = cardNumber.isNotBlank()
+                        && cardName.isNotBlank()
+                        && expired.isNotBlank()
+                        && cvv.isNotBlank(),
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(60.dp)
