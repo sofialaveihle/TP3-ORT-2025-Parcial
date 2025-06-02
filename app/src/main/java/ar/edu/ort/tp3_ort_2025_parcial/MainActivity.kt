@@ -91,8 +91,7 @@ class MainActivity : ComponentActivity() {
                     NavHost(
                         modifier = Modifier.padding(innerPadding),
                         navController = navController,
-                        startDestination = Screens.AddPaymentMethod.screen
-                        //Screens.Welcome.screen
+                        startDestination = Screens.Welcome.screen
                     ) {
                         composable(Screens.Welcome.screen) { Welcome(navController) }
                         composable(Screens.Login.screen) { Login(navController) }
