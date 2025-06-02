@@ -1,6 +1,6 @@
 package ar.edu.ort.tp3_ort_2025_parcial
 
-import ar.edu.ort.tp3_ort_2025_parcial.model.Product
+import ar.edu.ort.tp3_ort_2025_parcial.model.product.Product
 import ar.edu.ort.tp3_ort_2025_parcial.service.IProductAPI
 import ar.edu.ort.tp3_ort_2025_parcial.service.IServiceProduct
 import javax.inject.Inject

@@ -7,7 +7,8 @@ import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import ar.edu.ort.tp3_ort_2025_parcial.model.Product
+import ar.edu.ort.tp3_ort_2025_parcial.model.cart.CartItem
+import ar.edu.ort.tp3_ort_2025_parcial.model.product.Product
 import ar.edu.ort.tp3_ort_2025_parcial.navigation.getSectionForRoute
 import ar.edu.ort.tp3_ort_2025_parcial.service.GetServiceProduct
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -54,6 +55,8 @@ class MainViewModel @Inject constructor(
             }
         }
     }
+
+    var cartItems by mutableStateOf<List<CartItem>>(emptyList())
 
     fun getProductById(id: Int?): Product? {
         return products.find { it.id == id }

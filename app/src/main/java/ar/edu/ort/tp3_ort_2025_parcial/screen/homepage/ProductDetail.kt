@@ -31,9 +31,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import ar.edu.ort.tp3_ort_2025_parcial.R
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button1
 import ar.edu.ort.tp3_ort_2025_parcial.component.numberPicker.NumberPicker
+import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Black
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray
 import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
@@ -43,6 +45,7 @@ import coil.compose.AsyncImage
 @Composable
 fun ProductDetail(
     productId: Int?,
+    navController: NavController,
     viewModel: MainViewModel
 ){
     val product = viewModel.getProductById(productId)
@@ -125,7 +128,7 @@ fun ProductDetail(
             }
 
             Button1(
-                onClick = { },
+                onClick = { navController.navigate(Screens.Cart.screen) },
                 text = stringResource(R.string.add_to_cart),
                 modifier = Modifier.fillMaxWidth()
             )

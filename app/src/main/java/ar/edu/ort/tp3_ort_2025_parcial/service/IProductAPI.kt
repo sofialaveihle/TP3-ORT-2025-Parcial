@@ -1,6 +1,6 @@
 package ar.edu.ort.tp3_ort_2025_parcial.service
 
-import ar.edu.ort.tp3_ort_2025_parcial.model.ProductResponse
+import ar.edu.ort.tp3_ort_2025_parcial.model.product.ProductResponse
 import retrofit2.Response
 import retrofit2.http.GET
 

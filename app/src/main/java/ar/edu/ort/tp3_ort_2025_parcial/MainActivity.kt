@@ -24,6 +24,7 @@ import ar.edu.ort.tp3_ort_2025_parcial.navigation.showTopBar
 import ar.edu.ort.tp3_ort_2025_parcial.screen.login.Login
 import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
 import ar.edu.ort.tp3_ort_2025_parcial.screen.homepage.BestSeller
+import ar.edu.ort.tp3_ort_2025_parcial.screen.homepage.Cart
 import ar.edu.ort.tp3_ort_2025_parcial.screen.homepage.HomeNotification
 import ar.edu.ort.tp3_ort_2025_parcial.screen.homepage.HomeScreen
 import ar.edu.ort.tp3_ort_2025_parcial.screen.homepage.ProductDetail
@@ -114,8 +115,9 @@ class MainActivity : ComponentActivity() {
                             arguments = listOf(navArgument("productId") { type = NavType.IntType })
                         ) { backStackEntry ->
                             val productId = backStackEntry.arguments?.getInt("productId")
-                            ProductDetail(productId, mainViewModel)
+                            ProductDetail(productId, navController, mainViewModel)
                         }
+                        composable(Screens.Cart.screen) { Cart(mainViewModel) }
                         // Account
                         composable(Screens.ProfileSeller.screen) { ProfileSeller(navController, mainViewModel) }
                         composable(Screens.ProfileUser.screen) { ProfileUser(navController, mainViewModel) }

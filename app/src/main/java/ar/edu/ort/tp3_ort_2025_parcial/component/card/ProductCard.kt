@@ -28,7 +28,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ar.edu.ort.tp3_ort_2025_parcial.R
-import ar.edu.ort.tp3_ort_2025_parcial.model.Product
+import ar.edu.ort.tp3_ort_2025_parcial.model.product.Product
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Black
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray3
 import coil.compose.AsyncImage

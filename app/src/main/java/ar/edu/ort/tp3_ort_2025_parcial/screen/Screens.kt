@@ -27,4 +27,5 @@ sealed class Screens(val screen: String) {
     data object BestSeller: Screens("best_seller")
     data object Search: Screens("search")
     data object ProductDetail: Screens("product_detail")
+    data object Cart: Screens("cart")
 }
