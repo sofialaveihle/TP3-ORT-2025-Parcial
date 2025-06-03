@@ -1,5 +1,6 @@
 package ar.edu.ort.tp3_ort_2025_parcial.screen.login
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
@@ -43,6 +44,7 @@ fun LoginPreview() {
     Login(navController = navController)
 }
 
+@SuppressLint("UnusedBoxWithConstraintsScope")
 @Composable
 fun Login(
     navController: NavController
@@ -142,6 +144,7 @@ fun Login(
             Button1(
                 onClick = { },
                 text = stringResource(R.string.get_started_button_text),
+                isSelected = email.isNotEmpty() && password.isNotEmpty(),
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(bottom = screenHeight * 0.03f)

@@ -36,7 +36,6 @@ fun InputCVV(
 ) {
     var isFocused by remember { mutableStateOf(false) }
 
-    val borderColor = if (isFocused || value.isNotEmpty()) Purple else Gray2
     val textColor = if (isFocused || value.isNotEmpty()) Purple else Gray2
 
     OutlinedTextField(
@@ -51,10 +50,9 @@ fun InputCVV(
             Text(
                 text = stringResource(R.string.cvv_title_button),
                 style = MaterialTheme.typography.labelMedium,
-                color = if (isFocused) Purple else Gray2
+                color = if (showError) Red else if (isFocused) Purple else Gray2
             )
         },
-        //visualTransformation = PasswordVisualTransformation(),
         singleLine = true,
         isError = showError,
         textStyle = MaterialTheme.typography.labelMedium.copy(color = textColor),
@@ -63,12 +61,12 @@ fun InputCVV(
             .height(60.dp)
             .onFocusChanged { focusState ->
                 isFocused = focusState.isFocused
-            }
-            .border(1.dp, borderColor, RoundedCornerShape(16.dp)),
+            },
         shape = RoundedCornerShape(16.dp),
         colors = OutlinedTextFieldDefaults.colors(
             focusedBorderColor = Purple,
             unfocusedBorderColor = Gray2,
+            errorBorderColor = Red,
             focusedContainerColor = White,
             unfocusedContainerColor = White,
             cursorColor = Purple,
@@ -76,8 +74,7 @@ fun InputCVV(
             unfocusedTextColor = Gray2,
             focusedPlaceholderColor = Purple,
             unfocusedPlaceholderColor = Gray2,
-            errorPlaceholderColor = Red,
-            errorBorderColor = Red,
+            errorPlaceholderColor = Red
         )
     )
 

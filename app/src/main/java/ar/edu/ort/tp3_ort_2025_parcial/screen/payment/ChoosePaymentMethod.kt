@@ -20,6 +20,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import ar.edu.ort.tp3_ort_2025_parcial.R
+import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button1
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button3
 import ar.edu.ort.tp3_ort_2025_parcial.component.radiobutton.RadioButton1
 import ar.edu.ort.tp3_ort_2025_parcial.component.text.Title2
@@ -65,7 +66,7 @@ fun ChoosePaymentMethodScreen(navController: NavController, mainViewModel: MainV
             )
         }
 
-        Button3(
+        Button1(
             text = stringResource(R.string.checkout_button),
             onClick = { navController.navigate(Screens.PaymentSuccess.screen) },
             isSelected = selectedMethod.isNotEmpty(),

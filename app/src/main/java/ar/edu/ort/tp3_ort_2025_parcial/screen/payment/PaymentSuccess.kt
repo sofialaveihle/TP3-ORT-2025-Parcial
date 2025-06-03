@@ -73,6 +73,7 @@ fun PaymentSuccessScreen(navController: NavController) {
             Button1(
                 text = stringResource(R.string.payment_success_button),
                 onClick = { navController.navigate(Screens.PaymentSuccess.screen) },
+                isSelected = true,
                 modifier = Modifier
                     .width(327.dp)
                     .height(60.dp)

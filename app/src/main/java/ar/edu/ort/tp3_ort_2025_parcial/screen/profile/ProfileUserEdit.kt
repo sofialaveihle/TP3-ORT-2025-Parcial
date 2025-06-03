@@ -134,6 +134,7 @@ fun ProfileUserEdit(
             Button1(
                 onClick = { navController.navigate(Screens.ProfileUser.screen) },
                 text = "Save Changes",
+                isSelected = true,
                 modifier = Modifier
             )
         }

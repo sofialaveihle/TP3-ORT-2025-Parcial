@@ -33,10 +33,14 @@ fun InputCreditCardNumber(
     OutlinedTextField(
         value = value,
         onValueChange = {
-            // Limitar a 16 caracteres numéricos
-            if (it.length <= 16 && it.all { char -> char.isDigit() }) {
-                onValueChange(it)
-            }
+            // Elimina los espacios y deja solo dígitos
+            val digitsOnly = it.filter { char -> char.isDigit() }
+            // Limita a 16 dígitos
+            val limited = digitsOnly.take(16)
+            // Agrupa de a 4 dígitos separados por espacio
+            val formatted = limited.chunked(4).joinToString(" ")
+
+            onValueChange(formatted)
         },
         singleLine = true,
         placeholder = {
