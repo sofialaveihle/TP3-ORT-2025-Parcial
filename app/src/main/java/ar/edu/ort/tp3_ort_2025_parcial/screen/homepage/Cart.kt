@@ -15,7 +15,6 @@ import androidx.compose.ui.unit.dp
 import ar.edu.ort.tp3_ort_2025_parcial.R
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button1
 import ar.edu.ort.tp3_ort_2025_parcial.component.card.CartInfoCard
-import ar.edu.ort.tp3_ort_2025_parcial.component.card.CartItemCard
 import ar.edu.ort.tp3_ort_2025_parcial.component.card.SwipeCartItemCard
 import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
 

@@ -2,7 +2,6 @@ package ar.edu.ort.tp3_ort_2025_parcial.service
 
 import ar.edu.ort.tp3_ort_2025_parcial.CartItemRetrofit
 import ar.edu.ort.tp3_ort_2025_parcial.model.cart.Cart
-import ar.edu.ort.tp3_ort_2025_parcial.model.cartItem.CartItem
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject

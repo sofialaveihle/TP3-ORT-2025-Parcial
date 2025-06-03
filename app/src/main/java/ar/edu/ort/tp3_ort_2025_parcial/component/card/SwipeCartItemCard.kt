@@ -4,10 +4,12 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.detectHorizontalDragGestures
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
@@ -44,24 +46,28 @@ fun SwipeCartItemCard(
         modifier = Modifier
             .fillMaxWidth()
             .height(120.dp)
+            .padding(horizontal = 16.dp),
+        contentAlignment = Alignment.Center
     ) {
         Box(
             modifier = Modifier
-                .matchParentSize()
-                .clip(shape = RoundedCornerShape(16.dp))
+                .align(Alignment.CenterEnd)
+                .width(80.dp)
+                .fillMaxHeight()
+                .clip(RoundedCornerShape(16.dp))
                 .background(White),
-            contentAlignment = Alignment.CenterEnd
+            contentAlignment = Alignment.Center
         ) {
             Icon(
                 painter = painterResource(id = R.drawable.delete_icon),
                 contentDescription = "Delete",
                 tint = Red,
                 modifier = Modifier
-                    .padding(end = 24.dp)
                     .size(24.dp)
                     .clickable { onDelete() }
             )
         }
+
         Box(
             modifier = Modifier
                 .graphicsLayer {
@@ -79,6 +85,9 @@ fun SwipeCartItemCard(
                         }
                     )
                 }
+                .height(120.dp)
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(16.dp))
         ) {
             CartItemCard(
                 title = title,
