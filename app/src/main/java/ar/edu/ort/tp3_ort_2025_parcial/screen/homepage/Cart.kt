@@ -12,14 +12,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import ar.edu.ort.tp3_ort_2025_parcial.R
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button1
 import ar.edu.ort.tp3_ort_2025_parcial.component.card.CartInfoCard
 import ar.edu.ort.tp3_ort_2025_parcial.component.card.SwipeCartItemCard
+import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
 import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
 
 @Composable
 fun Cart(
+    navController: NavController,
     viewmodel: MainViewModel
 ){
     val cart = viewmodel.cart
@@ -54,9 +57,10 @@ fun Cart(
         )
 
         Button1(
-            text = "Checkout",
-            onClick = {},
-            modifier = Modifier
+            text = stringResource(R.string.checkout_button_text),
+            onClick = { navController.navigate(Screens.AddPaymentMethod.screen) },
+            modifier = Modifier,
+            isSelected = true
         )
     }
 }
