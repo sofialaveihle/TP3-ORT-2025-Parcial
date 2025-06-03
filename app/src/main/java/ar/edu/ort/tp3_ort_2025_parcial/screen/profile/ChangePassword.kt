@@ -56,6 +56,7 @@ fun ChangePassword(
         Button1(
             onClick = { navController.navigate("profileUser") },
             text = "Change Password",
+            isSelected = password.isNotEmpty() && password == passwordConfirm,
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .fillMaxWidth()

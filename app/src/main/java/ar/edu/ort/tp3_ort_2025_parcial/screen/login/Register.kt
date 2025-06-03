@@ -1,5 +1,6 @@
 package ar.edu.ort.tp3_ort_2025_parcial.screen.login
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
@@ -41,6 +42,7 @@ fun RegisterPreview() {
     Register(navController = navController)
 }
 
+@SuppressLint("UnusedBoxWithConstraintsScope")
 @Composable
 fun Register(navController: NavController) {
     var fullName by remember { mutableStateOf("") }
@@ -108,6 +110,7 @@ fun Register(navController: NavController) {
             Button1(
                 onClick = { navController.navigate(Screens.ForgotPassword.screen) }, // TODO not push test
                 text = stringResource(R.string.get_started_button_text),
+                isSelected = fullName.isNotBlank() && email.isNotBlank() && password.isNotBlank() && termsAndConditions,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(bottom = screenHeight * 0.03f)

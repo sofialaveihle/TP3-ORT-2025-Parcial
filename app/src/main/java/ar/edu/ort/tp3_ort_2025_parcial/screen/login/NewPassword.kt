@@ -35,7 +35,7 @@ import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
 @Composable
 fun NewPasswordPreview() {
     val navController = rememberNavController()
-    Register(navController = navController)
+    NewPassword(navController = navController)
 }
 
 @Composable
@@ -98,6 +98,7 @@ fun NewPassword(navController: NavController) {
             Button1(
                 onClick = { navController.navigate(Screens.Login.screen) },
                 text = stringResource(R.string.reset_password_button_text),
+                isSelected = password.isNotEmpty() && confirmPassword.isNotEmpty(),
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(bottom = 24.dp)
