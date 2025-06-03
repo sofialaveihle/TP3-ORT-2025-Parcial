@@ -12,10 +12,28 @@
     <string name="welcome_carrousel_text_two_contentDescription">Illustration of a woman with brown hair tied in a ponytail, wearing a green shirt, gently holding a light brown tabby cat over her shoulder.</string>
     <string name="welcome_carrousel_text_three_contentDescription">Illustration of a man with light brown hair wearing an orange sweater, holding a white fluffy cat with a friendly expression.</string>
 
+    <!-- Homepage -->
+    <string name="location_desc">Location Icon</string>
+    <string name="track_your_location">Track your Location</string>
+    <string name="desc">Automatically selects your current location</string>
+    <string name="location_placeholder">Search…</string>
+    <string name="location">Location</string>
+    <string name="category">Category</string>
+    <string name="best_seller">Best Seller</string>
+    <string name="view_all">View All</string>
+    <string name="arrow_down">Arrow Down</string>
+    <string name="activity">Activity</string>
+    <string name="recent">Recent</string>
+    <string name="seller_mode">Seller Mode</string>
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="product_not_found">Product Not Found</string>
+    <string name="items">Items</string>
+    <string name="total">Total</string>
+    <string name="discount">Discount</string>
+
     <!-- Top App Bar Tittles-->
     <string name="notification">Notification</string>
     <string name="search">Search</string>
-    <string name="best_seller">Best Seller</string>
     <string name="product_detail">Product Detail</string>
     <string name="cart">Cart</string>
     <string name="payment_method">Payment Method</string>
@@ -30,10 +48,10 @@
     <string name="go_back_icon_desc">Go Back Icon</string>
 
     <!-- Bottom App Bar Section-->
-    <string name="home">welcome</string>
+    <string name="home">home</string>
     <string name="chat">login</string>
-    <string name="bag">bag</string>
-    <string name="profileUser">profileUser</string>
+    <string name="bag">cart</string>
+    <string name="profile">profileUser</string>
 
     <string name="home_desc">Home</string>
     <string name="chat_desc">Chat bubble</string>

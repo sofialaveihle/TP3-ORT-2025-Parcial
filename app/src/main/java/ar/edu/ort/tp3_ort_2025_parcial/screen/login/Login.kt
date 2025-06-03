@@ -147,7 +147,7 @@ fun Login(
                 }
             }
             Button1(
-                onClick = { },
+                onClick = { navController.navigate(Screens.Home.screen) },
                 text = stringResource(R.string.get_started_button_text),
                 isSelected = email.isNotEmpty() && password.isNotEmpty(),
                 modifier = Modifier

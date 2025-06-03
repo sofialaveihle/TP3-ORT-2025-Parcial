@@ -63,8 +63,6 @@ fun Button3(
     ) {
         Text(
             text = text,
-            //Queda extraño usando typography...
-            //style = MaterialTheme.typography.labelMedium,
             style = TextStyle(
                 fontSize = 14.sp,
                 lineHeight = 21.sp,
