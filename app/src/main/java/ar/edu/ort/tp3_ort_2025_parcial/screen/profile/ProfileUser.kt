@@ -33,11 +33,10 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import ar.edu.ort.tp3_ort_2025_parcial.R
-import ar.edu.ort.tp3_ort_2025_parcial.component.image.BannerImage
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button2
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button3
-import ar.edu.ort.tp3_ort_2025_parcial.component.button.ButtonIconEdit
 import ar.edu.ort.tp3_ort_2025_parcial.component.grid.ProductGrid
+import ar.edu.ort.tp3_ort_2025_parcial.component.image.BannerImage
 import ar.edu.ort.tp3_ort_2025_parcial.component.text.Title2
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray3
 import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
@@ -87,10 +86,6 @@ fun ProfileUser(
                     text = "Seller Mode",
                     isSelected = selected == "Seller Mode",
                     modifier = Modifier.weight(1f)
-                )
-                //Para redirigir a settings page (a confirmar si lo aplicamos o no)
-                ButtonIconEdit(
-                    onClick = { navController.navigate(("settingsPage")) },
                 )
             }
         }
@@ -142,12 +137,12 @@ fun ProfileUser(
                     .padding(top = 8.dp),
                 horizontalArrangement = Arrangement.spacedBy(12.dp, Alignment.CenterHorizontally)
             ) {
-                listOf("Saved", "Edit Profile").forEach { label ->
+                listOf("Settings", "Edit Profile").forEach { label ->
                     Button2(
                         onClick = {
                             selectedTab = label
                             when (label) {
-                                "Saved" -> navController.navigate("profileUser")
+                                "Settings" -> navController.navigate("settingsPage")
                                 "Edit Profile" -> navController.navigate("profileUserEdit")
                             }
                         },

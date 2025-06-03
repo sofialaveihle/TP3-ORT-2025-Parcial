@@ -49,11 +49,11 @@ fun getBottomBarContent(): List<BottomMenuContent> {
             stringResource(R.string.home_desc)
         ),
         BottomMenuContent(
-            ImageVector.vectorResource(id = R.drawable.chat_icon),
-            ImageVector.vectorResource(id = R.drawable.chat_icon_full),
-            Screens.Login.screen,
-            stringResource(R.string.chat),
-            stringResource(R.string.chat_desc)
+            ImageVector.vectorResource(id = R.drawable.time_circle_icon),
+            ImageVector.vectorResource(id = R.drawable.time_circle_icon_full),
+            Screens.Time.screen,
+            stringResource(R.string.empty_time),
+            stringResource(R.string.empty_desc)
         ),
         BottomMenuContent(
             ImageVector.vectorResource(id = R.drawable.bag_icon),
@@ -78,6 +78,8 @@ fun getSectionForRoute(route: String?): String? {
         Screens.Login.screen -> "login"
         Screens.Home.screen -> "home"
         Screens.ProfileUser.screen -> "profileUser"
+        Screens.Cart.screen -> "cart"
+        Screens.Time.screen -> "time"
         else -> null
     }
 }
