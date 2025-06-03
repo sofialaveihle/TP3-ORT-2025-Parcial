@@ -27,6 +27,9 @@
     <string name="seller_mode">Seller Mode</string>
     <string name="add_to_cart">Add to Cart</string>
     <string name="product_not_found">Product Not Found</string>
+    <string name="items">Items</string>
+    <string name="total">Total</string>
+    <string name="discount">Discount</string>
 
     <!-- Top App Bar Tittles-->
     <string name="notification">Notification</string>
@@ -47,7 +50,7 @@
     <!-- Bottom App Bar Section-->
     <string name="home">home</string>
     <string name="chat">login</string>
-    <string name="bag">bag</string>
+    <string name="bag">cart</string>
     <string name="profile">profileUser</string>
 
     <string name="home_desc">Home</string>

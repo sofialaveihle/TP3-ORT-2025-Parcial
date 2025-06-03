@@ -7,7 +7,7 @@ import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import ar.edu.ort.tp3_ort_2025_parcial.model.cartItem.CartItem
+import ar.edu.ort.tp3_ort_2025_parcial.model.cart.Cart
 import ar.edu.ort.tp3_ort_2025_parcial.model.product.Product
 import ar.edu.ort.tp3_ort_2025_parcial.navigation.getSectionForRoute
 import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
@@ -39,17 +39,18 @@ class MainViewModel @Inject constructor(
         return products.find { it.id == id }
     }
 
-    // Cart Items
-    var cartItems by mutableStateOf<List<CartItem>>(emptyList())
-    fun loadCartItems() {
+    // Cart
+    var cart by mutableStateOf<Cart?>(null)
+        private set
+
+    fun loadCart() {
         viewModelScope.launch {
-            val cartItemsList = getCartItemsService.invoke()
-            if (!cartItemsList.isNullOrEmpty() && cartItemsList.isNotEmpty()) {
-                cartItems = cartItemsList
+            val cartResponse = getCartItemsService.invoke()
+            if (cartResponse != null) {
+                cart = cartResponse
             }
         }
     }
-
 
     // Homepage
     private val _isSheetOpen = mutableStateOf(false)

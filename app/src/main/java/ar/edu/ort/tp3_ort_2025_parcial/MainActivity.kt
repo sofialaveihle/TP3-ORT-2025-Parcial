@@ -10,7 +10,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -56,14 +55,15 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         viewModel.loadProducts()
-        viewModel.loadCartItems()
+        viewModel.loadCart()
 
         enableEdgeToEdge()
         setContent {
             TP3ORT2025ParcialTheme {
 
                 val navController = rememberNavController()
-                val mainViewModel: MainViewModel = viewModel()
+                val mainViewModel = viewModel
+
 
                 // Ruta actual
                 val navBackStackEntry by navController.currentBackStackEntryAsState()

@@ -57,7 +57,7 @@ fun getBottomBarContent(): List<BottomMenuContent> {
         BottomMenuContent(
             ImageVector.vectorResource(id = R.drawable.bag_icon),
             ImageVector.vectorResource(id = R.drawable.bag_icon_full),
-            Screens.Login.screen,
+            Screens.Cart.screen,
             stringResource(R.string.bag),
             stringResource(R.string.bag_desc)
         ),
