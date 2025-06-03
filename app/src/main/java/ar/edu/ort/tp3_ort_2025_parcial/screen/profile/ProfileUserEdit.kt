@@ -21,6 +21,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -30,6 +31,7 @@ import ar.edu.ort.tp3_ort_2025_parcial.component.button.ButtonIconEdit
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button1
 import ar.edu.ort.tp3_ort_2025_parcial.component.entrydata.Input1WithTitle
 import ar.edu.ort.tp3_ort_2025_parcial.component.text.Title2
+import ar.edu.ort.tp3_ort_2025_parcial.model.user.UserModel
 import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray3
 import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
@@ -37,15 +39,15 @@ import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
 @Composable
 fun ProfileUserEdit(
     navController: NavController,
-    topBarViewModel: MainViewModel
+    viewModel: MainViewModel
 ) {
     LaunchedEffect(Unit) {
-        topBarViewModel.setTopBar("Account")
+        viewModel.setTopBar("Account")
     }
 
-    var name by remember { mutableStateOf("") }
-    var username by remember { mutableStateOf("") }
-    var email by remember { mutableStateOf("") }
+    var name by remember { mutableStateOf(viewModel.user.value?.firstName ?: "") }
+    var username by remember { mutableStateOf(viewModel.user.value?.lastName ?: "") }
+    var email by remember { mutableStateOf(viewModel.user.value?.email ?: "") }
 
     Column(
         modifier = Modifier
@@ -104,24 +106,24 @@ fun ProfileUserEdit(
                 modifier = Modifier.height(45.dp)
             )
             Title2(
-                text = "Abduldul",
+                text = viewModel.user.value?.firstName ?: "",
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center
             )
             Input1WithTitle(
-                text = "Name",
+                text = stringResource(R.string.name_place_holder),
                 value = name,
                 onValueChange = {name = it},
                 isPassword = false
             )
             Input1WithTitle(
-                text = "Username",
+                text = stringResource(R.string.username_place_holder),
                 value = username,
                 onValueChange = {username = it},
                 isPassword = false
             )
             Input1WithTitle(
-                text = "Email",
+                text = stringResource(R.string.email_place_holder),
                 value = email,
                 onValueChange = {email = it},
                 isPassword = false
@@ -132,8 +134,15 @@ fun ProfileUserEdit(
                     .height(20.dp)
             )
             Button1(
-                onClick = { navController.navigate(Screens.ProfileUser.screen) },
-                text = "Save Changes",
+                onClick = {
+                    val updatedUser = UserModel(
+                        firstName = name,
+                        lastName = username,
+                        email = email
+                    )
+                    viewModel.setUser(updatedUser)
+                    navController.navigate(Screens.ProfileUser.screen) },
+                text = stringResource(R.string.save_changes_button_text),
                 isSelected = true,
                 modifier = Modifier
             )

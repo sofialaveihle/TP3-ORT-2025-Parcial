@@ -1,4 +1,4 @@
-package ar.edu.ort.tp3_ort_2025_parcial
+package ar.edu.ort.tp3_ort_2025_parcial.network
 
 import ar.edu.ort.tp3_ort_2025_parcial.model.cart.Cart
 import ar.edu.ort.tp3_ort_2025_parcial.service.ICartItemAPI

@@ -2,6 +2,7 @@ package ar.edu.ort.tp3_ort_2025_parcial.network
 
 import ar.edu.ort.tp3_ort_2025_parcial.core.Config
 import ar.edu.ort.tp3_ort_2025_parcial.service.ICartItemAPI
+import ar.edu.ort.tp3_ort_2025_parcial.service.ILoginAPI
 import ar.edu.ort.tp3_ort_2025_parcial.service.IProductAPI
 import dagger.Module
 import dagger.Provides
@@ -35,5 +36,11 @@ object RetrofitModule {
     @Provides
     fun provideCartItemApiClient(retrofit: Retrofit): ICartItemAPI {
         return retrofit.create(ICartItemAPI::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideLoginApiClient(retrofit: Retrofit): ILoginAPI {
+        return retrofit.create(ILoginAPI::class.java)
     }
 }

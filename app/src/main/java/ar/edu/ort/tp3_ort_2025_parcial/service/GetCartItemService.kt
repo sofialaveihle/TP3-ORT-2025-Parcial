@@ -1,6 +1,6 @@
 package ar.edu.ort.tp3_ort_2025_parcial.service
 
-import ar.edu.ort.tp3_ort_2025_parcial.CartItemRetrofit
+import ar.edu.ort.tp3_ort_2025_parcial.network.CartItemRetrofit
 import ar.edu.ort.tp3_ort_2025_parcial.model.cart.Cart
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

@@ -26,6 +26,7 @@ import androidx.navigation.compose.rememberNavController
 import ar.edu.ort.tp3_ort_2025_parcial.R
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button1
 import ar.edu.ort.tp3_ort_2025_parcial.component.entrydata.Input1
+import ar.edu.ort.tp3_ort_2025_parcial.component.other.ErrorInfo
 import ar.edu.ort.tp3_ort_2025_parcial.component.text.Text1
 import ar.edu.ort.tp3_ort_2025_parcial.component.text.Text1Clickable
 import ar.edu.ort.tp3_ort_2025_parcial.component.text.Title1
@@ -75,15 +76,18 @@ fun NewPassword(navController: NavController) {
                 stringResource(R.string.new_password_place_holder),
                 "",
                 onValueChange = { password = it },
-                false
+                true
             )
             Spacer(modifier = Modifier.padding(16.dp))
             Input1(
                 stringResource(R.string.confirm_password_place_holder),
                 "",
                 onValueChange = { confirmPassword = it },
-                false
+                true
             )
+            if (password != confirmPassword) {
+                ErrorInfo(modifier = Modifier.align(alignment = Alignment.Start), "Error passwords are different")
+            }
 
             Spacer(modifier = Modifier.weight(1f))
             Row(modifier = Modifier.padding(bottom = 32.dp)) {
@@ -98,7 +102,7 @@ fun NewPassword(navController: NavController) {
             Button1(
                 onClick = { navController.navigate(Screens.Login.screen) },
                 text = stringResource(R.string.reset_password_button_text),
-                isSelected = password.isNotEmpty() && confirmPassword.isNotEmpty(),
+                isSelected = password.isNotEmpty() && confirmPassword.isNotEmpty() && password == confirmPassword,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(bottom = 24.dp)
