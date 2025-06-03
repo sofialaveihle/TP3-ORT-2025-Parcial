@@ -129,7 +129,7 @@ fun ProfileUser(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Title2(
-                text = "Abduldul",
+                text = viewModel.user.value?.firstName ?: "error",
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center
             )
