@@ -118,5 +118,6 @@
     <string name="expired_title_button">Expired</string>
     <string name="cvv_title_button">CVV</string>
     <string name="info_square_img">Info Square</string>
+    <string name="checkout_button_text">Checkout</string>
 
 </resources>

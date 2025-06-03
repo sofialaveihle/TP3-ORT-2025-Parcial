@@ -69,10 +69,9 @@ fun PaymentSuccessScreen(navController: NavController) {
                         .height(42.dp)
                 )
             }
-            // TODO Cambiar por pagina HOME, se dejo PaymentSuccess para tener algo
             Button1(
                 text = stringResource(R.string.payment_success_button),
-                onClick = { navController.navigate(Screens.PaymentSuccess.screen) },
+                onClick = { navController.navigate(Screens.Home.screen) },
                 isSelected = true,
                 modifier = Modifier
                     .width(327.dp)

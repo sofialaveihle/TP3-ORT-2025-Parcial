@@ -130,7 +130,8 @@ fun ProductDetail(
             Button1(
                 onClick = { navController.navigate(Screens.Cart.screen) },
                 text = stringResource(R.string.add_to_cart),
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
+                isSelected = true
             )
         }
     }

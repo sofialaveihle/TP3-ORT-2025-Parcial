@@ -121,7 +121,7 @@ class MainActivity : ComponentActivity() {
                             val productId = backStackEntry.arguments?.getInt("productId")
                             ProductDetail(productId, navController, mainViewModel)
                         }
-                        composable(Screens.Cart.screen) { Cart(mainViewModel) }
+                        composable(Screens.Cart.screen) { Cart(navController, mainViewModel) }
                         // Account
                         composable(Screens.ProfileSeller.screen) { ProfileSeller(navController, mainViewModel) }
                         composable(Screens.ProfileUser.screen) { ProfileUser(navController, mainViewModel) }

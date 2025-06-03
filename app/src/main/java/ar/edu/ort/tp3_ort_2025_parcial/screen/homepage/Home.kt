@@ -150,7 +150,7 @@ fun HomeScreen(
             )
             TextLink(
                 text = stringResource(R.string.view_all),
-                onClick = { navController.navigate(Screens.Welcome.screen)}
+                onClick = { navController.navigate(Screens.Home.screen) }
             )
         }
         ButtonCarouselRow()
