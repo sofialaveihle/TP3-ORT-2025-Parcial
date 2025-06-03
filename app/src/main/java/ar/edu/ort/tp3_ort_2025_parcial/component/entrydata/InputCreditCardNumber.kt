@@ -9,61 +9,64 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.focus.onFocusChanged
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import ar.edu.ort.tp3_ort_2025_parcial.R
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray2
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Purple
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Red
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.White
 
-@Preview
 @Composable
-fun Input1Preview() {
-    var text by remember { mutableStateOf("") }
-    Input1("input1", text, onValueChange = { text = it }, false)
-}
+fun InputCreditCardNumber(
+    value: String,
+    onValueChange: (String) -> Unit
+) {
+    val isFocused = remember { mutableStateOf(false) }
+    val textColor = if (value.isNotEmpty() || isFocused.value) Purple else Gray2
 
-
-@Composable
-fun Input1(placeHolder: String, value: String, onValueChange: (String) -> Unit, isPassword: Boolean) {
-    val passwordVisible by remember { mutableStateOf(false) }
     OutlinedTextField(
         value = value,
-        onValueChange = onValueChange,
+        onValueChange = {
+            // Elimina los espacios y deja solo dígitos
+            val digitsOnly = it.filter { char -> char.isDigit() }
+            // Limita a 16 dígitos
+            val limited = digitsOnly.take(16)
+            // Agrupa de a 4 dígitos separados por espacio
+            val formatted = limited.chunked(4).joinToString(" ")
+
+            onValueChange(formatted)
+        },
         singleLine = true,
         placeholder = {
             Text(
-                placeHolder,
-                style = MaterialTheme.typography.labelMedium
+                text = stringResource(R.string.card_number_title_button),
+                style = MaterialTheme.typography.labelMedium,
+                color = if (isFocused.value) Purple else Gray2
             )
         },
-        visualTransformation = if (!passwordVisible && isPassword) PasswordVisualTransformation() else VisualTransformation.None,
         modifier = Modifier
             .fillMaxWidth()
             .height(60.dp)
-            .border(width = 1.dp, color = Gray2, shape = RoundedCornerShape(16.dp)),
-        textStyle = MaterialTheme.typography.labelMedium,
+            .onFocusChanged { focusState ->
+                isFocused.value = focusState.isFocused
+            }
+            .border(1.dp, if (isFocused.value) Purple else Gray2, RoundedCornerShape(16.dp)),
+        textStyle = MaterialTheme.typography.labelMedium.copy(color = textColor),
         shape = RoundedCornerShape(16.dp),
         colors = OutlinedTextFieldDefaults.colors(
-            focusedBorderColor = Purple,
-            unfocusedBorderColor = Gray2,
             focusedContainerColor = White,
             unfocusedContainerColor = White,
-            focusedPlaceholderColor = Purple,
-            unfocusedPlaceholderColor = Gray2,
-            focusedTextColor = Purple,
-            unfocusedTextColor = Purple,
-            disabledTextColor = Gray2,
             cursorColor = Purple,
             errorPlaceholderColor = Red,
             errorBorderColor = Red,
+            focusedTextColor = Color.Unspecified,
+            unfocusedTextColor = Color.Unspecified
         )
     )
 }

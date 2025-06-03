@@ -80,6 +80,7 @@
     <string name="get_started_button_text">Get Started</string>
     <string name="next_button_text">Next</string>
     <string name="reset_password_button_text">Reset Password</string>
+    <string name="required_field_text">Required Fields</string>
 
 
     <!-- Terms and Conditions-->
@@ -100,5 +101,22 @@
     <string name="privacy_info_body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum sapien sodales mi sagittis hendrerit. Curabitur ut lectus nec orci cursus rhoncus. Donec a ultrices risus. Mauris ut erat ut urna rhoncus facilisis a eu neque. Ut iaculis viverra laoreet. In interdum, augue non auctor pharetra, felis ante gravida ante, quis mattis quam eros non quam. Vivamus scelerisque ante nec dapibus convallis. Vestibulum quis scelerisque leo. Vestibulum quis porttitor tellus, non finibus nibh. Quisque ut tempor nulla, sed consectetur tortor. Mauris volutpat viverra arcu non laoreet. Duis eu arcu nunc. Pellentesque ultricies facilisis faucibus. Duis magna sem, ultricies sed scelerisque efficitur, hendrerit at arcu.</string>
     <string name="mostrar_menos">Mostrar menos</string>
     <string name="mostrar_mas">Mostrar más</string>
+
+    <!-- Payment-->
+    <string name="payment_success_title">Payment\nSuccess!</string>
+    <string name="payment_success_description">your order is being prepared by the shop, the courier will send it to your address</string>
+    <string name="save_button">Save</string>
+    <string name="payment_success_button">Go Home</string>
+    <string name="checkout_button">Checkout</string>
+    <string name="paypal_radio_button">Paypal</string>
+    <string name="bank_transfer_radio_button">Bank Transfer</string>
+    <string name="choose_payment_method_title">Choose your Payment Method</string>
+    <string name="add_new_payment_title">Add New Payment</string>
+    <string name="payment_method_title">Payment Method</string>
+    <string name="card_number_title_button">Card Number</string>
+    <string name="card_name_title_button">Card Name</string>
+    <string name="expired_title_button">Expired</string>
+    <string name="cvv_title_button">CVV</string>
+    <string name="info_square_img">Info Square</string>
 
 </resources>

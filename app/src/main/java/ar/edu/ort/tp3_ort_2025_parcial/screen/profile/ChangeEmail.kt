@@ -49,6 +49,7 @@ fun ChangeEmail(
         Button1(
             onClick = { navController.navigate("profileUser") },
             text = "Save",
+            isSelected = email.isNotEmpty(),
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .fillMaxWidth()

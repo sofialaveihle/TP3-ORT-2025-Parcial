@@ -64,6 +64,7 @@ fun Login(
         Column(
             modifier = Modifier
                 .fillMaxSize()
+                .padding(top = 40.dp)
                 .verticalScroll(scrollState)
                 .align(Alignment.Center),
             verticalArrangement = Arrangement.SpaceBetween,
@@ -75,17 +76,17 @@ fun Login(
                     .fillMaxWidth(),
                 textAlign = TextAlign.Start
             )
-            Spacer(modifier = Modifier.padding(screenHeight * 0.04f))
+            Spacer(modifier = Modifier.padding(screenHeight * 0.02f))
             Text1(
                 text = stringResource(R.string.under_title_text),
                 textAlign = TextAlign.Start
             )
-            Spacer(modifier = Modifier.padding(screenHeight * 0.04f))
+            Spacer(modifier = Modifier.padding(screenHeight * 0.02f))
             Input1(
                 stringResource(R.string.email_place_holder),
                 email,
                 onValueChange = { email = it },
-                true
+                false
             )
             Spacer(modifier = Modifier.padding(screenHeight * 0.02f))
             Input1(
@@ -119,19 +120,23 @@ fun Login(
             ) {
                 ButtonSocialMediaLogin(
                     onClick = {},
-                    icon = painterResource(id = R.drawable.google_icon),
-                    text = "Google",
+                    icon1 = painterResource(id = R.drawable.google_icon),
+                    icon2 = painterResource(id = R.drawable.google_icon_text),
+                    contentDescription1 = "Google icon",
+                    contentDescription2 = "Google text",
                     screenHeight = screenHeight,
                     screenWidth = screenWidth,
-                    modifier = Modifier
+                    modifier = Modifier.weight(1f)
                 )
                 ButtonSocialMediaLogin(
                     onClick = {},
-                    icon = painterResource(id = R.drawable.facebook_icon),
-                    text = "Facebook",
+                    icon1 = painterResource(id = R.drawable.facebook_icon),
+                    icon2 = painterResource(id = R.drawable.facebook_icon_text),
+                    contentDescription1 = "Facebook icon",
+                    contentDescription2 = "Facebook text",
                     screenHeight = screenHeight,
                     screenWidth = screenWidth,
-                    modifier = Modifier.padding(start = screenWidth * 0.03f)
+                    modifier = Modifier.weight(1f)
                 )
             }
             Spacer(modifier = Modifier.weight(1f))
@@ -144,6 +149,7 @@ fun Login(
             Button1(
                 onClick = { navController.navigate(Screens.Home.screen) },
                 text = stringResource(R.string.get_started_button_text),
+                isSelected = email.isNotEmpty() && password.isNotEmpty(),
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(bottom = screenHeight * 0.03f)

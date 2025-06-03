@@ -20,6 +20,9 @@ sealed class Screens(val screen: String) {
     data object Faq : Screens("faq")
     data object ChangePassword : Screens("changePassword")
     data object ChangeEmail : Screens("changeEmail")
+    data object PaymentSuccess : Screens("paymentSuccess")
+    data object AddPaymentMethod : Screens("addPaymentMethod")
+    data object ChoosePaymentMethod : Screens("choosePaymentMethod")
 
     // Homepage
     data object Home : Screens("home")
