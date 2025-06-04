@@ -39,6 +39,7 @@ import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.Faq
 import ar.edu.ort.tp3_ort_2025_parcial.screen.welcome.Welcome
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.TP3ORT2025ParcialTheme
 import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.NotificationViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -55,6 +56,7 @@ class MainActivity : ComponentActivity() {
 
                 val navController = rememberNavController()
                 val mainViewModel: MainViewModel = viewModel()
+                val notificationViewModel: NotificationViewModel = viewModel()
 
                 // Ruta actual
                 val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -100,7 +102,7 @@ class MainActivity : ComponentActivity() {
                         composable(Screens.ProfileUserEdit.screen) { ProfileUserEdit(navController, mainViewModel) }
                         composable(Screens.SettingsPage.screen) { SettingsPage(navController, mainViewModel) }
                         composable(Screens.Address.screen) { Address(mainViewModel) }
-                        composable(Screens.Notification.screen) { Notification(mainViewModel) }
+                        composable(Screens.Notification.screen) { Notification(mainViewModel, notificationViewModel) }
                         composable(Screens.Privacy.screen) { Privacy(mainViewModel) }
                         composable(Screens.Security.screen) { Security(navController, mainViewModel) }
                         composable(Screens.ContactUs.screen) { ContactUs(mainViewModel) }

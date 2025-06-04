@@ -11,22 +11,38 @@ import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import ar.edu.ort.tp3_ort_2025_parcial.R
 import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.NotificationViewModel
+import ar.edu.ort.tp3_ort_2025_parcial.model.Notification
+
 
 @Composable
 fun Notification(
-    topBarViewModel: MainViewModel
+    topBarViewModel: MainViewModel,
+    viewModel: NotificationViewModel = hiltViewModel()
 ) {
     LaunchedEffect(Unit) {
         topBarViewModel.setTopBar("Notification")
     }
-    val settings = topBarViewModel.notificationSettings
+
+    val notificationState by viewModel.notificationSettings.collectAsState()
+
+    val settings = notificationState ?: Notification(
+        user_id = 1,
+        likedPost = true,
+        newMessage = true,
+        itemSold = true
+    )
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -41,14 +57,14 @@ fun Notification(
         )
         MenuItemRow(
             notificationItem = "Liked Post",
-            checked = settings["Liked Post"] ?: true,
-            onCheckedChange = { topBarViewModel.toggleNotification("Liked Post", it) }
+            checked = settings.likedPost,
+            onCheckedChange = { viewModel.toggleNotification("Liked Post", it) }
         )
 
         MenuItemRow(
             notificationItem = "New Message",
-            checked = settings["New Message"] ?: true,
-            onCheckedChange = { topBarViewModel.toggleNotification("New Message", it) }
+            checked = settings.newMessage,
+            onCheckedChange = { viewModel.toggleNotification("New Message", it) }
         )
 
         Text(
@@ -58,8 +74,8 @@ fun Notification(
         )
         MenuItemRow(
             notificationItem = "Item Sold",
-            checked = settings["Item Sold"] ?: true,
-            onCheckedChange = { topBarViewModel.toggleNotification("Item Sold", it) }
+            checked = settings.itemSold,
+            onCheckedChange = { viewModel.toggleNotification("Item Sold", it) }
         )
     }
 }
