@@ -13,13 +13,14 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import ar.edu.ort.tp3_ort_2025_parcial.component.card.ProductCard
 import ar.edu.ort.tp3_ort_2025_parcial.component.text.Text1
-import ar.edu.ort.tp3_ort_2025_parcial.model.Product
+import ar.edu.ort.tp3_ort_2025_parcial.model.product.Product
 import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
 
 @Composable
 fun ProductGrid(
     navController: NavController,
-    productList: List<Product>
+    productList: List<Product>,
+    modifier: Modifier = Modifier
 ) {
     if (productList.isEmpty()) {
         Text1(
@@ -40,13 +41,12 @@ fun ProductGrid(
             contentPadding = PaddingValues(5.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
             horizontalArrangement = Arrangement.spacedBy(15.dp),
-            modifier = Modifier.padding(horizontal = 20.dp)
+            modifier = modifier.padding(horizontal = 20.dp)
         ) {
             items(repeatedList) {
                 ProductCard(
                     product = it,
-                    //Modificar para que navegue a screen de detalle de producto
-                    onClick = { navController.navigate(Screens.Welcome.screen) }
+                    onClick = { navController.navigate("${Screens.ProductDetail.screen}/${it.id}") }
                 )
             }
         }

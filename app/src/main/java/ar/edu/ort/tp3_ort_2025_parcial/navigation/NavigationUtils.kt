@@ -19,11 +19,13 @@ private fun getNoTopBarRoutes(): List<String> {
     return listOf(
         Screens.Welcome.screen,
         Screens.Login.screen,
+        Screens.Home.screen,
         Screens.Register.screen,
         Screens.ForgotPassword.screen,
         Screens.NewPassword.screen,
         Screens.ProfileUser.screen,
-        Screens.ProfileSeller.screen
+        Screens.ProfileSeller.screen,
+        Screens.PaymentSuccess.screen
     )
 }
 
@@ -42,7 +44,7 @@ fun getBottomBarContent(): List<BottomMenuContent> {
         BottomMenuContent(
             ImageVector.vectorResource(id = R.drawable.home_icon),
             ImageVector.vectorResource(id = R.drawable.home_icon_full),
-            Screens.Welcome.screen,
+            Screens.Home.screen,
             stringResource(R.string.home),
             stringResource(R.string.home_desc)
         ),
@@ -56,7 +58,7 @@ fun getBottomBarContent(): List<BottomMenuContent> {
         BottomMenuContent(
             ImageVector.vectorResource(id = R.drawable.bag_icon),
             ImageVector.vectorResource(id = R.drawable.bag_icon_full),
-            Screens.Login.screen,
+            Screens.Cart.screen,
             stringResource(R.string.bag),
             stringResource(R.string.bag_desc)
         ),
@@ -64,7 +66,7 @@ fun getBottomBarContent(): List<BottomMenuContent> {
             ImageVector.vectorResource(id = R.drawable.profile_icon),
             ImageVector.vectorResource(id = R.drawable.profile_icon_full),
             Screens.ProfileUser.screen,
-            stringResource(R.string.profileUser),
+            stringResource(R.string.profile),
             stringResource(R.string.profile_desc)
         ),
     )
@@ -74,6 +76,7 @@ fun getSectionForRoute(route: String?): String? {
     return when (route) {
         Screens.Welcome.screen -> "welcome"
         Screens.Login.screen -> "login"
+        Screens.Home.screen -> "home"
         Screens.ProfileUser.screen -> "profileUser"
         else -> null
     }
@@ -88,6 +91,9 @@ fun showBottomBar(
 
 private fun getNoBottomBarRoutes(): List<String> {
     return listOf(
+        Screens.Welcome.screen,
+        Screens.HomeNotifications.screen,
+        Screens.Search.screen,
         Screens.Login.screen,
         Screens.Register.screen,
         Screens.ForgotPassword.screen,
@@ -103,5 +109,8 @@ private fun getNoBottomBarRoutes(): List<String> {
         Screens.Faq.screen,
         Screens.ChangePassword.screen,
         Screens.ChangeEmail.screen,
+        Screens.PaymentSuccess.screen,
+        Screens.AddPaymentMethod.screen,
+        Screens.ChoosePaymentMethod.screen
     )
 }

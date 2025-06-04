@@ -62,8 +62,6 @@ fun Button2(
     ) {
         Text(
             text = text,
-            //Queda extraño usando typography...
-            //style = MaterialTheme.typography.labelSmall,
             style = TextStyle(
                 fontSize = 12.sp,
                 lineHeight = 19.2.sp,

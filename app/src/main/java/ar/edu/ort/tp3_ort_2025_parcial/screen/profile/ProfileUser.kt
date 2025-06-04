@@ -1,5 +1,6 @@
 package ar.edu.ort.tp3_ort_2025_parcial.screen.profile
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -14,7 +15,9 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -23,6 +26,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -38,6 +42,7 @@ import ar.edu.ort.tp3_ort_2025_parcial.component.text.Title2
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray3
 import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
 
+@SuppressLint("ConfigurationScreenWidthHeight")
 @Composable
 fun ProfileUser(
     navController: NavController,
@@ -46,6 +51,7 @@ fun ProfileUser(
     val products = viewModel.products
     var selected by remember { mutableStateOf("Profile") }
     var selectedTab by remember { mutableStateOf("EditProfile") }
+    val screenHeightDp = LocalConfiguration.current.screenHeightDp
 
     LaunchedEffect(Unit) {
         viewModel.loadProducts()
@@ -53,6 +59,7 @@ fun ProfileUser(
 
     Column(
         modifier = Modifier
+            .verticalScroll(rememberScrollState())
             .fillMaxSize()
             .padding(top = 30.dp),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -122,7 +129,7 @@ fun ProfileUser(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Title2(
-                text = "Abduldul",
+                text = viewModel.user.value?.firstName ?: "error",
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center
             )
@@ -154,7 +161,10 @@ fun ProfileUser(
             )
             ProductGrid(
                 navController = navController,
-                productList = products
+                productList = products,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height((screenHeightDp * 0.5f).dp)
             )
         }
     }

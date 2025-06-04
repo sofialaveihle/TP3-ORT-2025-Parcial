@@ -1,6 +1,5 @@
 package ar.edu.ort.tp3_ort_2025_parcial.component.entrydata
 
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -32,12 +31,13 @@ fun Input1Preview() {
 
 
 @Composable
-fun Input1(placeHolder: String, value: String, onValueChange: (String) -> Unit, isPassword: Boolean) {
+fun Input1(placeHolder: String, value: String, onValueChange: (String) -> Unit, isPassword: Boolean, isError: Boolean = false) {
     val passwordVisible by remember { mutableStateOf(false) }
     OutlinedTextField(
         value = value,
         onValueChange = onValueChange,
         singleLine = true,
+        isError = isError,
         placeholder = {
             Text(
                 placeHolder,
@@ -47,8 +47,7 @@ fun Input1(placeHolder: String, value: String, onValueChange: (String) -> Unit, 
         visualTransformation = if (!passwordVisible && isPassword) PasswordVisualTransformation() else VisualTransformation.None,
         modifier = Modifier
             .fillMaxWidth()
-            .height(60.dp)
-            .border(width = 1.dp, color = Gray2, shape = RoundedCornerShape(16.dp)),
+            .height(60.dp),
         textStyle = MaterialTheme.typography.labelMedium,
         shape = RoundedCornerShape(16.dp),
         colors = OutlinedTextFieldDefaults.colors(
@@ -59,7 +58,8 @@ fun Input1(placeHolder: String, value: String, onValueChange: (String) -> Unit, 
             focusedPlaceholderColor = Purple,
             unfocusedPlaceholderColor = Gray2,
             focusedTextColor = Purple,
-            unfocusedTextColor = Gray2,
+            unfocusedTextColor = Purple,
+            disabledTextColor = Gray2,
             cursorColor = Purple,
             errorPlaceholderColor = Red,
             errorBorderColor = Red,

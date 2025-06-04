@@ -28,7 +28,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ar.edu.ort.tp3_ort_2025_parcial.R
-import ar.edu.ort.tp3_ort_2025_parcial.model.Product
+import ar.edu.ort.tp3_ort_2025_parcial.model.product.Product
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Black
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray3
 import coil.compose.AsyncImage
@@ -55,15 +55,6 @@ fun ProductCard(
                 product = product,
                 onClick = onClick
             )
-//            Image(
-//                painter = painterResource(id = R.drawable.product_1),
-//                contentDescription = product.title,
-//                contentScale = ContentScale.FillBounds,
-//                modifier = Modifier
-//                    .width(142.dp)
-//                    .height(142.dp)
-//                    .clickable { onClick() }
-//            )
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -82,7 +73,6 @@ fun ProductCard(
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     Text(
-//                      text = product.price.toString(),
                         text = "$${product.price}",
                         style = TextStyle(
                             fontSize = 20.sp,

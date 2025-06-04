@@ -4,26 +4,38 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.viewModels
 import androidx.compose.foundation.layout.padding
+import androidx.activity.viewModels
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavType
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import ar.edu.ort.tp3_ort_2025_parcial.component.bar.BottomAppBar
 import ar.edu.ort.tp3_ort_2025_parcial.component.bar.TopAppBar
 import ar.edu.ort.tp3_ort_2025_parcial.navigation.showBottomBar
 import ar.edu.ort.tp3_ort_2025_parcial.navigation.showTopBar
 import ar.edu.ort.tp3_ort_2025_parcial.screen.login.Login
 import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
+import ar.edu.ort.tp3_ort_2025_parcial.screen.homepage.BestSeller
+import ar.edu.ort.tp3_ort_2025_parcial.screen.homepage.Cart
+import ar.edu.ort.tp3_ort_2025_parcial.screen.homepage.HomeNotification
+import ar.edu.ort.tp3_ort_2025_parcial.screen.homepage.HomeScreen
+import ar.edu.ort.tp3_ort_2025_parcial.screen.homepage.ProductDetail
+import ar.edu.ort.tp3_ort_2025_parcial.screen.homepage.Search
 import ar.edu.ort.tp3_ort_2025_parcial.screen.login.ForgotPassword
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.LoginViewModel
 import ar.edu.ort.tp3_ort_2025_parcial.screen.login.NewPassword
 import ar.edu.ort.tp3_ort_2025_parcial.screen.login.Register
+import ar.edu.ort.tp3_ort_2025_parcial.screen.payment.AddPaymentMethodScreen
+import ar.edu.ort.tp3_ort_2025_parcial.screen.payment.ChoosePaymentMethodScreen
+import ar.edu.ort.tp3_ort_2025_parcial.screen.payment.PaymentSuccessScreen
 import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.ChangeEmail
 import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.ChangePassword
 import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.ProfileSeller
@@ -49,6 +61,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         viewModel.loadProducts()
+        viewModel.loadCart()
 
         enableEdgeToEdge()
         setContent {
@@ -92,11 +105,31 @@ class MainActivity : ComponentActivity() {
                         navController = navController,
                         startDestination = Screens.Welcome.screen
                     ) {
+                        // Welcome
                         composable(Screens.Welcome.screen) { Welcome(navController) }
+                        // Log in
                         composable(Screens.Login.screen) { Login(navController) }
+                        composable(Screens.Login.screen) {
+                            val loginViewModel: LoginViewModel = hiltViewModel()
+                            Login(navController, viewModel, loginViewModel)
+                        }
                         composable(Screens.Register.screen) { Register(navController) }
                         composable(Screens.ForgotPassword.screen) { ForgotPassword(navController) }
                         composable(Screens.NewPassword.screen) { NewPassword(navController) }
+                        // Home
+                        composable(Screens.Home.screen) { HomeScreen(navController, mainViewModel) }
+                        composable(Screens.BestSeller.screen) { BestSeller(navController, mainViewModel) }
+                        composable(Screens.HomeNotifications.screen) { HomeNotification(mainViewModel) }
+                        composable(Screens.Search.screen) { Search(mainViewModel) }
+                        composable(
+                            route = "${Screens.ProductDetail.screen}/{productId}",
+                            arguments = listOf(navArgument("productId") { type = NavType.IntType })
+                        ) { backStackEntry ->
+                            val productId = backStackEntry.arguments?.getInt("productId")
+                            ProductDetail(productId, navController, mainViewModel)
+                        }
+                        composable(Screens.Cart.screen) { Cart(navController, mainViewModel) }
+                        // Account
                         composable(Screens.ProfileSeller.screen) { ProfileSeller(navController, mainViewModel) }
                         composable(Screens.ProfileUser.screen) { ProfileUser(navController, mainViewModel) }
                         composable(Screens.ProfileUserEdit.screen) { ProfileUserEdit(navController, mainViewModel) }
@@ -109,7 +142,9 @@ class MainActivity : ComponentActivity() {
                         composable(Screens.Faq.screen) { Faq(mainViewModel) }
                         composable(Screens.ChangePassword.screen) { ChangePassword(navController, mainViewModel) }
                         composable(Screens.ChangeEmail.screen) { ChangeEmail(navController, mainViewModel) }
-
+                        composable(Screens.PaymentSuccess.screen) { PaymentSuccessScreen(navController) }
+                        composable(Screens.AddPaymentMethod.screen) { AddPaymentMethodScreen(navController, mainViewModel) }
+                        composable(Screens.ChoosePaymentMethod.screen){ ChoosePaymentMethodScreen(navController, mainViewModel) }
                     }
                 }
             }
