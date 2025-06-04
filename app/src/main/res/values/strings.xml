@@ -49,12 +49,12 @@
 
     <!-- Bottom App Bar Section-->
     <string name="home">home</string>
-    <string name="chat">login</string>
+    <string name="empty_time">time</string>
     <string name="bag">cart</string>
     <string name="profile">profileUser</string>
 
     <string name="home_desc">Home</string>
-    <string name="chat_desc">Chat bubble</string>
+    <string name="empty_desc">Time icon</string>
     <string name="bag_desc">Shopping bag</string>
     <string name="profile_desc">User profile</string>
     <string name="forgot_password_login_title">Forgot\nPassword</string>

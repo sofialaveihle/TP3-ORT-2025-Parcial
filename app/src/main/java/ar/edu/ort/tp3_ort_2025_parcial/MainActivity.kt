@@ -12,6 +12,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavType
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -23,6 +24,7 @@ import ar.edu.ort.tp3_ort_2025_parcial.navigation.showBottomBar
 import ar.edu.ort.tp3_ort_2025_parcial.navigation.showTopBar
 import ar.edu.ort.tp3_ort_2025_parcial.screen.login.Login
 import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
+import ar.edu.ort.tp3_ort_2025_parcial.screen.empty.Time
 import ar.edu.ort.tp3_ort_2025_parcial.screen.homepage.BestSeller
 import ar.edu.ort.tp3_ort_2025_parcial.screen.homepage.Cart
 import ar.edu.ort.tp3_ort_2025_parcial.screen.homepage.HomeNotification
@@ -145,6 +147,7 @@ class MainActivity : ComponentActivity() {
                         composable(Screens.PaymentSuccess.screen) { PaymentSuccessScreen(navController) }
                         composable(Screens.AddPaymentMethod.screen) { AddPaymentMethodScreen(navController, mainViewModel) }
                         composable(Screens.ChoosePaymentMethod.screen){ ChoosePaymentMethodScreen(navController, mainViewModel) }
+                        composable(Screens.Time.screen) { Time(mainViewModel) }
                     }
                 }
             }

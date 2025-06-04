@@ -31,4 +31,8 @@ sealed class Screens(val screen: String) {
     data object Search: Screens("search")
     data object ProductDetail: Screens("product_detail")
     data object Cart: Screens("cart")
+
+    //Time (empty screen, second button of bottom bar)
+    data object Time : Screens("time")
+
 }
