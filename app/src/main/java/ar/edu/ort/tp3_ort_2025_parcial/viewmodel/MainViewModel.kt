@@ -3,10 +3,10 @@ package ar.edu.ort.tp3_ort_2025_parcial.viewmodel
 import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import ar.edu.ort.tp3_ort_2025_parcial.model.user.UserModel
 import ar.edu.ort.tp3_ort_2025_parcial.model.cart.Cart
 import ar.edu.ort.tp3_ort_2025_parcial.model.product.Product
 import ar.edu.ort.tp3_ort_2025_parcial.navigation.getSectionForRoute
@@ -117,6 +117,13 @@ class MainViewModel @Inject constructor(
 
     fun toggleNotification(key: String, value: Boolean) {
         notificationSettings[key] = value
+    }
+
+    // User
+    private val _user = MutableStateFlow<UserModel?>(null)
+    val user: StateFlow<UserModel?> = _user
+    fun setUser(user: UserModel) {
+        _user.value = user
     }
 
 }

@@ -1,28 +1,24 @@
 package ar.edu.ort.tp3_ort_2025_parcial.component.entrydata
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
-import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.onFocusChanged
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import ar.edu.ort.tp3_ort_2025_parcial.R
+import ar.edu.ort.tp3_ort_2025_parcial.component.other.ErrorInfo
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray2
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Purple
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Red
@@ -79,22 +75,10 @@ fun InputCVV(
     )
 
     if (showError) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.padding(top = 4.dp, start = 4.dp)
-        ) {
-            Image(
-                painter = painterResource(id = R.drawable.info_square),
-                contentDescription = stringResource(R.string.info_square_img),
-                modifier = Modifier.size(14.dp)
-            )
-            Spacer(modifier = Modifier.width(4.dp))
-            Text(
-                text = stringResource(R.string.required_field_text),
-                color = Red,
-                style = MaterialTheme.typography.labelSmall
-            )
-        }
+        ErrorInfo(
+            modifier = Modifier.padding(top = 4.dp, start = 4.dp),
+            stringResource(R.string.required_field_text)
+        )
     }
 }
 

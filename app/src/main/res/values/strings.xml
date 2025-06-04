@@ -119,5 +119,9 @@
     <string name="cvv_title_button">CVV</string>
     <string name="info_square_img">Info Square</string>
     <string name="checkout_button_text">Checkout</string>
+    <string name="name_place_holder">Name</string>
+    <string name="username_place_holder">Username</string>
+    <string name="save_changes_button_text">Save Changes</string>
+    <string name="forgot_password">Forgot password?</string>
 
 </resources>
