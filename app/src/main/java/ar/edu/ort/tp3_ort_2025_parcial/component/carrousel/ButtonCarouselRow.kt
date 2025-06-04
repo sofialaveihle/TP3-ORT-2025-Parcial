@@ -18,7 +18,6 @@ import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button2
 fun ButtonCarouselRow(
     modifier: Modifier = Modifier
 ) {
-//    val items = getButtonCarouselItems()
     var selectedIndex by remember { mutableIntStateOf(0) }
     val items = getButtonCarouselItems().mapIndexed { index, item ->
         item.copy(
@@ -34,14 +33,6 @@ fun ButtonCarouselRow(
         contentPadding = PaddingValues(horizontal = 16.dp),
         horizontalArrangement = Arrangement.spacedBy(12.dp)
     ) {
-//        items(items.size) { index ->
-//            val item = items[index]
-//            Button2(
-//                onClick = item.onClick,
-//                text = item.text,
-//                isSelected = item.selected
-//            )
-//        }
         items(items.size) { index ->
             val item = items[index]
             Button2(
