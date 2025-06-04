@@ -7,6 +7,8 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -33,6 +35,7 @@ fun SettingsPage(
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .verticalScroll(rememberScrollState())
             .padding(vertical = 30.dp, horizontal = 15.dp),
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.Start
@@ -45,7 +48,7 @@ fun SettingsPage(
         MenuItemRow(R.drawable.settings_icon_account, stringResource(R.string.account), onClick = { navController.navigate("profileUserEdit") })
         MenuItemRow(R.drawable.settings_icon_address, stringResource(R.string.address), onClick = { navController.navigate("address") })    // este item no tiene pantalla asignada en figma
         MenuItemRow(R.drawable.settings_icon_notification, stringResource(R.string.notification), onClick = { navController.navigate("notification") })
-        MenuItemRow(R.drawable.settings_icon_payment_method, stringResource(R.string.payment_method), onClick = { navController.navigate("welcome") })
+        MenuItemRow(R.drawable.settings_icon_payment_method, stringResource(R.string.payment_method), onClick = { navController.navigate("addPaymentMethod") })
         MenuItemRow(R.drawable.settings_icon_privacy, stringResource(R.string.privacy), onClick = { navController.navigate("privacy") })
         MenuItemRow(R.drawable.settings_icon_security, stringResource(R.string.security), onClick = { navController.navigate("security") })
         Text(
