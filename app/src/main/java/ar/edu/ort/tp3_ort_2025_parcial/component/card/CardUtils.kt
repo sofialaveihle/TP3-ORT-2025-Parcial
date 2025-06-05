@@ -1,6 +1,7 @@
 package ar.edu.ort.tp3_ort_2025_parcial.component.card
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.stringResource
 import ar.edu.ort.tp3_ort_2025_parcial.R
 
 data class NotificationInfo(
@@ -10,12 +11,13 @@ data class NotificationInfo(
     val endImage: Int?,
 )
 
+@Composable
 private fun getActivityInfo() : List<NotificationInfo> {
     return listOf(
-        NotificationInfo(R.drawable.product_notification2, "SALE 50%", "Check the details!", null),
-        NotificationInfo(R.drawable.product_notification2, "SALE 50%", "Check the details!", null),
-        NotificationInfo(R.drawable.product_notification2, "SALE 50%", "Check the details!", null),
-        NotificationInfo(R.drawable.product_notification2, "SALE 50%", "Check the details!", null)
+        NotificationInfo(R.drawable.product_notification2, text = stringResource(R.string.sale), text2 = stringResource(R.string.check_details), null),
+        NotificationInfo(R.drawable.product_notification2, text = stringResource(R.string.sale), text2 = stringResource(R.string.check_details), null),
+        NotificationInfo(R.drawable.product_notification2, text = stringResource(R.string.sale), text2 = stringResource(R.string.check_details), null),
+        NotificationInfo(R.drawable.product_notification2, text = stringResource(R.string.sale), text2 = stringResource(R.string.check_details), null)
     )
 }
 
@@ -27,16 +29,17 @@ fun ActivityContent(){
     }
 }
 
+@Composable
 private fun getSellerModeInfo() : List<NotificationInfo> {
     return listOf(
-        NotificationInfo(R.drawable.product_notification2, "You Got New Order!", "Please arrange delivery", null),
-        NotificationInfo(R.drawable.user_notification, "Momon", "Liked your Product", R.drawable.product_notification2),
-        NotificationInfo(R.drawable.user_notification2, "Ola", "Liked your Product", R.drawable.product_notification2),
-        NotificationInfo(R.drawable.user_notification, "Momon", "Liked your Product", R.drawable.product_notification2),
-        NotificationInfo(R.drawable.product_notification2, "You Got New Order!", "Please arrange delivery", null),
-        NotificationInfo(R.drawable.product_notification2, "You Got New Order!", "Please arrange delivery", null),
-        NotificationInfo(R.drawable.product_notification2, "You Got New Order!", "Please arrange delivery", null),
-        NotificationInfo(R.drawable.user_notification2, "Ola", "Liked your Product", R.drawable.product_notification2),
+        NotificationInfo(R.drawable.product_notification2, text = stringResource(R.string.new_order), text2 = stringResource(R.string.arrange_delivery), null),
+        NotificationInfo(R.drawable.user_notification, text = stringResource(R.string.momon), text2 = stringResource(R.string.like), R.drawable.product_notification2),
+        NotificationInfo(R.drawable.user_notification2, text = stringResource(R.string.ola), text2 = stringResource(R.string.like), R.drawable.product_notification2),
+        NotificationInfo(R.drawable.user_notification, text = stringResource(R.string.momon), text2 = stringResource(R.string.like), R.drawable.product_notification2),
+        NotificationInfo(R.drawable.product_notification2, text = stringResource(R.string.new_order), text2 = stringResource(R.string.arrange_delivery), null),
+        NotificationInfo(R.drawable.product_notification2, text = stringResource(R.string.new_order), text2 = stringResource(R.string.arrange_delivery), null),
+        NotificationInfo(R.drawable.product_notification2, text = stringResource(R.string.new_order), text2 = stringResource(R.string.arrange_delivery), null),
+        NotificationInfo(R.drawable.user_notification2, text = stringResource(R.string.ola), text2 = stringResource(R.string.like), R.drawable.product_notification2),
         )
 }
 

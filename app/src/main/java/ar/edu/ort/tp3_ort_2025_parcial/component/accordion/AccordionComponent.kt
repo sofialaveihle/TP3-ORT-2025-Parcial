@@ -55,12 +55,12 @@ private fun Security(key: Int) {
                 .weight(1f)
                 .padding(horizontal = 10.dp)
         ) {
-            Text(text = "Security",
+            Text(text = stringResource(R.string.faq_accordion_title),
                 style = MaterialTheme.typography.displayMedium.copy(color = Color.Black),
                 modifier = Modifier.padding(vertical = 10.dp))
             if (expanded) {
                 Text(
-                    text = ("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum sapien sodales mi sagittis hendrerit. Curabitur ut lectus nec orci cursus rhoncus. "),
+                    text = stringResource(R.string.faq_accordion_content),
                     style = MaterialTheme.typography.bodyMedium
                 )
             }

@@ -20,6 +20,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -34,8 +35,8 @@ import ar.edu.ort.tp3_ort_2025_parcial.R
 @Composable
 fun BannerPreview(){
     PromoBanner(
-        backgroundResId = R.drawable.banner_background, // tu imagen de fondo
-        productResId = R.drawable.banner_image     // tu imagen del producto
+        backgroundResId = R.drawable.banner_background,
+        productResId = R.drawable.banner_image
     )
 }
 
@@ -51,14 +52,12 @@ fun PromoBanner(
             .height(160.dp)
             .clip(RoundedCornerShape(20.dp))
     ) {
-        // Imagen de fondo
         Image(
             painter = painterResource(id = backgroundResId),
             contentDescription = null,
             contentScale = ContentScale.Crop,
             modifier = Modifier.fillMaxSize()
         )
-
         Row(
             modifier = Modifier
                 .fillMaxSize()
@@ -77,7 +76,7 @@ fun PromoBanner(
 
             Column {
                 Text(
-                    text = "Royal Canin\nAdult Pomeraniann",
+                    text = stringResource(R.string.banner_title),
                     style = TextStyle(
                         fontSize = 14.sp,
                         fontFamily = FontFamily(Font(R.font.poppins_semibold)),
@@ -87,7 +86,7 @@ fun PromoBanner(
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = "Get an interesting promo\nhere, without conditions",
+                    text = stringResource(R.string.banner_text),
                     style = TextStyle(
                         fontSize = 12.sp,
                         lineHeight = 15.6.sp,
