@@ -8,12 +8,6 @@ class CreditCardRepositoryImplementation(private val creditCardDAO: CreditCardDA
 
     override fun getCreditCardByUserId(userId: Int): Flow<CreditCard?> = creditCardDAO.getCreditCardByUserId(userId)
 
-    override fun findCreditCardNumberByUserId(userId: Int): Flow<String>  = creditCardDAO.findCreditCardNumberByUserId(userId)
-
-    override fun findCreditCardNameByUserId(userId: Int): Flow<String> = creditCardDAO.findCreditCardNameByUserId(userId)
-
-    override fun findCreditCardExpirationByUserId(userId: Int): Flow<String>  = creditCardDAO.findCreditCardExpirationByUserId(userId)
-
     override suspend fun insertCreditCard(creditCard: CreditCard)  = creditCardDAO.insert(creditCard)
 
     override suspend fun updateCreditCard(creditCard: CreditCard) = creditCardDAO.update(creditCard)

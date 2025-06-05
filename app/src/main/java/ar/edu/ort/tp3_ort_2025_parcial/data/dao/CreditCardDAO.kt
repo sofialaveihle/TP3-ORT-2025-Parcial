@@ -12,12 +12,6 @@ interface CreditCardDAO {
 
     @Query("SELECT * FROM credit_card WHERE user_id = :userId")
     fun getCreditCardByUserId(userId: Int): Flow<CreditCard?>
-    @Query("SELECT card_number FROM credit_card WHERE user_id = :userId")
-    fun findCreditCardNumberByUserId(userId: Int): Flow<String>
-    @Query("SELECT card_name FROM credit_card WHERE user_id = :userId")
-    fun findCreditCardNameByUserId(userId: Int): Flow<String>
-    @Query("SELECT expiration_date FROM credit_card WHERE user_id = :userId")
-    fun findCreditCardExpirationByUserId(userId: Int): Flow<String>
     @Insert
     suspend fun insert(creditCard: CreditCard)
     @Update
