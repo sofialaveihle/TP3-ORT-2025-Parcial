@@ -52,6 +52,7 @@ import ar.edu.ort.tp3_ort_2025_parcial.screen.welcome.Welcome
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.TP3ORT2025ParcialTheme
 import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.BottomBarViewModel
 import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.CartViewModel
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.CreditCardViewModel
 import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.HomepageViewModel
 import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.LoginViewModel
 import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
@@ -84,6 +85,7 @@ class MainActivity : ComponentActivity() {
                 val cartViewModel: CartViewModel = hiltViewModel()
                 val productViewModel: ProductViewModel = hiltViewModel()
                 val loginViewModel: LoginViewModel = hiltViewModel()
+                val creditCardViewModel: CreditCardViewModel = hiltViewModel()
 
                 productViewModel.loadProducts()
                 cartViewModel.loadCart()
@@ -159,7 +161,7 @@ class MainActivity : ComponentActivity() {
                         composable(Screens.ChangePassword.screen) { ChangePassword(navController, topAppViewModel) }
                         composable(Screens.ChangeEmail.screen) { ChangeEmail(navController, topAppViewModel) }
                         composable(Screens.PaymentSuccess.screen) { PaymentSuccessScreen(navController) }
-                        composable(Screens.AddPaymentMethod.screen) { AddPaymentMethodScreen(navController, topAppViewModel) }
+                        composable(Screens.AddPaymentMethod.screen) { AddPaymentMethodScreen(navController, topAppViewModel, creditCardViewModel) }
                         composable(Screens.ChoosePaymentMethod.screen){ ChoosePaymentMethodScreen(navController, topAppViewModel) }
                         composable(Screens.Time.screen) { Time(topAppViewModel) }
                     }
