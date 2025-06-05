@@ -19,18 +19,21 @@ import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
 import androidx.compose.runtime.getValue
 import ar.edu.ort.tp3_ort_2025_parcial.component.card.ActivityContent
 import ar.edu.ort.tp3_ort_2025_parcial.component.card.SellerModeContent
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.HomepageViewModel
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.TopAppViewModel
 
 
 @Composable
 fun HomeNotification(
-    viewModel: MainViewModel
+    homepageViewModel: HomepageViewModel,
+    topBarViewModel: TopAppViewModel
 ){
-    val selected by viewModel.selectedSection
+    val selected by homepageViewModel.selectedSection
     val activity = stringResource(R.string.activity)
     val sellerMode = stringResource(R.string.seller_mode)
     val title = stringResource(R.string.notification)
     LaunchedEffect(Unit) {
-        viewModel.setTopBar(title)
+        topBarViewModel.setTopBar(title)
     }
 
     Column(
@@ -44,12 +47,12 @@ fun HomeNotification(
             horizontalArrangement = Arrangement.spacedBy(1.dp, Alignment.CenterHorizontally)
         ) {
             Button3(
-                onClick = { viewModel.setSelectedSection(activity) },
+                onClick = { homepageViewModel.setSelectedSection(activity) },
                 text = activity,
                 isSelected = selected == activity
             )
             Button3(
-                onClick = { viewModel.setSelectedSection(sellerMode) },
+                onClick = { homepageViewModel.setSelectedSection(sellerMode) },
                 text = sellerMode,
                 isSelected = selected == sellerMode
             )

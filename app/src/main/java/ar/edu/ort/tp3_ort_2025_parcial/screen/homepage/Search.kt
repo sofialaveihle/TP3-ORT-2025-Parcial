@@ -19,17 +19,19 @@ import ar.edu.ort.tp3_ort_2025_parcial.component.carrousel.ButtonCarouselRow
 import ar.edu.ort.tp3_ort_2025_parcial.component.entrydata.MySearchBar
 import ar.edu.ort.tp3_ort_2025_parcial.component.list.ProductList
 import ar.edu.ort.tp3_ort_2025_parcial.component.text.HomepageText
-import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.SearchBarViewModel
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.TopAppViewModel
 
 @Composable
 fun Search(
-    viewModel: MainViewModel
+    searchViewModel: SearchBarViewModel,
+    topAppViewModel: TopAppViewModel
 ){
 
-    val searchText by viewModel.searchText.collectAsState()
+    val searchText by searchViewModel.searchText.collectAsState()
     val title = stringResource(R.string.search)
     LaunchedEffect(Unit) {
-        viewModel.setTopBar(title)
+        topAppViewModel.setTopBar(title)
     }
 
     Column(
@@ -40,7 +42,7 @@ fun Search(
         MySearchBar(
             placeHolder = stringResource(R.string.location_placeholder),
             value = searchText,
-            onValueChange = { viewModel.updateSearchText(it) },
+            onValueChange = { searchViewModel.updateSearchText(it) },
             image = painterResource(id = R.drawable.search_icon)
         )
         Spacer(modifier = Modifier.height(16.dp))

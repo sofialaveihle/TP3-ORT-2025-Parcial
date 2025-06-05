@@ -31,7 +31,6 @@ import androidx.navigation.NavController
 import ar.edu.ort.tp3_ort_2025_parcial.R
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button4
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray
-import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.White
@@ -43,6 +42,9 @@ import ar.edu.ort.tp3_ort_2025_parcial.component.grid.ProductGrid
 import ar.edu.ort.tp3_ort_2025_parcial.component.text.HomepageText
 import ar.edu.ort.tp3_ort_2025_parcial.component.text.TextLink
 import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.HomepageViewModel
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.ProductViewModel
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.SearchBarViewModel
 
 
 @SuppressLint("ConfigurationScreenWidthHeight")
@@ -50,22 +52,24 @@ import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
 @Composable
 fun HomeScreen(
     navController: NavController,
-    viewModel: MainViewModel
+    homepageViewModel: HomepageViewModel,
+    productViewModel: ProductViewModel,
+    searchViewModel: SearchBarViewModel,
 ) {
 
     val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
-    val isSheetOpen by viewModel.isSheetOpen
-    val selectedLocation by viewModel.selectedLocation
-    val products = viewModel.products
+    val isSheetOpen by homepageViewModel.isSheetOpen
+    val selectedLocation by homepageViewModel.selectedLocation
+    val products = productViewModel.products
     val screenHeightDp = LocalConfiguration.current.screenHeightDp
 
     LaunchedEffect(Unit) {
-        viewModel.loadProducts()
+        productViewModel.loadProducts()
     }
 
     if (isSheetOpen) {
         ModalBottomSheet(
-            onDismissRequest = { viewModel.closeSheet() },
+            onDismissRequest = { homepageViewModel.closeSheet() },
             sheetState = sheetState,
             containerColor = White,
             shape = RoundedCornerShape(topStart = 24.dp, topEnd = 24.dp)
@@ -75,8 +79,8 @@ fun HomeScreen(
                 modifier = Modifier.height(screenHeight * 0.75f)
             ) {
                 Location(
-                    onLocationSelected = viewModel::updateLocation,
-                    viewModel = viewModel
+                    onLocationSelected = homepageViewModel::updateLocation,
+                    searchViewModel = searchViewModel
                 )
             }
         }
@@ -92,7 +96,7 @@ fun HomeScreen(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Column(
-                modifier = Modifier.clickable { viewModel.openSheet() }
+                modifier = Modifier.clickable { homepageViewModel.openSheet() }
             ) {
                 Row(
                     horizontalArrangement = Arrangement.spacedBy(2.dp),

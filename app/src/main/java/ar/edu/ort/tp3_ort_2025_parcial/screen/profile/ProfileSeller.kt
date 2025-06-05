@@ -36,7 +36,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import ar.edu.ort.tp3_ort_2025_parcial.R
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button2
@@ -48,21 +47,21 @@ import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Black
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray3
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray4
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Orange
-import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.ProductViewModel
 
 @SuppressLint("ConfigurationScreenWidthHeight")
 @Composable
 fun ProfileSeller(
     navController: NavController,
-    viewModel: MainViewModel = viewModel()
+    productViewModel: ProductViewModel
 ) {
-    val products = viewModel.products
+    val products = productViewModel.products
     var selected by remember { mutableStateOf("Seller Mode") }
     var selectedTab by remember { mutableStateOf("Product") }
     val screenHeightDp = LocalConfiguration.current.screenHeightDp
 
     LaunchedEffect(Unit) {
-        viewModel.loadProducts()
+        productViewModel.loadProducts()
     }
 
 

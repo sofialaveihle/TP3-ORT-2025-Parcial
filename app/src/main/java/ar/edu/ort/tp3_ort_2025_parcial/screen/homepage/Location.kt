@@ -25,14 +25,14 @@ import ar.edu.ort.tp3_ort_2025_parcial.R
 import ar.edu.ort.tp3_ort_2025_parcial.component.entrydata.MySearchBar
 import ar.edu.ort.tp3_ort_2025_parcial.component.text.HomepageText
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray
-import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.SearchBarViewModel
 
 @Composable
 fun Location(
     onLocationSelected: (String) -> Unit,
-    viewModel: MainViewModel
+    searchViewModel: SearchBarViewModel
 ) {
-    val searchText by viewModel.searchText.collectAsState()
+    val searchText by searchViewModel.searchText.collectAsState()
 
     Column(modifier = Modifier.padding(24.dp)) {
 
@@ -43,7 +43,7 @@ fun Location(
         MySearchBar(
             placeHolder = stringResource(R.string.location_placeholder),
             value = searchText,
-            onValueChange = { viewModel.updateSearchText(it) },
+            onValueChange = { searchViewModel.updateSearchText(it) },
             image = painterResource(id = R.drawable.search_icon)
         )
 

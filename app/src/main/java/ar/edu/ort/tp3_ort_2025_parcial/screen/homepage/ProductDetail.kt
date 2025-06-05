@@ -39,6 +39,8 @@ import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Black
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray
 import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.ProductViewModel
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.TopAppViewModel
 import coil.compose.AsyncImage
 
 @SuppressLint("DefaultLocale")
@@ -46,13 +48,14 @@ import coil.compose.AsyncImage
 fun ProductDetail(
     productId: Int?,
     navController: NavController,
-    viewModel: MainViewModel
+    productViewModel: ProductViewModel,
+    topAppViewModel: TopAppViewModel
 ){
-    val product = viewModel.getProductById(productId)
+    val product = productViewModel.getProductById(productId)
     var quantity by remember { mutableIntStateOf(1) }
     val title = stringResource(R.string.product_detail)
     LaunchedEffect(Unit) {
-        viewModel.setTopBar(title)
+        topAppViewModel.setTopBar(title)
     }
 
     if (product == null) {

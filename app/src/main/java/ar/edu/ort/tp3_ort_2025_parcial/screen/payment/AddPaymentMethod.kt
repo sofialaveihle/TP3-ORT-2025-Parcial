@@ -30,10 +30,14 @@ import ar.edu.ort.tp3_ort_2025_parcial.component.entrydata.InputExpirationDate
 import ar.edu.ort.tp3_ort_2025_parcial.component.text.Title2
 import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
 import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.TopAppViewModel
 
 @SuppressLint("UnusedBoxWithConstraintsScope")
 @Composable
-fun AddPaymentMethodScreen(navController: NavController, mainViewModel: MainViewModel) {
+fun AddPaymentMethodScreen(
+    navController: NavController,
+    topAppViewModel: TopAppViewModel
+) {
     BoxWithConstraints(
         modifier = Modifier
             .fillMaxSize()
@@ -47,7 +51,7 @@ fun AddPaymentMethodScreen(navController: NavController, mainViewModel: MainView
         var cvv by remember { mutableStateOf("") }
 
         LaunchedEffect(Unit) {
-            mainViewModel.setTopBar("Payment Method")
+            topAppViewModel.setTopBar("Payment Method")
         }
 
         Column(
