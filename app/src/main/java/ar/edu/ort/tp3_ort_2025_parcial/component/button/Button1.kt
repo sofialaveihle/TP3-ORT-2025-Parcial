@@ -1,5 +1,7 @@
 package ar.edu.ort.tp3_ort_2025_parcial.component.button
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -20,22 +22,22 @@ import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.White
 @Preview
 @Composable
 fun Button1Preview() {
-    Button1(
-        onClick = {},
-        text = "Test",
-        isSelected = true,
-        modifier = Modifier
-    )
-}
-@Preview
-@Composable
-fun Button1Preview2() {
-    Button1(
-        onClick = {},
-        text = "Test",
-        isSelected = false,
-        modifier = Modifier
-    )
+    Column(
+        verticalArrangement = Arrangement.spacedBy(16.dp)
+    ) {
+        Button1(
+            onClick = {},
+            text = "Test",
+            isSelected = true,
+            modifier = Modifier
+        )
+        Button1(
+            onClick = {},
+            text = "Test",
+            isSelected = false,
+            modifier = Modifier
+        )
+    }
 }
 
 @Composable

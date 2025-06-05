@@ -30,6 +30,18 @@
     <string name="items">Items</string>
     <string name="total">Total</string>
     <string name="discount">Discount</string>
+    <string name="banner_title">Royal Canin\nAdult Pomeranian</string>
+    <string name="banner_text">Get an interesting promo\nhere, without conditions</string>
+    <string name="sale">SALE 50%</string>
+    <string name="check_details">Check the details!</string>
+    <string name="new_order">You Got New Order!</string>
+    <string name="arrange_delivery">Please arrange delivery</string>
+    <string name="like">Liked your Product</string>
+    <string name="momon">Momon</string>
+    <string name="ola">Ola</string>
+    <string name="search_product">Royal Canin Persian 500g</string>
+
+
 
     <!-- Top App Bar Tittles-->
     <string name="notification">Notification</string>
@@ -123,5 +135,11 @@
     <string name="username_place_holder">Username</string>
     <string name="save_changes_button_text">Save Changes</string>
     <string name="forgot_password">Forgot password?</string>
+
+    <!-- FAQ -->
+    <string name="faq_accordion_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum sapien sodales mi sagittis hendrerit. Curabitur ut lectus nec orci cursus rhoncus.</string>
+    <string name="faq_accordion_title">Security</string>
+
+
 
 </resources>

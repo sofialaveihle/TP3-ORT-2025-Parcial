@@ -5,7 +5,10 @@ import ar.edu.ort.tp3_ort_2025_parcial.core.Config
 import ar.edu.ort.tp3_ort_2025_parcial.service.ICartItemAPI
 import ar.edu.ort.tp3_ort_2025_parcial.service.ILoginAPI
 import ar.edu.ort.tp3_ort_2025_parcial.data.PetAppDatabase
+import ar.edu.ort.tp3_ort_2025_parcial.data.dao.CreditCardDAO
 import ar.edu.ort.tp3_ort_2025_parcial.data.dao.NotificationDAO
+import ar.edu.ort.tp3_ort_2025_parcial.data.repository.CreditCardRepository
+import ar.edu.ort.tp3_ort_2025_parcial.data.repository.CreditCardRepositoryImplementation
 import ar.edu.ort.tp3_ort_2025_parcial.data.repository.NotificationsRepository
 import ar.edu.ort.tp3_ort_2025_parcial.data.repository.NotificationsRepositoryImplementation
 import ar.edu.ort.tp3_ort_2025_parcial.service.IProductAPI
@@ -61,5 +64,13 @@ object RetrofitModule {
     @Provides
     fun provideNotificationRepository(notificationDao: NotificationDAO): NotificationsRepository =
         NotificationsRepositoryImplementation(notificationDao)
+
+    @Provides
+    fun provideCreditCardDao(petAppDb: PetAppDatabase): CreditCardDAO =
+        petAppDb.creditCardDao()
+
+    @Provides
+    fun provideCreditCardRepository(creditCardDao: CreditCardDAO): CreditCardRepository =
+        CreditCardRepositoryImplementation(creditCardDao)
 
 }
