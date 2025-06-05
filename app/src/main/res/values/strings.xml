@@ -1,5 +1,145 @@
 <resources>
     <string name="app_name">TP3-ORT-2025-Parcial</string>
-    <!--Definir name y URL de la API-->
-    <!--<string name="quotes_api_base_url">https://api.api-ninjas.com/</string>-->
+    <string name="products_api_base_url">https://dummyjson.com/</string>
+
+    <!-- Welcome Screen-->
+    <string name="welcome_title">Meet your\nanimal needs\nhere</string>
+    <string name="welcome_button_text">Get Started</string>
+    <string name="welcome_carrousel_text_one">Get interesting promos here, register your account immediately so you can meet your animal needs.</string>
+    <string name="welcome_carrousel_text_two">Discover great deals today – sign up now and find everything you need to keep your pets happy and healthy!</string>
+    <string name="welcome_carrousel_text_three">Unlock special offers now by creating your account – your furry friends will thank you!</string>
+    <string name="welcome_carrousel_text_one_contentDescription">Illustration of a smiling man with short red hair wearing a green shirt, holding a happy brown dog with upright ears and a gold medal on its collar.</string>
+    <string name="welcome_carrousel_text_two_contentDescription">Illustration of a woman with brown hair tied in a ponytail, wearing a green shirt, gently holding a light brown tabby cat over her shoulder.</string>
+    <string name="welcome_carrousel_text_three_contentDescription">Illustration of a man with light brown hair wearing an orange sweater, holding a white fluffy cat with a friendly expression.</string>
+
+    <!-- Homepage -->
+    <string name="location_desc">Location Icon</string>
+    <string name="track_your_location">Track your Location</string>
+    <string name="desc">Automatically selects your current location</string>
+    <string name="location_placeholder">Search…</string>
+    <string name="location">Location</string>
+    <string name="category">Category</string>
+    <string name="best_seller">Best Seller</string>
+    <string name="view_all">View All</string>
+    <string name="arrow_down">Arrow Down</string>
+    <string name="activity">Activity</string>
+    <string name="recent">Recent</string>
+    <string name="seller_mode">Seller Mode</string>
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="product_not_found">Product Not Found</string>
+    <string name="items">Items</string>
+    <string name="total">Total</string>
+    <string name="discount">Discount</string>
+    <string name="banner_title">Royal Canin\nAdult Pomeranian</string>
+    <string name="banner_text">Get an interesting promo\nhere, without conditions</string>
+    <string name="sale">SALE 50%</string>
+    <string name="check_details">Check the details!</string>
+    <string name="new_order">You Got New Order!</string>
+    <string name="arrange_delivery">Please arrange delivery</string>
+    <string name="like">Liked your Product</string>
+    <string name="momon">Momon</string>
+    <string name="ola">Ola</string>
+    <string name="search_product">Royal Canin Persian 500g</string>
+
+
+
+    <!-- Top App Bar Tittles-->
+    <string name="notification">Notification</string>
+    <string name="search">Search</string>
+    <string name="product_detail">Product Detail</string>
+    <string name="cart">Cart</string>
+    <string name="payment_method">Payment Method</string>
+    <string name="settings_page">Settings Page</string>
+    <string name="privacy">Privacy</string>
+    <string name="security">Security</string>
+    <string name="change_password">Change Password</string>
+    <string name="change_email">Change Email </string>
+    <string name="faq">FAQ</string>
+    <string name="account">Account</string>
+
+    <string name="go_back_icon_desc">Go Back Icon</string>
+
+    <!-- Bottom App Bar Section-->
+    <string name="home">home</string>
+    <string name="empty_time">time</string>
+    <string name="bag">cart</string>
+    <string name="profile">profileUser</string>
+
+    <string name="home_desc">Home</string>
+    <string name="empty_desc">Time icon</string>
+    <string name="bag_desc">Shopping bag</string>
+    <string name="profile_desc">User profile</string>
+    <string name="forgot_password_login_title">Forgot\nPassword</string>
+    <string name="under_title_text">Water is life. Water is a basic human need. In various lines of life, humans need water.</string>
+    <string name="login_title">Hello,\nWelcome back!</string>
+    <string name="register_login_title">Create New Account</string>
+
+    <!-- login place holders-->
+    <string name="new_password_place_holder">New Password</string>
+    <string name="confirm_password_place_holder">Confirm Password</string>
+    <string name="email_place_holder">Email</string>
+    <string name="password_place_holder">Password</string>
+    <string name="full_name_place_holder">Full Name</string>
+
+    <!-- login texts -->
+    <string name="or_divider_text">"   or   "</string>
+    <string name="do_not_have_an_account">"Don’t have an account? "</string>
+    <string name="have_an_account">"Have an account? "</string>
+    <string name="create_account">Create Account</string>
+    <string name="login">Login</string>
+
+    <!-- Button texts-->
+    <string name="get_started_button_text">Get Started</string>
+    <string name="next_button_text">Next</string>
+    <string name="reset_password_button_text">Reset Password</string>
+    <string name="required_field_text">Required Fields</string>
+
+
+    <!-- Terms and Conditions-->
+    <string name="terms_conditions_1">"I agree to the "</string>
+    <string name="terms_conditions_link_1">Terms of Service</string>
+    <string name="terms_conditions_2">" and "</string>
+    <string name="terms_conditions_link_2">Privacy Policy</string>
+
+    <!-- Settings-->
+    <string name="address">Address</string>
+    <string name="help">Help</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="settings_title_social">Social</string>
+    <string name="settings_title_store">Store</string>
+    <string name="log_out">Log Out</string>
+    <string name="privacy_title_terms_of_use">Term of Use</string>
+    <string name="privacy_title_petapp_service">PetApp Service</string>
+    <string name="privacy_info_body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum sapien sodales mi sagittis hendrerit. Curabitur ut lectus nec orci cursus rhoncus. Donec a ultrices risus. Mauris ut erat ut urna rhoncus facilisis a eu neque. Ut iaculis viverra laoreet. In interdum, augue non auctor pharetra, felis ante gravida ante, quis mattis quam eros non quam. Vivamus scelerisque ante nec dapibus convallis. Vestibulum quis scelerisque leo. Vestibulum quis porttitor tellus, non finibus nibh. Quisque ut tempor nulla, sed consectetur tortor. Mauris volutpat viverra arcu non laoreet. Duis eu arcu nunc. Pellentesque ultricies facilisis faucibus. Duis magna sem, ultricies sed scelerisque efficitur, hendrerit at arcu.</string>
+    <string name="mostrar_menos">Mostrar menos</string>
+    <string name="mostrar_mas">Mostrar más</string>
+
+    <!-- Payment-->
+    <string name="payment_success_title">Payment\nSuccess!</string>
+    <string name="payment_success_description">your order is being prepared by the shop, the courier will send it to your address</string>
+    <string name="save_button">Save</string>
+    <string name="payment_success_button">Go Home</string>
+    <string name="checkout_button">Checkout</string>
+    <string name="paypal_radio_button">Paypal</string>
+    <string name="bank_transfer_radio_button">Bank Transfer</string>
+    <string name="choose_payment_method_title">Choose your Payment Method</string>
+    <string name="add_new_payment_title">Add New Payment</string>
+    <string name="payment_method_title">Payment Method</string>
+    <string name="card_number_title_button">Card Number</string>
+    <string name="card_name_title_button">Card Name</string>
+    <string name="expired_title_button">Expired</string>
+    <string name="cvv_title_button">CVV</string>
+    <string name="info_square_img">Info Square</string>
+    <string name="checkout_button_text">Checkout</string>
+    <string name="name_place_holder">Name</string>
+    <string name="username_place_holder">Username</string>
+    <string name="save_changes_button_text">Save Changes</string>
+    <string name="forgot_password">Forgot password?</string>
+
+    <!-- FAQ -->
+    <string name="faq_accordion_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum sapien sodales mi sagittis hendrerit. Curabitur ut lectus nec orci cursus rhoncus.</string>
+    <string name="faq_accordion_title">Security</string>
+
+
+
 </resources>

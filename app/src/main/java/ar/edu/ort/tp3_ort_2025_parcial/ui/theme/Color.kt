@@ -2,10 +2,14 @@ package ar.edu.ort.tp3_ort_2025_parcial.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-//Reemplazar por colores del Figma
-val Purple80 = Color(0xFFD0BCFF)
-val PurpleGrey80 = Color(0xFFCCC2DC)
-val Pink80 = Color(0xFFEFB8C8)
-val Purple40 = Color(0xFF6650a4)
-val PurpleGrey40 = Color(0xFF625b71)
-val Pink40 = Color(0xFF7D5260)
+val White = Color(0xFFFFFFFF)
+val Purple = Color(0xFF7140FD)
+val Red = Color(0xFFFF4D4F)
+val Blue = Color(0xFF337EFE)
+val Black = Color(0xFF000000)
+val Gray = Color(0xFF898989)
+val Gray2 = Color(0xFFB3B1B0)
+val Gray3 = Color(0xFFF8F8F8)
+val Gray4 = Color(0xFF595959)
+val Gray5 = Color(0xFFE5E4E3)
+val Orange = Color(0xFFFD9340)
