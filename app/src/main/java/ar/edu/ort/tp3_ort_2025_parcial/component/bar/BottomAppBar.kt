@@ -17,33 +17,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import ar.edu.ort.tp3_ort_2025_parcial.navigation.getBottomBarContent
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray3
-import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
-
-@Preview
-@Composable
-fun BottomAppBarPreview() {
-    val navController = rememberNavController()
-    val mainViewModel: MainViewModel = viewModel()
-    BottomAppBar(
-        navController,
-        mainViewModel
-    )
-}
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.BottomBarViewModel
 
 @Composable
 fun BottomAppBar(
     navController: NavController,
-    viewModel: MainViewModel
+    bottomBarViewModel: BottomBarViewModel
 ){
     val navItems = getBottomBarContent()
-    val currentSection = viewModel.currentSection.value
+    val currentSection = bottomBarViewModel.currentSection.value
 
     BottomAppBar(
         containerColor = Color.Transparent,

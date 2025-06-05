@@ -18,23 +18,25 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import ar.edu.ort.tp3_ort_2025_parcial.R
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button3
-import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
 import androidx.compose.runtime.getValue
 import ar.edu.ort.tp3_ort_2025_parcial.component.card.ActivityContent
 import ar.edu.ort.tp3_ort_2025_parcial.component.card.SellerModeContent
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.HomepageViewModel
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.TopAppViewModel
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray3
 
 
 @Composable
 fun HomeNotification(
-    viewModel: MainViewModel
-) {
-    val selected by viewModel.selectedSection
+    homepageViewModel: HomepageViewModel,
+    topBarViewModel: TopAppViewModel
+){
+    val selected by homepageViewModel.selectedSection
     val activity = stringResource(R.string.activity)
     val sellerMode = stringResource(R.string.seller_mode)
     val title = stringResource(R.string.notification)
     LaunchedEffect(Unit) {
-        viewModel.setTopBar(title)
+        topBarViewModel.setTopBar(title)
     }
 
     Column(
@@ -56,21 +58,19 @@ fun HomeNotification(
         ) {
             Row {
                 Button3(
-                    onClick = { viewModel.setSelectedSection(activity) },
+                    onClick = { homepageViewModel.setSelectedSection(activity) },
                     text = activity,
                     isSelected = selected == activity,
                     modifier = Modifier.weight(1f)
                 )
                 Button3(
-                    onClick = { viewModel.setSelectedSection(sellerMode) },
+                    onClick = { homepageViewModel.setSelectedSection(sellerMode) },
                     text = sellerMode,
                     isSelected = selected == sellerMode,
                     modifier = Modifier.weight(1f)
                 )
             }
         }
-
-
 
         when (selected) {
             activity -> {

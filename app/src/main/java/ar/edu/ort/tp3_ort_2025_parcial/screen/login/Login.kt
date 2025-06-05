@@ -25,11 +25,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import ar.edu.ort.tp3_ort_2025_parcial.R
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button1
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.ButtonSocialMediaLogin
@@ -43,30 +41,22 @@ import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray
 import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.LoginViewModel
 import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
 
-@Preview(showBackground = true)
-@Composable
-fun LoginPreview() {
-    val navController = rememberNavController()
-    Login(navController = navController)
-}
-
 @SuppressLint("UnusedBoxWithConstraintsScope")
 @Composable
 fun Login(
     navController: NavController,
-    viewModel: MainViewModel = hiltViewModel(),
-    loginViewModel: LoginViewModel = hiltViewModel()
+    mainViewModel: MainViewModel = hiltViewModel(),
+    loginViewModel: LoginViewModel
 ) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
-
 
     val user by loginViewModel.user.collectAsState()
     val error by loginViewModel.error.collectAsState()
 
     LaunchedEffect(user) {
         user?.let {
-            viewModel.setUser(user!!)
+            mainViewModel.setUser(user!!)
             navController.navigate(Screens.Home.screen)
         }
     }

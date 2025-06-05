@@ -22,12 +22,12 @@ import androidx.navigation.NavController
 import ar.edu.ort.tp3_ort_2025_parcial.R
 import ar.edu.ort.tp3_ort_2025_parcial.component.menuitem.MenuItemRow
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.OutlinedButton
-import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.TopAppViewModel
 
 @Composable
 fun SettingsPage(
     navController: NavController,
-    topBarViewModel: MainViewModel
+    topBarViewModel: TopAppViewModel
 ) {
     LaunchedEffect(Unit) {
         topBarViewModel.setTopBar("Settings Page")

@@ -5,7 +5,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.padding
-import androidx.activity.viewModels
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -51,27 +50,45 @@ import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.ContactUs
 import ar.edu.ort.tp3_ort_2025_parcial.screen.profile.Faq
 import ar.edu.ort.tp3_ort_2025_parcial.screen.welcome.Welcome
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.TP3ORT2025ParcialTheme
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.BottomBarViewModel
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.CartViewModel
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.CreditCardViewModel
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.HomepageViewModel
 import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.LoginViewModel
 import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
 import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.NotificationViewModel
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.ProductViewModel
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.SearchBarViewModel
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.TopAppViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    private val viewModel : MainViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewModel.loadProducts()
-        viewModel.loadCart()
 
         enableEdgeToEdge()
         setContent {
             TP3ORT2025ParcialTheme {
 
+                // Nav Controller
                 val navController = rememberNavController()
+
+                // View Models
                 val mainViewModel: MainViewModel = viewModel()
                 val notificationViewModel: NotificationViewModel = viewModel()
+                val searchBarViewModel: SearchBarViewModel = viewModel()
+                val bottomBarViewModel: BottomBarViewModel = viewModel()
+                val topAppViewModel: TopAppViewModel = viewModel()
+                val homepageViewModel: HomepageViewModel = viewModel()
+                val cartViewModel: CartViewModel = hiltViewModel()
+                val productViewModel: ProductViewModel = hiltViewModel()
+                val loginViewModel: LoginViewModel = hiltViewModel()
+                val creditCardViewModel: CreditCardViewModel = hiltViewModel()
+
+                productViewModel.loadProducts()
+                cartViewModel.loadCart()
 
                 // Ruta actual
                 val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -80,7 +97,7 @@ class MainActivity : ComponentActivity() {
                 LaunchedEffect(navController) {
                     navController.currentBackStackEntryFlow.collect { entry ->
                         val route = entry.destination.route
-                        mainViewModel.updateSectionFromRoute(route)
+                        bottomBarViewModel.updateSectionFromRoute(route)
                     }
                 }
 
@@ -88,7 +105,7 @@ class MainActivity : ComponentActivity() {
                     topBar = {
                         if (showTopBar(currentRoute)) {
                             TopAppBar(
-                                topBarViewModel = mainViewModel,
+                                topBarViewModel = topAppViewModel,
                                 navController = navController
                             )
                         }
@@ -97,7 +114,7 @@ class MainActivity : ComponentActivity() {
                         if (showBottomBar(currentRoute)) {
                             BottomAppBar(
                                 navController = navController,
-                                viewModel = mainViewModel,
+                                bottomBarViewModel = bottomBarViewModel,
                             )
                         }
                     }
@@ -109,45 +126,44 @@ class MainActivity : ComponentActivity() {
                     ) {
                         // Welcome
                         composable(Screens.Welcome.screen) { Welcome(navController) }
+
                         // Log in
-                        composable(Screens.Login.screen) { Login(navController) }
-                        composable(Screens.Login.screen) {
-                            val loginViewModel: LoginViewModel = hiltViewModel()
-                            Login(navController, viewModel, loginViewModel)
-                        }
+                        composable(Screens.Login.screen) { Login(navController, mainViewModel, loginViewModel) }
                         composable(Screens.Register.screen) { Register(navController) }
                         composable(Screens.ForgotPassword.screen) { ForgotPassword(navController) }
                         composable(Screens.NewPassword.screen) { NewPassword(navController) }
+
                         // Home
-                        composable(Screens.Home.screen) { HomeScreen(navController, mainViewModel) }
-                        composable(Screens.BestSeller.screen) { BestSeller(navController, mainViewModel) }
-                        composable(Screens.HomeNotifications.screen) { HomeNotification(mainViewModel) }
-                        composable(Screens.Search.screen) { Search(mainViewModel) }
+                        composable(Screens.Home.screen) { HomeScreen(navController, homepageViewModel, productViewModel, searchBarViewModel) }
+                        composable(Screens.BestSeller.screen) { BestSeller(navController, productViewModel, topAppViewModel) }
+                        composable(Screens.HomeNotifications.screen) { HomeNotification(homepageViewModel, topAppViewModel) }
+                        composable(Screens.Search.screen) { Search(searchBarViewModel, topAppViewModel) }
                         composable(
                             route = "${Screens.ProductDetail.screen}/{productId}",
                             arguments = listOf(navArgument("productId") { type = NavType.IntType })
                         ) { backStackEntry ->
                             val productId = backStackEntry.arguments?.getInt("productId")
-                            ProductDetail(productId, navController, mainViewModel)
+                            ProductDetail(productId, navController, productViewModel, topAppViewModel)
                         }
-                        composable(Screens.Cart.screen) { Cart(navController, mainViewModel) }
+                        composable(Screens.Cart.screen) { Cart(navController, cartViewModel, topAppViewModel) }
+
                         // Account
-                        composable(Screens.ProfileSeller.screen) { ProfileSeller(navController, mainViewModel) }
-                        composable(Screens.ProfileUser.screen) { ProfileUser(navController, mainViewModel) }
-                        composable(Screens.ProfileUserEdit.screen) { ProfileUserEdit(navController, mainViewModel) }
-                        composable(Screens.SettingsPage.screen) { SettingsPage(navController, mainViewModel) }
-                        composable(Screens.Address.screen) { Address(mainViewModel) }
-                        composable(Screens.Notification.screen) { Notification(mainViewModel, notificationViewModel) }
-                        composable(Screens.Privacy.screen) { Privacy(mainViewModel) }
-                        composable(Screens.Security.screen) { Security(navController, mainViewModel) }
-                        composable(Screens.ContactUs.screen) { ContactUs(mainViewModel) }
-                        composable(Screens.Faq.screen) { Faq(mainViewModel) }
-                        composable(Screens.ChangePassword.screen) { ChangePassword(navController, mainViewModel) }
-                        composable(Screens.ChangeEmail.screen) { ChangeEmail(navController, mainViewModel) }
+                        composable(Screens.ProfileSeller.screen) { ProfileSeller(navController, productViewModel) }
+                        composable(Screens.ProfileUser.screen) { ProfileUser(navController, productViewModel ,mainViewModel) }
+                        composable(Screens.ProfileUserEdit.screen) { ProfileUserEdit(navController, mainViewModel, topAppViewModel) }
+                        composable(Screens.SettingsPage.screen) { SettingsPage(navController, topAppViewModel) }
+                        composable(Screens.Address.screen) { Address(topAppViewModel) }
+                        composable(Screens.Notification.screen) { Notification(topAppViewModel, notificationViewModel) }
+                        composable(Screens.Privacy.screen) { Privacy(topAppViewModel) }
+                        composable(Screens.Security.screen) { Security(navController, topAppViewModel) }
+                        composable(Screens.ContactUs.screen) { ContactUs(topAppViewModel) }
+                        composable(Screens.Faq.screen) { Faq(topAppViewModel) }
+                        composable(Screens.ChangePassword.screen) { ChangePassword(navController, topAppViewModel) }
+                        composable(Screens.ChangeEmail.screen) { ChangeEmail(navController, topAppViewModel) }
                         composable(Screens.PaymentSuccess.screen) { PaymentSuccessScreen(navController) }
-                        composable(Screens.AddPaymentMethod.screen) { AddPaymentMethodScreen(navController, mainViewModel) }
-                        composable(Screens.ChoosePaymentMethod.screen){ ChoosePaymentMethodScreen(navController, mainViewModel) }
-                        composable(Screens.Time.screen) { Time(mainViewModel) }
+                        composable(Screens.AddPaymentMethod.screen) { AddPaymentMethodScreen(navController, topAppViewModel, creditCardViewModel) }
+                        composable(Screens.ChoosePaymentMethod.screen){ ChoosePaymentMethodScreen(navController, topAppViewModel) }
+                        composable(Screens.Time.screen) { Time(topAppViewModel) }
                     }
                 }
             }

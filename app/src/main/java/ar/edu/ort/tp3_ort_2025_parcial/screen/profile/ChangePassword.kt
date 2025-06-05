@@ -18,12 +18,12 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button1
 import ar.edu.ort.tp3_ort_2025_parcial.component.entrydata.Input1WithTitle
-import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.TopAppViewModel
 
 @Composable
 fun ChangePassword(
     navController: NavController,
-    topBarViewModel: MainViewModel
+    topBarViewModel: TopAppViewModel
 ) {
     LaunchedEffect(Unit) {
         topBarViewModel.setTopBar("Change Password")

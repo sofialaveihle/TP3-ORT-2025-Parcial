@@ -18,18 +18,20 @@ import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button1
 import ar.edu.ort.tp3_ort_2025_parcial.component.card.CartInfoCard
 import ar.edu.ort.tp3_ort_2025_parcial.component.card.SwipeCartItemCard
 import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
-import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.CartViewModel
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.TopAppViewModel
 
 @Composable
 fun Cart(
     navController: NavController,
-    viewmodel: MainViewModel
+    cartViewmodel: CartViewModel,
+    topAppViewModel: TopAppViewModel
 ){
-    val cart = viewmodel.cart
+    val cart = cartViewmodel.cart
     val title = stringResource(R.string.cart)
     LaunchedEffect(Unit) {
-        viewmodel.setTopBar(title)
-        viewmodel.loadCart()
+        topAppViewModel.setTopBar(title)
+        cartViewmodel.loadCart()
     }
 
     Column(

@@ -30,7 +30,6 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import ar.edu.ort.tp3_ort_2025_parcial.R
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button2
@@ -40,20 +39,22 @@ import ar.edu.ort.tp3_ort_2025_parcial.component.image.BannerImage
 import ar.edu.ort.tp3_ort_2025_parcial.component.text.Title2
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray3
 import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.ProductViewModel
 
 @SuppressLint("ConfigurationScreenWidthHeight")
 @Composable
 fun ProfileUser(
     navController: NavController,
-    viewModel: MainViewModel = viewModel()
+    productViewModel: ProductViewModel,
+    mainViewModel: MainViewModel
 ) {
-    val products = viewModel.products
+    val products = productViewModel.products
     var selected by remember { mutableStateOf("Profile") }
     var selectedTab by remember { mutableStateOf("EditProfile") }
     val screenHeightDp = LocalConfiguration.current.screenHeightDp
 
     LaunchedEffect(Unit) {
-        viewModel.loadProducts()
+        productViewModel.loadProducts()
     }
 
     Column(
@@ -124,7 +125,7 @@ fun ProfileUser(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Title2(
-                text = viewModel.user.value?.firstName ?: "error",
+                text = mainViewModel.user.value?.firstName ?: "error",
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center
             )

@@ -6,22 +6,24 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import ar.edu.ort.tp3_ort_2025_parcial.R
 import ar.edu.ort.tp3_ort_2025_parcial.component.grid.ProductGrid
-import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.ProductViewModel
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.TopAppViewModel
 
 @Composable
 fun BestSeller(
     navController: NavController,
-    viewModel: MainViewModel
+    productViewModel: ProductViewModel,
+    topbarViewModel: TopAppViewModel
 ){
     val title = stringResource(R.string.best_seller)
     LaunchedEffect(Unit) {
-        viewModel.setTopBar(title)
+        topbarViewModel.setTopBar(title)
     }
 
-    val products = viewModel.products
+    val products = productViewModel.products
 
     LaunchedEffect(Unit) {
-        viewModel.loadProducts()
+        productViewModel.loadProducts()
     }
 
     ProductGrid(

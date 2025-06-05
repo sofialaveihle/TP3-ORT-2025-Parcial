@@ -24,15 +24,14 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import ar.edu.ort.tp3_ort_2025_parcial.R
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button5
 import ar.edu.ort.tp3_ort_2025_parcial.component.text.Text2
-import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.White
-import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.TopAppViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TopAppBar(
     navController: NavController,
-    topBarViewModel: MainViewModel
+    topBarViewModel: TopAppViewModel
 ){
     val title by topBarViewModel.title
     val show by topBarViewModel.showFavorite

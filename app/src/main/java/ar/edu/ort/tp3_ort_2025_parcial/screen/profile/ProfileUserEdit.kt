@@ -37,19 +37,21 @@ import ar.edu.ort.tp3_ort_2025_parcial.model.user.UserModel
 import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray3
 import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
+import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.TopAppViewModel
 
 @Composable
 fun ProfileUserEdit(
     navController: NavController,
-    viewModel: MainViewModel
+    mainViewModel: MainViewModel,
+    topAppViewModel: TopAppViewModel
 ) {
     LaunchedEffect(Unit) {
-        viewModel.setTopBar("Account")
+        topAppViewModel.setTopBar("Account")
     }
 
-    var name by remember { mutableStateOf(viewModel.user.value?.firstName ?: "") }
-    var username by remember { mutableStateOf(viewModel.user.value?.lastName ?: "") }
-    var email by remember { mutableStateOf(viewModel.user.value?.email ?: "") }
+    var name by remember { mutableStateOf(mainViewModel.user.value?.firstName ?: "") }
+    var username by remember { mutableStateOf(mainViewModel.user.value?.lastName ?: "") }
+    var email by remember { mutableStateOf(mainViewModel.user.value?.email ?: "") }
 
     Column(
         modifier = Modifier
@@ -109,7 +111,7 @@ fun ProfileUserEdit(
                 modifier = Modifier.height(45.dp)
             )
             Title2(
-                text = viewModel.user.value?.firstName ?: "",
+                text = mainViewModel.user.value?.firstName ?: "",
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center
             )
@@ -143,7 +145,7 @@ fun ProfileUserEdit(
                         lastName = username,
                         email = email
                     )
-                    viewModel.setUser(updatedUser)
+                    mainViewModel.setUser(updatedUser)
                     navController.navigate(Screens.ProfileUser.screen) },
                 text = stringResource(R.string.save_changes_button_text),
                 isSelected = true,
