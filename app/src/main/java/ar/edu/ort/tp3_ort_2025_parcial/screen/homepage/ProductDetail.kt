@@ -38,7 +38,6 @@ import ar.edu.ort.tp3_ort_2025_parcial.component.numberPicker.NumberPicker
 import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Black
 import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.Gray
-import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
 import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.ProductViewModel
 import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.TopAppViewModel
 import coil.compose.AsyncImage

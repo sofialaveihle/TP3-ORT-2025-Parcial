@@ -6,8 +6,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import ar.edu.ort.tp3_ort_2025_parcial.R
 import ar.edu.ort.tp3_ort_2025_parcial.component.grid.ProductGrid
-import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.HomepageViewModel
-import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
 import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.ProductViewModel
 import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.TopAppViewModel
 

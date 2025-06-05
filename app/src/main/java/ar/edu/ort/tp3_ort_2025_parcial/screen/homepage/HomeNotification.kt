@@ -15,7 +15,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import ar.edu.ort.tp3_ort_2025_parcial.R
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button3
-import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
 import androidx.compose.runtime.getValue
 import ar.edu.ort.tp3_ort_2025_parcial.component.card.ActivityContent
 import ar.edu.ort.tp3_ort_2025_parcial.component.card.SellerModeContent

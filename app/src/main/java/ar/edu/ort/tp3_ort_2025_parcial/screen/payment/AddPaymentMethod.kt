@@ -22,14 +22,12 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import ar.edu.ort.tp3_ort_2025_parcial.R
 import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button1
-import ar.edu.ort.tp3_ort_2025_parcial.component.button.Button3
 import ar.edu.ort.tp3_ort_2025_parcial.component.entrydata.Input1
 import ar.edu.ort.tp3_ort_2025_parcial.component.entrydata.InputCVV
 import ar.edu.ort.tp3_ort_2025_parcial.component.entrydata.InputCreditCardNumber
 import ar.edu.ort.tp3_ort_2025_parcial.component.entrydata.InputExpirationDate
 import ar.edu.ort.tp3_ort_2025_parcial.component.text.Title2
 import ar.edu.ort.tp3_ort_2025_parcial.screen.Screens
-import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
 import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.TopAppViewModel
 
 @SuppressLint("UnusedBoxWithConstraintsScope")

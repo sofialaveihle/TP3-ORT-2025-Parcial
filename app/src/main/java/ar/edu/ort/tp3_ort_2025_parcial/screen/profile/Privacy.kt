@@ -16,7 +16,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import ar.edu.ort.tp3_ort_2025_parcial.R
-import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.MainViewModel
 import ar.edu.ort.tp3_ort_2025_parcial.viewmodel.TopAppViewModel
 
 
