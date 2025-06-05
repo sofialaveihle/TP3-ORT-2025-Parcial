@@ -37,7 +37,7 @@ fun OutlinedButton(
         shape = RoundedCornerShape(size = 30.5.dp),
         border = BorderStroke(2.dp, Purple),
         colors = ButtonDefaults.outlinedButtonColors(
-        containerColor = White,  // o Color.Transparent
+        containerColor = White,
         contentColor = Purple)
 
     ){

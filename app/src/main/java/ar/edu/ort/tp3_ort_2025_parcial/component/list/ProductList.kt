@@ -18,7 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -49,10 +49,8 @@ fun ProductList() {
                         lineHeight = 21.sp,
                         fontFamily = FontFamily(Font(R.font.poppins_semibold)),
                         fontWeight = FontWeight(500),
-                        color = Color(0xFFB3B1B0),
-
-                        ),
-                    color = Gray2
+                        color = Gray2
+                    ),
                 )
 
                 Box(
@@ -79,10 +77,11 @@ fun ProductList() {
     }
 }
 
+@Composable
 fun getItems() : List<String> {
     return listOf(
-        "Royal Canin Persian 500g",
-        "Royal Canin Persian 500g",
-        "Royal Canin Persian 500g"
+        stringResource(R.string.search_product),
+        stringResource(R.string.search_product),
+        stringResource(R.string.search_product),
     )
 }

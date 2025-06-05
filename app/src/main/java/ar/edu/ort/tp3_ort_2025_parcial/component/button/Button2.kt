@@ -1,5 +1,6 @@
 package ar.edu.ort.tp3_ort_2025_parcial.component.button
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.height
@@ -28,7 +29,9 @@ import ar.edu.ort.tp3_ort_2025_parcial.ui.theme.White
 @Preview
 @Composable
 fun Button2Preview() {
-    Column {
+    Column(
+        verticalArrangement = Arrangement.spacedBy(16.dp)
+    ) {
         Button2(
             onClick = {},
             text = "Activo",
